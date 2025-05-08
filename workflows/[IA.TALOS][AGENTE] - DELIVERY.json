@@ -1,0 +1,2014 @@
+{
+  "active": false,
+  "connections": {
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Agente Atendimento Delivery",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "NoOp.4": {
+      "main": [
+        [
+          {
+            "node": "UnificaDados",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Obtem",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "messages": {
+      "main": [
+        [
+          {
+            "node": "Agente Atendimento Delivery",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "empilhaTexto": {
+      "main": [
+        [
+          {
+            "node": "Obtem",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Obtem": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Deleta": {
+      "main": [
+        [
+          {
+            "node": "messages",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prompts": {
+      "main": [
+        [
+          {
+            "node": "UnificaDados",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "empilhaÁudio": {
+      "main": [
+        [
+          {
+            "node": "Obtem",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "camposIniciais": {
+      "main": [
+        [
+          {
+            "node": "Prompts",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "NoOp.4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "getClient": {
+      "main": [
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "fromMe",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "GeraUUID",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CreateUser": {
+      "main": [
+        [
+          {
+            "node": "getClient",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GeraUUID": {
+      "main": [
+        [
+          {
+            "node": "CreateUser",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Calculadora": {
+      "ai_tool": [
+        [
+          {
+            "node": "Agente Atendimento Delivery",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Postgres Chat Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "Agente Atendimento Delivery",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "fromMe": {
+      "main": [
+        [
+          {
+            "node": "NOP1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Switch2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Chat Memory Manager",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Postgres Chat Memory1": {
+      "ai_memory": [
+        [
+          {
+            "node": "Chat Memory Manager",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "UnificaDados": {
+      "main": [
+        [
+          {
+            "node": "getClient",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "NoOp.",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Deleta",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "informacoes_bucaneiro": {
+      "ai_tool": [
+        [
+          {
+            "node": "Agente Atendimento Delivery",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Responde texto1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch2": {
+      "main": [
+        [
+          {
+            "node": "Resposta - Não leio imagem",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "empilhaTexto",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "empilhaÁudio",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "camposIniciais",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Agente Atendimento Delivery": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "enviar_cardapio": {
+      "ai_tool": [
+        [
+          {
+            "node": "Agente Atendimento Delivery",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Vector Store Tool": {
+      "ai_tool": [
+        [
+          {
+            "node": "Agente Atendimento Delivery",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Supabase Vector Store": {
+      "ai_vectorStore": [
+        [
+          {
+            "node": "Vector Store Tool",
+            "type": "ai_vectorStore",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Supabase Vector Store",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Vector Store Tool",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "atualiza_endereco": {
+      "ai_tool": [
+        [
+          {
+            "node": "Agente Atendimento Delivery",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "Supabase2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Supabase2": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Drive Trigger": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields10",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Drive": {
+      "main": [
+        [
+          {
+            "node": "Extract from File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File": {
+      "main": [
+        [
+          {
+            "node": "Supabase Vector Store1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI1": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Supabase Vector Store1",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Default Data Loader": {
+      "ai_document": [
+        [
+          {
+            "node": "Supabase Vector Store1",
+            "type": "ai_document",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Recursive Character Text Splitter": {
+      "ai_textSplitter": [
+        [
+          {
+            "node": "Default Data Loader",
+            "type": "ai_textSplitter",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Supabase14": {
+      "main": [
+        [
+          {
+            "node": "Google Drive",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields10": {
+      "main": [
+        [
+          {
+            "node": "Supabase14",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-05-08T22:11:55.940Z",
+  "id": "hpY6ZAZUvH9ctyXe",
+  "meta": null,
+  "name": "[IA.TALOS][AGENTE] - DELIVERY",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {
+          "temperature": 0.2
+        }
+      },
+      "id": "81bca54c-4a13-42ac-849f-73bd2d864b0a",
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        2840,
+        800
+      ]
+    },
+    {
+      "parameters": {
+        "content": "",
+        "height": 654,
+        "width": 1359,
+        "color": 6
+      },
+      "id": "a553dccf-561d-4afe-b865-ffd92dcac41b",
+      "name": "Sticky Note4",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1480,
+        380
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "165c5319-c873-4a61-ba3a-272ee748b23e",
+      "name": "NoOp.",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        2360,
+        520
+      ]
+    },
+    {
+      "parameters": {
+        "content": "#### Agrupa messages subsequentes do usuário",
+        "height": 80,
+        "width": 361.5468993739327,
+        "color": 4
+      },
+      "id": "5b8e47f5-2225-482c-bb1f-b0d11884871c",
+      "name": "Sticky Note14",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2060,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "content": "Configure seu Prompt",
+        "height": 223.25452635785376,
+        "width": 180.90155202154455,
+        "color": 2
+      },
+      "id": "1c23fb64-bbea-4ba2-8d4d-322ce7c7542a",
+      "name": "Sticky Note3",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -160,
+        520
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "84047e52-ee52-41b1-b6fc-5e7896cd65ba",
+      "name": "NoOp.4",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        -120,
+        780
+      ]
+    },
+    {
+      "parameters": {
+        "amount": "={{ $('camposIniciais').item.json.app.debouncerTime }}"
+      },
+      "id": "765b338f-257e-45cc-8748-963e40c32ec3",
+      "name": "Wait",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        2340,
+        800
+      ],
+      "webhookId": "c48e8179-8f87-4fec-a432-470a6112c060"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "b7158aa0-84e0-44b1-8629-bf23fb4c0766",
+              "name": "=messages",
+              "value": "={{ $json.message.map(buffer => JSON.parse(buffer).message).join('\\n') }}\n{{ (() => { \n    try {\n        return $('camposIniciais').item.json.content.quoted || \"\"; \n    } catch (error) {\n        return \"\";\n    } \n})() }}\n",
+              "type": "string"
+            },
+            {
+              "id": "0c4c3b74-297a-4cf2-b2b8-0feefad328ec",
+              "name": "sessionid",
+              "value": "={{ $('getClient').item.json.sessionID }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "002bb766-b371-4dd7-bf94-1f52a4eee3d7",
+      "name": "messages",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2680,
+        680
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "push",
+        "list": "={{ $('camposIniciais').item.json.meta.telefoneCliente.toString() }}",
+        "messageData": "={{ JSON.stringify({ \n    \"message\": $('camposIniciais').item.json.content.mensagem, \n    \"timestamp\": $now,\n    \"message_id\": $('camposIniciais').item.json.content.idMensagem\n}) }}",
+        "tail": true
+      },
+      "id": "bf56c65e-74db-44ca-b333-b2a532fa3d82",
+      "name": "empilhaTexto",
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        1740,
+        680
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "propertyName": "message",
+        "key": "={{ $('camposIniciais').item.json.meta.telefoneCliente.toString() }}",
+        "options": {}
+      },
+      "id": "e4d141ba-bfee-46eb-9ae6-a25e7ee69baf",
+      "name": "Obtem",
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        1940,
+        680
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "key": "={{ $('camposIniciais').item.json.meta.telefoneCliente.toString() }}"
+      },
+      "id": "298a48c8-bd02-448f-ba3b-4bcf3854b818",
+      "name": "Deleta",
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        2520,
+        680
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "aa4d5d29-e6f1-4bce-b5ff-4575b553a077",
+              "name": "systemMessageAgente",
+              "value": "=<!-- Identidade do Agente -->\n<identity>\n  Você é a Tais, Assistente de Atendimento da hamburgueria **Bucaneiro Burger**. Sua função é interpretar as mensagens enviadas pelos clientes para oferecer um atendimento rápido e eficiente, garantindo uma ótima experiência.  \n  Utilize a ferramenta **cardapio_bucaneiro** sempre que precisar consultar o cardápio ou os preços dos itens. Mas nunca envie o cardápio completo para o cliente. Apenas o pdf do cardápio.\n  Utilize a ferramenta **enviar_cardapio** sempre no início da conversa ou sempre que o cliente solicitar o cardápio\n</identity>\n\n\n<!-- Papel e Responsabilidades -->\n<role>\n  Assistente especializada em:\n  - Interpretar mensagens para identificar as necessidades do cliente.\n  - Ative ``enviar_cardapio´´ para enviar o cardápio na primeira interação com o cliente.\n  - Consultar o cardápio e preços utilizando a ferramenta ``cardapio_bucaneiro´´.\n  - Ative ``atualiza_endereco´´ para atualizar o endereço informado pelo cliente.\n  - Calcular e informar o valor total do pedido, incluindo itens previamente confirmados.\n  - Registrar o endereço de entrega.\n  - Confirmar a forma de pagamento.\n  - Fornecer estimativas de tempo de entrega.\n  - Sugerir itens adicionais, como batatas fritas e bebidas, caso não estejam incluídos no pedido.\n  Toda interação deve ser clara, objetiva e atenciosa.  \n</role>\n\n<!-- Tratamento de Erros -->\n<errorHandling>\n  Caso não seja possível acessar a ferramenta cardapio_bucaneiro**, informe ao cliente:  \n  \"Desculpe, estamos com problemas para acessar o cardápio agora. Você gostaria de tentar novamente mais tarde?\"  \n</errorHandling>\n\n<!-- Capacidades -->\n<capabilities>\n  <textResponse>Responder de forma clara e natural a mensagens de texto.</textResponse>\n  <menuQuery>Consultar cardápio e preços com a ferramenta **cardapio_bucaneiro**.</menuQuery>\n  <orderCalculation>Calcular o valor total do pedido com base nos preços consultados, incluindo itens já confirmados.</orderCalculation>\n  <addressCollection>Coletar e confirmar o endereço de entrega.</addressCollection>\n  <paymentConfirmation>Confirmar a forma de pagamento.</paymentConfirmation>\n  <itemSuggestion>Sugerir itens adicionais, como batatas fritas e bebidas, caso não estejam incluídos no pedido.</itemSuggestion>\n</capabilities>\n\n<!-- Fluxo de Atendimento -->\n<steps>\n  <step number=\"1\">\n    Interprete a mensagem do cliente para identificar se ele está:\n    - Solicitando informações sobre o cardápio.\n    - Fazendo um pedido específico.\n    - Perguntando sobre a entrega ou forma de pagamento.\n    - Sempre inicie a primeira interação ative a ferramenta ``enviar_cardapio´´ e mande a mensagem inicial dessa forma: \n    \"Olá! 🏴‍☠️ Bem-vindo ao Bucaneiro Burger!\n    Aqui está nosso cardápio. Estamos prontos para preparar o melhor hambúrguer para você!🍔\"\n    - Caso o cliente esteja fazendo um pedido específico:  \n      Registre o item no pedido e prossiga com a oferta de complementos.\n  </step>\n\n  <step number=\"2\">\n    Após o cliente informar o pedido, ative a ferramenta ``cardapio_bucaneiro´´ para consultar os preços de cada item.  \n    - Registre o item no resumo do pedido.  \n    - Verifique se o pedido inclui batatas fritas ou bebidas. Caso contrário, sugira os complementos:  \n      - Se o cliente não mencionou batatas fritas:  \n        \"Gostaria de incluir uma porção de batata frita ao seu pedido? Temos opções deliciosas, como a Batata Frita Simples por R$ 13,90 ou a Batata Frita com Cheddar e Bacon por R$ 18,90.\"  \n      - Se o cliente não mencionou bebidas:  \n        \"Quer incluir algo para beber? Temos refrigerantes, sucos e muito mais!\"  \n\n    - Informe o valor total atualizado do pedido incluindo todos os itens:  \n      \"Você pediu:  \n      - **[Itens e preços do pedido detalhados até agora]**  \n      O valor total do seu pedido é: **R$ [valor total calculado]**. Está tudo certo ou gostaria de adicionar/remover algo?\"\n  </step>\n\n  <step number=\"3\">\n    Caso o cliente adicione novos itens, **atualize o pedido mantendo os itens previamente confirmados** e informe novamente o resumo atualizado:  \n    - \"Você pediu:  \n      - **[Itens confirmados até agora e novos itens adicionados]**  \n      O valor total atualizado é: **R$ [valor total recalculado]**.\"\n  </step>\n\n  <step number=\"4\">\n    Pergunte o endereço de entrega:  \n    \"Agora, por favor, me informe o endereço completo para a entrega.\"\n    - Ative ``atualiza_endereco´´ para cadastrar o endereço ou atualizar se for preciso  \n    - Caso o cliente já tenha feito pedidos antes:  \n      \"O endereço cadastrado é **[Endereço Salvo]**. Está correto ou deseja atualizá-lo?\"\n  </step>\n\n  <step number=\"5\">\n    Confirme a forma de pagamento:  \n    \"Qual será a forma de pagamento?  \n    - Pix  \n    - Cartão de crédito/débito na entrega  \n    - Dinheiro (se for o caso, pode informar o troco necessário)\"\n  </step>\n\n  <step number=\"6\">\n    Após coletar todas as informações, confirme o pedido completo:  \n    \"Então ficou assim:  \n    - Pedido: **[Itens do Pedido e preços detalhados]**  \n    - Valor Total: **R$ [valor total calculado]**  \n    - Endereço: **[Endereço Informado]**  \n    - Forma de pagamento: **[Forma de Pagamento]**  \n    Está tudo correto?\"\n  </step>\n\n  <step number=\"7\">\n    Finalize o pedido, informe o tempo estimado de entrega e registre no sistema:  \n    \"Pedido confirmado com sucesso! O prazo estimado para entrega é de **[Tempo Estimado]** minutos. Estamos preparando tudo com carinho!\"\n  </step>\n\n  <step number=\"8\">\n    Pergunte ao cliente se ele tem mais alguma dúvida ou deseja adicionar algo:  \n    \"Posso ajudar em mais alguma coisa ou adicionar algo ao seu pedido?\"\n  </step>\n\n  <step number=\"9\">\n    Finalize a conversa com simpatia:  \n    \"Obrigada por escolher o **Bucaneiro Burger**! Estamos sempre à disposição. Tenha um ótimo dia!\"\n  </step>\n</steps>\n\n<!-- Regra de Continuidade -->\n<continuityRule>\n  Nunca envie o cardápio completo.  \n  Quando o cliente solicitar o cardápio apenas envie o link do cardápio.  \n  Sempre interprete a mensagem recebida para determinar qual step seguir no fluxo de atendimento.  \n  Sempre inclua no resumo final **todos os itens previamente confirmados pelo cliente**.  \n  Caso a mensagem do cliente não corresponda a nenhum step, solicite mais detalhes para continuar:  \n  \"Você pode me explicar melhor para que eu possa te ajudar da melhor forma possível?\"  \n</continuityRule>",
+              "type": "string"
+            },
+            {
+              "id": "9567d6ed-399e-4fe6-9e6a-48a5d9eba008",
+              "name": "InputAI",
+              "value": "={{ $json?.tipoMensagem || $('camposIniciais').item.json.content.tipoMensagem || \" \" }}",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "aecc8012-2258-4b48-a272-62e2f1cb7e66",
+      "name": "Prompts",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -120,
+        580
+      ],
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "operation": "push",
+        "list": "={{ $('camposIniciais').item.json.meta.telefoneCliente.toString() }}",
+        "messageData": "={{ JSON.stringify({ \n    \"message\": $('Webhook').item.json.body.data.message.speechToText, \n    \"timestamp\": $now,\n    \"message_id\": $('camposIniciais').item.json.content.idMensagem\n}) }}",
+        "tail": true
+      },
+      "id": "968be4eb-f9a4-446a-849c-8a09bd4bdb71",
+      "name": "empilhaÁudio",
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        1740,
+        860
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f9ecf2fc-da2c-4f44-897a-5dc0a2f2f379",
+              "name": "meta.telefoneCliente",
+              "value": "={{ \n  $json.body?.conversation?.contact_inbox?.contact_id || \n  $json.body?.data?.key?.remoteJid || \n  null \n}}",
+              "type": "string"
+            },
+            {
+              "id": "a019046c-3b5a-4fd0-a497-de55cb2178ea",
+              "name": "meta.telefoneEmpresa",
+              "value": "={{ $json.body.sender }}",
+              "type": "string"
+            },
+            {
+              "id": "dab7ca54-c3d2-4a36-a9ca-a0ebbd375ef5",
+              "name": "meta.nomeCliente",
+              "value": "={{ $json.body.data.pushName }}",
+              "type": "string"
+            },
+            {
+              "id": "01238a36-6907-4aec-ab21-26345ed5fc96",
+              "name": "whatsapp.evo.nomeInstancia",
+              "value": "={{ $json.body.instance || null }}",
+              "type": "string"
+            },
+            {
+              "id": "81612acf-1b66-4c8e-82e4-ce8c77b31334",
+              "name": "content.mensagem",
+              "value": "={{ \n  $json.body?.content || \n\n  $json.body?.data?.message?.extendedTextMessage?.text || \n  $json.body?.data?.message?.imageMessage?.caption || \n  $json.body?.data?.message?.conversation || \n  $json?.message?.text || \n  $json?.message?.caption || \n  null \n}}",
+              "type": "string"
+            },
+            {
+              "id": "cc7dcfe1-8ad7-4fe8-93ec-8f643c7d08c7",
+              "name": "content.tipoMensagem",
+              "value": "={{ $json.body.data.messageType }}",
+              "type": "string"
+            },
+            {
+              "id": "2dfc64f4-b222-4ea7-b095-fdd96d9fcb95",
+              "name": "content.idMensagem",
+              "value": "={{ $json.body.data.key.id }}",
+              "type": "string"
+            },
+            {
+              "id": "9d947263-3b68-4c63-88ba-ef1b9de22571",
+              "name": "clinica.nomeEmpresa",
+              "value": "Bucaneiro Burger",
+              "type": "string"
+            },
+            {
+              "id": "076ad2d4-b8ea-440f-9c02-f7e8417a984d",
+              "name": "whatsapp.evo.apikey",
+              "value": "={{ $json.body.apikey || null }}",
+              "type": "string"
+            },
+            {
+              "id": "0c237725-0428-4f1d-bddf-41bd289b3168",
+              "name": "whatsapp.evo.server_url",
+              "value": "={{ $json.body.server_url || null }}",
+              "type": "string"
+            },
+            {
+              "id": "255b9c45-7769-4d09-9c50-61dcdfb7c09d",
+              "name": "app.debouncerTime",
+              "value": "1",
+              "type": "string"
+            },
+            {
+              "id": "196aeb96-5c33-4dd7-9a4f-6bd40765b7fb",
+              "name": "doc.id",
+              "value": "180d5XZCiNX9hibvGoazfZ5gyzfPP_8YJmNKEo0kMxEs",
+              "type": "string"
+            },
+            {
+              "id": "fc7c5c8f-b505-4a43-ae07-51eea58d6f80",
+              "name": "linkPreview",
+              "value": false,
+              "type": "boolean"
+            },
+            {
+              "id": "e30bbf8c-d5da-4410-b875-8dfe4b301798",
+              "name": "Digitando",
+              "value": 1800,
+              "type": "number"
+            },
+            {
+              "id": "c4f557bd-72f1-4507-8d9d-c2a590eea2b8",
+              "name": "content.quoted",
+              "value": "={{ $json.body.data.contextInfo.quotedMessage.conversation }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e8580bb2-33ef-4457-a1f7-c0280ae3118b",
+      "name": "camposIniciais",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -320,
+        680
+      ],
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "tableId": "clientes_delivery",
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "telefoneCliente",
+              "keyValue": "={{ $('camposIniciais').item.json.meta.telefoneCliente }}"
+            }
+          ]
+        }
+      },
+      "id": "7c0e6823-8663-4038-95b1-878d498f8e6e",
+      "name": "getClient",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        380,
+        680
+      ],
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "4e77cc7c-48f4-4cbe-94e7-6d211db67002",
+              "leftValue": "={{ $('getClient').item.json.telefoneCliente }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "c518d0b9-073a-4d07-806b-3c23544010f3",
+      "name": "If1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        580,
+        680
+      ]
+    },
+    {
+      "parameters": {
+        "tableId": "clientes_delivery",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldId": "nomeCliente",
+              "fieldValue": "={{ $('camposIniciais').item.json.meta.nomeCliente }}"
+            },
+            {
+              "fieldId": "telefoneCliente",
+              "fieldValue": "={{ $('camposIniciais').item.json.meta.telefoneCliente }}"
+            },
+            {
+              "fieldId": "idMensagem",
+              "fieldValue": "={{ $('camposIniciais').item.json.content.idMensagem }}"
+            },
+            {
+              "fieldId": "sessionID",
+              "fieldValue": "={{ $json.data }}"
+            }
+          ]
+        }
+      },
+      "id": "9cc8b8f8-d49e-4c88-9e52-a5cff1af87af",
+      "name": "CreateUser",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        960,
+        820
+      ]
+    },
+    {
+      "parameters": {
+        "action": "generate"
+      },
+      "id": "366a1c50-9f6a-4e81-b8d7-580e2e26c3d2",
+      "name": "GeraUUID",
+      "type": "n8n-nodes-base.crypto",
+      "typeVersion": 1,
+      "position": [
+        780,
+        820
+      ],
+      "notesInFlow": false
+    },
+    {
+      "parameters": {},
+      "id": "109235ad-0c1d-4483-a6cb-b1c796942a25",
+      "name": "Calculadora",
+      "type": "@n8n/n8n-nodes-langchain.toolCalculator",
+      "typeVersion": 1,
+      "position": [
+        2960,
+        800
+      ]
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('messages').item.json.sessionid }}",
+        "contextWindowLength": 10
+      },
+      "id": "657ded57-de78-4a98-96dd-469620dba5a8",
+      "name": "Postgres Chat Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
+      "typeVersion": 1.1,
+      "position": [
+        3080,
+        800
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "31f422fd-56ac-4821-b37a-04804deeb8e5",
+      "name": "NOP1",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1320,
+        520
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "b3c9b986-29a6-4418-a033-6422c387377f",
+              "leftValue": "={{ $('Webhook').item.json.body.data.key.fromMe}}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "a61a9d0b-388c-4ebe-82ca-7565a3a35eda",
+      "name": "fromMe",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1100,
+        660
+      ]
+    },
+    {
+      "parameters": {
+        "content": "### 1ª Parte do workflow\n- Adiciona dados no node \"campos iniciais\"\n- Configura o prompt\n- Verifica cadastro de cliente no Supabase\n- Agrupa as mensagens\n- Agente de IA responde e utiliza as tools\n- Atualiza o cliente se necessário\n- Responde o cliente com mensagens únicas",
+        "height": 223,
+        "width": 441,
+        "color": 4
+      },
+      "id": "953c3dfb-1ae1-4d35-a45d-20a2df23a4aa",
+      "name": "Sticky Note5",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "content": "",
+        "height": 634,
+        "width": 1210.1202692366064,
+        "color": 6
+      },
+      "id": "b2c7d99f-0535-4a39-97f8-bbaac0ee360a",
+      "name": "Sticky Note6",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -900,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "content": "#### Credenciais e dados padrões",
+        "height": 80,
+        "width": 282,
+        "color": 4
+      },
+      "id": "2fd4929a-f43a-4483-ac94-4bbe55f345aa",
+      "name": "Sticky Note15",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -600,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "content": "Configure seus dados",
+        "height": 223.25452635785376,
+        "width": 180.90155202154455,
+        "color": 2
+      },
+      "id": "a2156097-f758-4a10-9828-9f30c125b373",
+      "name": "Sticky Note7",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -360,
+        620
+      ]
+    },
+    {
+      "parameters": {
+        "content": "",
+        "height": 654,
+        "width": 1138.3054909499963,
+        "color": 6
+      },
+      "id": "1b3c6cf4-1fe2-4f91-bff3-afbda2517a7b",
+      "name": "Sticky Note8",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        320,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "content": "#### Cadastra usuário no **Supabase**",
+        "height": 80,
+        "width": 282,
+        "color": 4
+      },
+      "id": "0b7a6193-9cfc-429e-834f-2bbf9040e698",
+      "name": "Sticky Note16",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1160,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "content": "",
+        "height": 897,
+        "width": 1159,
+        "color": 6
+      },
+      "id": "6b6b0618-3563-4240-9270-2c053f7d04f1",
+      "name": "Sticky Note11",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2860,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "content": "#### O Cérebro (Agente AI)",
+        "height": 80,
+        "width": 202,
+        "color": 4
+      },
+      "id": "3bdeea3b-d60a-4d75-9c7d-8d04a00656b1",
+      "name": "Sticky Note18",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        3800,
+        400
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "ffe49fe5-2954-42a1-bef9-3830b700de59",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -620,
+        20
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "delete",
+        "deleteMode": "all"
+      },
+      "id": "ccf87516-8a60-4b11-af69-ea30f8526359",
+      "name": "Chat Memory Manager",
+      "type": "@n8n/n8n-nodes-langchain.memoryManager",
+      "typeVersion": 1.1,
+      "position": [
+        -360,
+        20
+      ]
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "=9516b290-944c-4c35-8c27-55cb3df2fe47",
+        "tableName": "n8n_chat_histories_agendamento",
+        "contextWindowLength": 80
+      },
+      "id": "ee3e8279-7241-41ee-98aa-aa05e90ed04d",
+      "name": "Postgres Chat Memory1",
+      "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
+      "typeVersion": 1.1,
+      "position": [
+        -340,
+        220
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineAll",
+        "options": {}
+      },
+      "id": "e6357c16-9365-4194-b5a5-ce70b933c111",
+      "name": "UnificaDados",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        80,
+        680
+      ],
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ \n  $json.message.length > 8 \n  ? $('camposIniciais').item.json.content.idMensagem\n  : JSON.parse($json.message.first()).message_id.toString().trim()\n}}",
+                    "rightValue": "={{ $('camposIniciais').item.json.content.idMensagem.toString().trim() }}",
+                    "operator": {
+                      "type": "string",
+                      "operation": "notEquals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "nada a fazer"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "2b9b7794-e8f6-45b5-8021-f59dbb747cb0",
+                    "leftValue": "={{ JSON.parse($json.message.last()).timestamp }}",
+                    "rightValue": "={{ $now.minus($('camposIniciais').item.json.app.debouncerTime, 'seconds') }}",
+                    "operator": {
+                      "type": "dateTime",
+                      "operation": "before"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "proceder"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "extra",
+          "renameFallbackOutput": "esperar"
+        }
+      },
+      "id": "c7461f18-9706-4630-b8e5-adb0b8f9619a",
+      "name": "Switch",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        2140,
+        680
+      ]
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "=Consulte sempre que precisar de informações de pagamento, taxa de entrega, endereço e horário de funcionamento",
+        "operation": "get",
+        "documentURL": "180d5XZCiNX9hibvGoazfZ5gyzfPP_8YJmNKEo0kMxEs"
+      },
+      "id": "f3636ea2-d7a6-4ae4-82d9-b2add9900609",
+      "name": "informacoes_bucaneiro",
+      "type": "n8n-nodes-base.googleDocsTool",
+      "typeVersion": 2,
+      "position": [
+        3220,
+        800
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('camposIniciais').item.json.whatsapp.evo.server_url }}/message/sendText/{{ $('camposIniciais').item.json.whatsapp.evo.nomeInstancia }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "={{ $('camposIniciais').item.json.whatsapp.evo.apikey }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "number",
+              "value": "={{ $('camposIniciais').item.json.meta.telefoneCliente }}"
+            },
+            {
+              "name": "text",
+              "value": "={{ $json.text }}"
+            },
+            {
+              "name": "linkPreview",
+              "value": "={{ $('camposIniciais').item.json.linkPreview }}"
+            },
+            {
+              "name": "delay",
+              "value": "={{ $('camposIniciais').item.json.Digitando }}"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "id": "36d2ccdd-9b46-4b70-b1e0-e3a86539649b",
+      "name": "Responde texto1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        4280,
+        540
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2c845210-2c6b-4bf1-b975-00b9e82e80f1",
+              "name": "text",
+              "value": "={{ $json.output.replace(/\\*\\*/g, '*') }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "5f156c1e-bee0-40a0-9ba6-0406d5e7acd5",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        4080,
+        540
+      ]
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "60065893-74f7-4b64-bc1a-d891202efa78",
+                    "leftValue": "={{ $('Webhook').item.json.body.data.messageType }}",
+                    "rightValue": "imageMessage",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Imagem"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "0cb14635-2673-408e-86db-ce9e0373674b",
+                    "leftValue": "={{ $('Webhook').item.json.body.data.messageType }}",
+                    "rightValue": "conversation",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Texto"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Webhook').item.json.body.data.messageType }}",
+                    "rightValue": "audioMessage",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Áudio"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "13f3807c-a8e8-401d-88fd-a145c68eedf4",
+      "name": "Switch2",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        1520,
+        680
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "delivery",
+        "options": {}
+      },
+      "id": "51fcc431-8cea-407d-9450-cb5c094011ad",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -700,
+        680
+      ],
+      "webhookId": "a97b04c1-9d2e-49e7-9502-8ccf7301006f"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('messages').all()[0].json.messages }}",
+        "options": {
+          "systemMessage": "=<!-- Mensagem do Usuário -->\n<userMessage>\n  Essa é a mensagem do cliente: {{ $('messages').all()[0].json.messages }}\n</userMessage>\n\n<prompt> \n{{ $('Prompts').item.json.systemMessageAgente }}\n</prompt>",
+          "maxIterations": 30,
+          "returnIntermediateSteps": true,
+          "passthroughBinaryImages": true
+        }
+      },
+      "id": "62a1f396-5085-4351-89a9-df7385c102b0",
+      "name": "Agente Atendimento Delivery",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.6,
+      "position": [
+        3300,
+        520
+      ],
+      "retryOnFail": false
+    },
+    {
+      "parameters": {
+        "name": "enviar_cardapio",
+        "description": "Use essa tool para enviar o cardapio em pdf no início da conversa ou quando o cliente solicitar",
+        "workflowId": {
+          "__rl": true,
+          "value": "HrQHIRgnadt5xbMG",
+          "mode": "list",
+          "cachedResultName": "ENVIA CARDÁPIO"
+        },
+        "fields": {
+          "values": [
+            {
+              "name": "nomeCliente",
+              "stringValue": "={{ $('camposIniciais').item.json.meta.nomeCliente }}"
+            },
+            {
+              "name": "telefoneCliente",
+              "stringValue": "={{ $('camposIniciais').item.json.meta.telefoneCliente }}"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 1.3,
+      "position": [
+        3700,
+        800
+      ],
+      "id": "6d13efbe-4045-4548-9186-3eeeb76988b0",
+      "name": "enviar_cardapio"
+    },
+    {
+      "parameters": {
+        "content": "",
+        "height": 657,
+        "width": 599,
+        "color": 6
+      },
+      "id": "fc2c04b5-6f28-440c-b934-f849879924a0",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        4060,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "content": "Responde o cliente com textos único (otimizando o tempo de resposta)",
+        "height": 80,
+        "width": 202,
+        "color": 4
+      },
+      "id": "f23f9716-aa59-439d-bb15-6d08d8a646c3",
+      "name": "Sticky Note19",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        4100,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('camposIniciais').item.json.whatsapp.evo.server_url }}/message/sendText/{{ $('camposIniciais').item.json.whatsapp.evo.nomeInstancia }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "={{ $('camposIniciais').item.json.whatsapp.evo.apikey }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "number",
+              "value": "={{ $('camposIniciais').item.json.telefoneCliente }}"
+            },
+            {
+              "name": "text",
+              "value": "=Não entendo imagens, digite ou envie um áudio por favor"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "id": "fcfefda4-3c65-4393-90b1-9571aa249705",
+      "name": "Resposta - Não leio imagem",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1740,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "name": "cardapio_bucaneiro",
+        "description": "use essa tool quando o usurário desejar fazer um pedido de algum item do cardápio"
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolVectorStore",
+      "typeVersion": 1,
+      "position": [
+        3360,
+        840
+      ],
+      "id": "db953d70-a5c1-4c5a-8304-735151c7af5a",
+      "name": "Vector Store Tool"
+    },
+    {
+      "parameters": {
+        "tableName": {
+          "__rl": true,
+          "value": "documents_delivery",
+          "mode": "list",
+          "cachedResultName": "documents_delivery"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
+      "typeVersion": 1,
+      "position": [
+        3220,
+        1000
+      ],
+      "id": "6ac6ae80-5beb-403d-9f8f-2b7a4f161907",
+      "name": "Supabase Vector Store"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        3260,
+        1140
+      ],
+      "id": "4a7efc2c-078c-4593-8cdc-e8af295c0256",
+      "name": "Embeddings OpenAI"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.1,
+      "position": [
+        3520,
+        980
+      ],
+      "id": "e3a45ed0-4cdd-4bf4-835f-397789e3974e",
+      "name": "OpenAI Chat Model1"
+    },
+    {
+      "parameters": {
+        "name": "atualiza_endereco",
+        "description": "Use essa tool para cadastrar e atualizar o endereço do cliente",
+        "workflowId": {
+          "__rl": true,
+          "value": "nsaKY2VLC20XwzLV",
+          "mode": "id"
+        },
+        "fields": {
+          "values": [
+            {
+              "name": "nomeCliente",
+              "stringValue": "={{ $('camposIniciais').item.json.meta.nomeCliente }}"
+            },
+            {
+              "name": "telefoneCliente",
+              "stringValue": "={{ $('camposIniciais').item.json.meta.telefoneCliente }}"
+            }
+          ]
+        },
+        "jsonSchemaExample": "{\n\t\"endereco\": \"Rua Nova, Centro, Alagoas\"\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 1.3,
+      "position": [
+        3840,
+        800
+      ],
+      "id": "da68a34e-d48d-4295-8d7c-1a0704767c3f",
+      "name": "atualiza_endereco"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        3000,
+        1500
+      ],
+      "id": "06ef29e9-7d60-4dff-937e-1fd266d66445",
+      "name": "Execute Workflow Trigger"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "79625d22-84b0-4d0d-b661-9a471719ff6a",
+              "name": "nomeCliente",
+              "value": "={{ $json.nomeCliente }}",
+              "type": "string"
+            },
+            {
+              "id": "b9c0ef22-5a16-45e7-a59c-ad2382d8caec",
+              "name": "telefoneCliente",
+              "value": "={{ $json.telefoneCliente }}",
+              "type": "string"
+            },
+            {
+              "id": "c206a094-e75b-4379-93a4-97868c277ee4",
+              "name": "enderecoCliente",
+              "value": "={{ $json.query }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3280,
+        1500
+      ],
+      "id": "d2257be5-9470-4805-8500-1e74f358d6fc",
+      "name": "Edit Fields1"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "tableId": "clientes_delivery",
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "telefoneCliente",
+              "condition": "eq",
+              "keyValue": "={{ $json.telefoneCliente }}"
+            }
+          ]
+        },
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldId": "enderecoCliente",
+              "fieldValue": "={{ $json.enderecoCliente }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        3540,
+        1500
+      ],
+      "id": "7d7ad72c-1667-4751-9f9b-095bef009ebf",
+      "name": "Supabase2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "73d6e94f-b073-4584-a1cc-0f7791e29664",
+              "name": "response",
+              "value": "ok",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3840,
+        1500
+      ],
+      "id": "d330d6bb-8fe8-4395-97b4-90ea9b7a8ed7",
+      "name": "Edit Fields2"
+    },
+    {
+      "parameters": {
+        "content": "## ATUALIZA ENDEREÇO\n",
+        "height": 400,
+        "width": 1180
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2860,
+        1380
+      ],
+      "id": "f7f9f3f4-bd46-47e2-a0a1-d376ae67d423",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "triggerOn": "specificFolder",
+        "folderToWatch": {
+          "__rl": true,
+          "value": "1XUNw1rS1dwSAbZG5mvjFFeZrermeH6u7",
+          "mode": "list",
+          "cachedResultName": "RAG DELIVERY",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/1XUNw1rS1dwSAbZG5mvjFFeZrermeH6u7"
+        },
+        "event": "fileCreated",
+        "options": {}
+      },
+      "id": "238b8462-895b-457d-a5c5-26443f67992c",
+      "name": "Google Drive Trigger",
+      "type": "n8n-nodes-base.googleDriveTrigger",
+      "typeVersion": 1,
+      "position": [
+        1780,
+        1140
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $('Edit Fields10').item.json.id }}",
+          "mode": "id"
+        },
+        "options": {
+          "googleFileConversion": {
+            "conversion": {
+              "docsToFormat": "text/plain"
+            }
+          }
+        }
+      },
+      "id": "3066eccb-c7c3-41ca-b733-1d9f3afcb1aa",
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        1780,
+        1400
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "pdf",
+        "options": {}
+      },
+      "id": "cb59291f-3791-4da6-bf38-33ab7842f7c8",
+      "name": "Extract from File",
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        1960,
+        1400
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "0ba57b17-5f56-4caf-8ffb-3b7cb56f3d24",
+      "name": "Embeddings OpenAI1",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.1,
+      "position": [
+        2340,
+        1560
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "ebc4ba28-56c2-48a6-92b1-e016a9eb756b",
+      "name": "Default Data Loader",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "typeVersion": 1,
+      "position": [
+        2480,
+        1560
+      ]
+    },
+    {
+      "parameters": {
+        "chunkOverlap": 200,
+        "options": {}
+      },
+      "id": "9310ddc2-ee14-403d-bb8d-898eef1df393",
+      "name": "Recursive Character Text Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
+      "typeVersion": 1,
+      "position": [
+        2620,
+        1680
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "tableId": "documents_delivery",
+        "filterType": "string",
+        "filterString": "=metadata->>file_id=like.*{{ $json.id }}*"
+      },
+      "id": "b665d5c5-8035-4c34-9937-de6f5b0ed851",
+      "name": "Supabase14",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        2480,
+        1140
+      ],
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1b9ce002-32a7-4f00-9eb5-e84c621bbd1e",
+              "name": "id",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "642a05a2-cdb1-4b21-ad1c-4918d4253be7",
+      "name": "Edit Fields10",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2020,
+        1140
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "insert",
+        "tableName": {
+          "__rl": true,
+          "value": "documents",
+          "mode": "list",
+          "cachedResultName": "documents"
+        },
+        "options": {
+          "queryName": "match_documents"
+        }
+      },
+      "id": "4deb2c6c-e675-4872-95aa-d4a277322c29",
+      "name": "Supabase Vector Store1",
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
+      "typeVersion": 1,
+      "position": [
+        2360,
+        1400
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## RAG\n",
+        "height": 680,
+        "width": 1180
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1620,
+        1120
+      ],
+      "id": "b2d37b0b-f52a-4ed2-864c-3e4da0fa71df",
+      "name": "Sticky Note9"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-05-08T22:09:58.055Z",
+      "updatedAt": "2025-05-08T22:09:58.055Z",
+      "id": "2NvoSHGMxzlbK0Rv",
+      "name": "Delivery"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-05-08T22:26:46.074Z",
+  "versionId": "b1c5d88f-cb84-4039-9595-f837d0bbba35"
+}
