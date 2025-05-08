@@ -1,0 +1,539 @@
+{
+  "active": false,
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI SDR",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI SDR",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Calculator": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI SDR",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Verificar": {
+      "ai_tool": [
+        [
+          {
+            "node": "IA Agendador",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IA Agendador": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Lista": {
+      "ai_tool": [
+        [
+          {
+            "node": "IA Agendador",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Agendar": {
+      "ai_tool": [
+        [
+          {
+            "node": "IA Agendador",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Reagendar": {
+      "ai_tool": [
+        [
+          {
+            "node": "IA Agendador",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Cancelar": {
+      "ai_tool": [
+        [
+          {
+            "node": "IA Agendador",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "IA Agendador",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Agendamento": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI SDR",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "IA Agendador",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Window Buffer Memory1": {
+      "ai_memory": [
+        [
+          {
+            "node": "IA Agendador",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Window Buffer Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI SDR",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-04-29T19:15:03.475Z",
+  "id": "bSJRxLYnlmAFkvHT",
+  "meta": null,
+  "name": "[AI.T][TESTES] - SDR + AGEND",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        100,
+        -40
+      ],
+      "id": "eb921396-8f2c-4452-8205-7745d447be1c",
+      "name": "When chat message received",
+      "webhookId": "075b8193-58eb-43e6-806c-9d381cf6db8c"
+    },
+    {
+      "parameters": {
+        "options": {
+          "frequencyPenalty": 0.2,
+          "presencePenalty": 0.2,
+          "temperature": 0.8
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        220,
+        180
+      ],
+      "id": "dc31813a-6baf-4da2-8ff2-0c587a957997",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "MgUovUkOF1DLLH9r",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.toolCalculator",
+      "typeVersion": 1,
+      "position": [
+        460,
+        180
+      ],
+      "id": "6f274f41-4e36-4504-bdba-acc5346f08b0",
+      "name": "Calculator"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "=Horário atual: {{ $now }}\n\n### IDENTIDADE\n\nVocê é Alex, um SDR especialista em soluções para empresas que desejam otimizar seus processos. Sua abordagem é amigável, objetiva e orientada para resultados. Seu objetivo é coletar informações-chave, qualificar leads e agendar uma reunião.\n\n### OBJETIVO\n\n1. Coletar informações sobre os maiores desafios do lead.\n2. Obter dados para qualificação, como número de leads atendidos e faturamento.\n3. Qualificar leads com base nas respostas coletadas.\n4. Agendar reunião com leads qualificados e encerrar leads não qualificados de forma gentil.\n\n### REGRAS\n\n1. Seja direto nas respostas. Não ultrapasse 500 caracteres.\n2. Para quebrar linhas, utilize '\\n\\n'.\n3. Sempre faça uma pergunta de cada vez.\n4. Sempre que precisar agendar, remarcar, cancelar ou verificar horários disponíveis para reunião, chame a tool \"Agendamento\".\n\n### FERRAMENTAS DISPONÍVEIS\n\n1. Agendamento:\n\nUse esta ferramenta para:\n\n- Verificar a disponibilidade de horários.\n- Listar opções de horários disponíveis.\n- Agendar uma nova reunião.\n- Reagendar reuniões existentes.\n- Cancelar reuniões já marcadas.\n\n### FLUXO DA CONVERSA\n\n1. Apresentação:\n\"Olá, aqui é o Alex, especialista em soluções da XYZ. Tudo bem? Vi que você demonstrou interesse em conhecer nossas soluções. Qual o seu nome?\"\n\n2. Pergunta inicial:\n\"Obrigado, [Nome]. Para entender melhor o seu momento, qual é o maior desafio que sua empresa enfrenta atualmente?\"\n\n3. Detalhamento:\nSe necessário, use perguntas adicionais para explorar o desafio:\n\n\"Como esse desafio impacta o dia a dia da sua equipe?\"\n\"Vocês já buscaram alguma solução para isso?\"\n\n4. Quantidade de Leads:\n\"Quantos leads você ou sua empresa atendem diariamente?\"\n\n5. Faturamento Mensal:\n\"Qual é o faturamento médio mensal da empresa?\"\n\n### CRITÉRIOS DE QUALIFICAÇÃO\n\nSe o faturamento mensal for abaixo de R$30 mil:\n\nDesqualificado. Encerre de forma cordial: \"Obrigado, [Nome], por compartilhar essas informações! Apesar de, neste momento, nossas soluções não se alinharem ao seu perfil, estou à disposição para ajudar no futuro com dicas ou sugestões. Tenha um ótimo dia!\"\n\nSe o faturamento mensal for igual ou acima de R$30 mil:\n\n1. Qualificado. Informe o próximo passo: \n\n\"Qual seria o melhor dia e horário para uma videoconferência de até 40 minutos?\"\n\n2. Perguntar o email.\n\n3. Ações possíveis:\n\n- Verificar Disponibilidade: Consulte se o horário está disponível.\n- Lista: Pegar lista de horários disponíveis.\n- Agendar: Confirme o horário escolhido para a reunião.\n- Reagendar: Caso o cliente precise de uma mudança.\n- Cancelar: Encerre reuniões previamente marcadas, se necessário.\n\n4. Após a reunião ser agendada, chame a tool 'Agendado'.\n\n5. \"Ótimo, [Nome]! A reunião está agendada. Será um momento para analisarmos estratégias e ferramentas que podem ajudar sua corretora a crescer ainda mais. Nos vemos em breve!\""
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        320,
+        -40
+      ],
+      "id": "99eadd05-c207-4afc-863c-e39d9c36982d",
+      "name": "AI SDR"
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "=Chame essa tool para verificar horários disponíveis para reuniões.\n\nstartTime = {{ $now }}\nendTime = {{ $now.plus(1, 'hours') }}",
+        "resource": "calendar",
+        "calendar": {
+          "__rl": true,
+          "value": "andersonadelino25@gmail.com",
+          "mode": "list",
+          "cachedResultName": "andersonadelino25@gmail.com"
+        },
+        "timeMin": "={{ $fromAI(\"startTime\", \"horario para agendar\") }}",
+        "timeMax": "={{ $fromAI(\"endTime\", \"horario para agendar somado com 1 hora\") }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleCalendarTool",
+      "typeVersion": 1.2,
+      "position": [
+        1140,
+        180
+      ],
+      "id": "f61a6b45-a20d-47fb-9f98-94627e62559d",
+      "name": "Verificar"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Nome do cliente: {{ $json.query.name }}\nEmail: {{ $json.query.email }}\nData: {{ $json.query.date }}\nEvento: {{ $json.query.evento }}",
+        "options": {
+          "systemMessage": "=Você é um assistente especialista em agendamento de reuniões. Seu objetivo é auxiliar os usuários a gerenciar compromissos de forma eficiente e precisa.\n\nHorário atual: {{ $now }}\n\nVocê tem à sua disposição 5 ferramentas que podem ser usadas conforme necessário para atender às solicitações do usuário:\n\n#verificar\nDescrição: Verifica se um horário específico está disponível.\nEntrada necessária: Horário desejado.\n\n#lista\nDescrição: Você consegue listar todas as reuniões agendadas. Portanto, os horários que não estiver listado, estão disponíveis para serem agendados. Se o usuário pedir a lista dos horários disponíveis ou você precisar checar, faça isso.\nLembrando que as disponibilidades são de hora em hora.\nExemplo: 15h, 16h, 17h...\n\n#agendar\nDescrição: Agenda uma nova reunião. É essencial verificar a disponibilidade antes de tentar agendar.\nEntradas necessárias: Horário, Nome do Cliente, Email do Cliente.\n\n#reagendar\nDescrição: Altera o horário de uma reunião existente. Antes de reagendar, utilize lista para obter o ID da reunião.\nEntradas necessárias: ID da reunião, Novo horário.\n\n#cancelar\nDescrição: Cancela uma reunião existente. Antes de cancelar, utilize lista para obter o ID da reunião.\nEntradas necessárias: ID da reunião.\n\n#agendado\nDescrição: Use essa tool sempre quando realizar um agendamento ou reagendamento com sucesso.\n\n### REGRAS\n\nSe já tiver alguma reunião marcada no mesmo horário, informe que o horário não está disponível e sugira outras opções próximas.\n\nSe o usuário já tiver outra reunião agendada, informe que ele já tem uma reunião marcada e pergunte se ele quer manter ou reagendar.\n\nCada usuário só pode ter 1 reunião agendada por vez.\n\nQuando for enviar o link do meet, não use Markdown. Envie apenas o link. Exemplo: Link para a reunião: https://meet.google.com/example"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        1140,
+        -40
+      ],
+      "id": "254a7cc1-7919-4ed4-a8a1-10028748b85f",
+      "name": "IA Agendador"
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "Chame essa tool quando for checar a lista de horários disponíveis.",
+        "operation": "getAll",
+        "calendar": {
+          "__rl": true,
+          "value": "andersonadelino25@gmail.com",
+          "mode": "list",
+          "cachedResultName": "andersonadelino25@gmail.com"
+        },
+        "returnAll": true,
+        "options": {
+          "timeMin": "={{ $now }}"
+        }
+      },
+      "type": "n8n-nodes-base.googleCalendarTool",
+      "typeVersion": 1.2,
+      "position": [
+        1260,
+        180
+      ],
+      "id": "f25142f3-0675-4c1e-a9b6-df2d821820a9",
+      "name": "Lista"
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "Chame essa tool quando for agendar uma reunião.",
+        "calendar": {
+          "__rl": true,
+          "value": "andersonadelino25@gmail.com",
+          "mode": "list",
+          "cachedResultName": "andersonadelino25@gmail.com"
+        },
+        "start": "={{ $fromAI(\"startTime\", \"horario para agendar\") }}",
+        "end": "={{ $fromAI(\"endTime\", \"horario para agendar somado com 1 hora\") }}",
+        "additionalFields": {
+          "attendees": [
+            "={{ $fromAI('email', 'email do cliente') }}"
+          ],
+          "conferenceDataUi": {
+            "conferenceDataValues": {
+              "conferenceSolution": "hangoutsMeet"
+            }
+          },
+          "description": "=Reunião sobre soluções, tecnologias para melhorar a eficiência e a escala da corretora.",
+          "summary": "=Reunião entre Fulano e {{ $fromAI('name', 'nome do cliente') }}"
+        }
+      },
+      "type": "n8n-nodes-base.googleCalendarTool",
+      "typeVersion": 1.2,
+      "position": [
+        1380,
+        180
+      ],
+      "id": "6e253942-c964-4971-b0ce-78f8441f3eb4",
+      "name": "Agendar"
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "Chame essa tool quando for remarcar uma reunião.",
+        "operation": "update",
+        "calendar": {
+          "__rl": true,
+          "value": "andersonadelino25@gmail.com",
+          "mode": "list",
+          "cachedResultName": "andersonadelino25@gmail.com"
+        },
+        "eventId": "={{ $fromAI('id', 'id do evento') }}",
+        "updateFields": {
+          "end": "={{ $fromAI(\"endTime\", \"horario para agendar somado com 1 hora\") }}",
+          "start": "={{ $fromAI(\"startTime\", \"horario para agendar\") }}"
+        }
+      },
+      "type": "n8n-nodes-base.googleCalendarTool",
+      "typeVersion": 1.2,
+      "position": [
+        1500,
+        180
+      ],
+      "id": "c5b7d62c-1f2c-4a5f-9cce-8bffb49a59be",
+      "name": "Reagendar"
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "calendar": {
+          "__rl": true,
+          "value": "andersonadelino25@gmail.com",
+          "mode": "list",
+          "cachedResultName": "andersonadelino25@gmail.com"
+        },
+        "eventId": "={{ $fromAI('id', 'id do evento') }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleCalendarTool",
+      "typeVersion": 1.2,
+      "position": [
+        1620,
+        180
+      ],
+      "id": "98ab66eb-6d07-4d43-94a0-503700d0466e",
+      "name": "Cancelar"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "b3f29d8c-41b0-415d-8d65-ce9a39a984c6",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        940,
+        -40
+      ],
+      "id": "dbc7a706-c67b-4e3c-9b99-21a87115fa28",
+      "name": "Webhook",
+      "webhookId": "b3f29d8c-41b0-415d-8d65-ce9a39a984c6"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "b666aa70-9089-4178-82eb-75c655a75efc",
+              "name": "response",
+              "value": "={{ $json.output }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1500,
+        -40
+      ],
+      "id": "fb6c8931-f2a7-44e3-bb5a-bc082dc04e0d",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "toolDescription": "Chame essa tool se você precisar gerenciar reuniões, incluindo: verificar a disponibilidade de um horário específico, listar opções de horários disponíveis, agendar uma nova reunião, reagendar uma reunião existente ou cancelar uma reunião previamente marcada.",
+        "method": "POST",
+        "url": "https://n8n.solazius.cloud/webhook/b3f29d8c-41b0-415d-8d65-ce9a39a984c6",
+        "sendQuery": true,
+        "parametersQuery": {
+          "values": [
+            {
+              "name": "name",
+              "valueProvider": "fieldValue",
+              "value": "{name}"
+            },
+            {
+              "name": "email",
+              "valueProvider": "fieldValue",
+              "value": "{email}"
+            },
+            {
+              "name": "date",
+              "valueProvider": "fieldValue",
+              "value": "{date}"
+            },
+            {
+              "name": "evento",
+              "valueProvider": "fieldValue",
+              "value": "{evento}"
+            }
+          ]
+        },
+        "placeholderDefinitions": {
+          "values": [
+            {
+              "name": "name",
+              "description": "Nome do cliente",
+              "type": "string"
+            },
+            {
+              "name": "email",
+              "description": "Email do cliente",
+              "type": "string"
+            },
+            {
+              "name": "date",
+              "description": "Data e horário da reunião"
+            },
+            {
+              "name": "evento",
+              "description": "verificar, lista, agendar, reagendar ou cancelar",
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+      "typeVersion": 1.1,
+      "position": [
+        580,
+        180
+      ],
+      "id": "5316b4b1-faa4-4fd5-b0cc-28cc074b3ca5",
+      "name": "Agendamento"
+    },
+    {
+      "parameters": {
+        "options": {
+          "temperature": 0.5
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        900,
+        180
+      ],
+      "id": "4ee70a8b-5bbe-44e7-8918-544b2d7cf921",
+      "name": "OpenAI Chat Model1"
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "asddseqe12",
+        "contextWindowLength": 30
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        1020,
+        180
+      ],
+      "id": "b258a444-10fc-4553-9c61-f5998f72f592",
+      "name": "Window Buffer Memory1"
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "asddseqe12",
+        "contextWindowLength": 30
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        340,
+        180
+      ],
+      "id": "d61f1af2-76bb-46ae-9931-803531139101",
+      "name": "Window Buffer Memory"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-04-29T19:13:31.723Z",
+      "updatedAt": "2025-04-29T19:13:31.723Z",
+      "id": "CM04J2XwR2tPFS6J",
+      "name": "Youtube"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-05-02T14:34:47.150Z",
+  "versionId": "8e309532-03a4-48a3-99db-25d8f06f16dd"
+}
