@@ -1,5 +1,5 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
     "n8n": {
       "main": [
@@ -166,7 +166,9 @@
   },
   "createdAt": "2025-05-08T22:27:20.668Z",
   "id": "IGdzOZ5y2wfkg9UW",
-  "meta": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
   "name": "[IA.TALOS][BACKUP_GERAL]",
   "nodes": [
     {
@@ -190,6 +192,12 @@
       "typeVersion": 1,
       "alwaysOutputData": true,
       "webhookId": "8a9ecd4f-295c-47a3-b010-2063e8563b1a",
+      "credentials": {
+        "githubOAuth2Api": {
+          "id": "iAugkhMjSUT141Zl",
+          "name": "GitHub account"
+        }
+      },
       "continueOnFail": true
     },
     {
@@ -273,7 +281,13 @@
         240
       ],
       "typeVersion": 1,
-      "webhookId": "d082f4b7-4e27-4703-aa26-ecb9503cf5d4"
+      "webhookId": "d082f4b7-4e27-4703-aa26-ecb9503cf5d4",
+      "credentials": {
+        "githubOAuth2Api": {
+          "id": "iAugkhMjSUT141Zl",
+          "name": "GitHub account"
+        }
+      }
     },
     {
       "parameters": {
@@ -293,7 +307,13 @@
         420
       ],
       "typeVersion": 1,
-      "webhookId": "3dabbf6a-8003-4b3d-8662-5b6b9e1d966f"
+      "webhookId": "3dabbf6a-8003-4b3d-8662-5b6b9e1d966f",
+      "credentials": {
+        "githubOAuth2Api": {
+          "id": "iAugkhMjSUT141Zl",
+          "name": "GitHub account"
+        }
+      }
     },
     {
       "parameters": {
@@ -340,24 +360,10 @@
     },
     {
       "parameters": {
-        "content": "## Single Item Loop\nWe process each workflow item one at a time, We first check Github to see if a file exists then we merge the Github Data and the API item so we can check if the values match in the function node `isDiffOrNew` we then set a status of `same`, `different` or `new`",
-        "height": 564,
-        "width": 955
-      },
-      "id": "9236810f-5e59-404d-a75a-fa70440962c7",
-      "name": "Note2",
-      "type": "n8n-nodes-base.stickyNote",
-      "position": [
-        -880,
-        -60
-      ],
-      "typeVersion": 1
-    },
-    {
-      "parameters": {
-        "content": "## Save the data\nUsing the switch node we work out what to do based on the previous status,  If it is the same we do nothing, If it is different we update the file in Github and if it is new we create a new file. After this is done we loop back to the Split in Batches node (OneAtAtTime) to start the process again.",
+        "content": "# SALVAMENTO",
         "height": 954,
-        "width": 766
+        "width": 766,
+        "color": 4
       },
       "id": "1fab70ca-5a29-473c-9133-c96e604b7ac8",
       "name": "Note3",
@@ -431,15 +437,34 @@
         -1400,
         260
       ]
+    },
+    {
+      "parameters": {
+        "content": "# Loop",
+        "height": 564,
+        "width": 955
+      },
+      "id": "9236810f-5e59-404d-a75a-fa70440962c7",
+      "name": "Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -880,
+        -60
+      ],
+      "typeVersion": 1
     }
   ],
   "pinData": {},
   "settings": {
     "executionOrder": "v1"
   },
-  "staticData": null,
+  "staticData": {
+    "node:Schedule Trigger": {
+      "recurrenceRules": []
+    }
+  },
   "tags": [],
-  "triggerCount": 0,
-  "updatedAt": "2025-05-08T22:30:29.922Z",
-  "versionId": "b96b6a57-07d0-4cf0-98e9-0fdef3e25c3b"
+  "triggerCount": 1,
+  "updatedAt": "2025-05-08T22:37:30.468Z",
+  "versionId": "08227513-6f73-4cde-b1b3-e0bbad639768"
 }
