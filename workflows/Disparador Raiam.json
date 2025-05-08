@@ -1,0 +1,437 @@
+{
+  "active": false,
+  "connections": {
+    "Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "Wait1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait1": {
+      "main": [
+        []
+      ]
+    },
+    "Postgres Chat Memory2": {
+      "ai_memory": [
+        [
+          {
+            "node": "Atendente3",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger2": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Evolution API3": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Atendente3",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Supabase5": {
+      "main": [
+        [
+          {
+            "node": "Atendente3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Supabase5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Atendente3": {
+      "main": [
+        [
+          {
+            "node": "Evolution API3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets1": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-04-29T15:08:20.305Z",
+  "id": "g39DUbbOkZbiDUCg",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Disparador Raiam",
+  "nodes": [
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1WbnTpLlkZiJ840i7xFq9OriTHAkttyvVge5TPvw78Vw",
+          "mode": "list",
+          "cachedResultName": "DISPARADOR - WHATSAPP",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1WbnTpLlkZiJ840i7xFq9OriTHAkttyvVge5TPvw78Vw/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1946189931,
+          "mode": "list",
+          "cachedResultName": "Cópia de Cópia de NUMEROS",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1WbnTpLlkZiJ840i7xFq9OriTHAkttyvVge5TPvw78Vw/edit#gid=1946189931"
+        },
+        "options": {}
+      },
+      "id": "dbfb2d42-a38f-4574-9e53-2cf68e08986b",
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        -2640,
+        3940
+      ],
+      "executeOnce": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "Dj6DR5Chb0xYbnqN",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "documentId": {
+          "__rl": true,
+          "value": "1WbnTpLlkZiJ840i7xFq9OriTHAkttyvVge5TPvw78Vw",
+          "mode": "list",
+          "cachedResultName": "DISPARADOR - WHATSAPP",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1WbnTpLlkZiJ840i7xFq9OriTHAkttyvVge5TPvw78Vw/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1946189931,
+          "mode": "list",
+          "cachedResultName": "Cópia de Cópia de NUMEROS",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1WbnTpLlkZiJ840i7xFq9OriTHAkttyvVge5TPvw78Vw/edit#gid=1946189931"
+        }
+      },
+      "id": "7fd0926c-af9c-433c-a8b8-e9fe87831a28",
+      "name": "Google Sheets1",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        -1020,
+        3900
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "Dj6DR5Chb0xYbnqN",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "amount": 1
+      },
+      "id": "e7a2ea21-9b13-42e7-aae5-20ab2f352a9a",
+      "name": "Wait1",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        -2500,
+        3940
+      ],
+      "webhookId": "78f1c2c3-6305-4095-9a10-04987b76a7b8"
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{(() => {\n  const url = $('Google Sheets').item.json.link_test_whatsapp; // URL completa\n  const match = url.match(/phone=(\\d+)/); // Extrai o número de celular após \"phone=\"\n  if (match) {\n    const phoneNumber = match[1].replace('9', ''); // Remove apenas o primeiro \"9\" encontrado\n    return phoneNumber; // Retorna o número processado\n  }\n  return null; // Retorna null se não encontrar o padrão\n})()}}@s.whatsapp.net\n",
+        "contextWindowLength": 100
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
+      "typeVersion": 1.3,
+      "position": [
+        -1060,
+        4220
+      ],
+      "id": "5ece471b-e82c-4c6e-8d26-b5ec47f43eb7",
+      "name": "Postgres Chat Memory2",
+      "credentials": {
+        "postgres": {
+          "id": "UG5YhV2gAqdPfWm8",
+          "name": "Postgres SKYNET"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "content": "",
+        "height": 820,
+        "width": 2303,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -2860,
+        3640
+      ],
+      "typeVersion": 1,
+      "id": "e6b6a4d5-0f90-4b89-a163-ef7fc553959f",
+      "name": "Sticky Note11"
+    },
+    {
+      "parameters": {
+        "content": "# CAPTAÇÃO DE CLIENTES",
+        "height": 80,
+        "width": 551.2183277924504,
+        "color": 5
+      },
+      "id": "fa47cfa6-bae2-485f-b1f2-825b6d89eef9",
+      "name": "Sticky Note30",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -2800,
+        3660
+      ]
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "*/20 10-17 * * 1-5"
+            }
+          ]
+        }
+      },
+      "id": "1c6a5160-8aea-4aac-ab75-070d955db932",
+      "name": "Schedule Trigger2",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -2800,
+        3940
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "messages-api",
+        "instanceName": "Sofia",
+        "remoteJid": "=",
+        "messageText": "={{ $json.output }}",
+        "options_message": {}
+      },
+      "type": "n8n-nodes-evolution-api.evolutionApi",
+      "typeVersion": 1,
+      "position": [
+        -1220,
+        3900
+      ],
+      "id": "8572280d-c345-4136-a738-99ca14d32534",
+      "name": "Evolution API3",
+      "alwaysOutputData": false,
+      "credentials": {
+        "evolutionApi": {
+          "id": "TYMFez7AZEmuKDhe",
+          "name": "Evolution TALOS"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('Edit Fields').item.json.Telefone }}",
+        "options": {
+          "systemMessage": "=Mande: Olá, Recebi uma indicação para te apresentar nosso sistema de WhatsApp com Inteligência Artificial advogados. Podemos conversar rapidinho?\n\n\nabaixo vou te mandar o nome completo da pessoa e um exemplo de mensagem, mas quero que chame a pessoa somente pelo primeiro nome, me de a resposta pronta para ser enviada sem dicas de uso ou informações extras, somente o resultado, pois será enviada via automação  \n\nCaso não tenha um nome \nmande: Olá! Recebi uma indicação para te apresentar nosso sistema de WhatsApp com Inteligência Artificial advogados. Podemos conversar rapidinho?"
+        }
+      },
+      "id": "088f6384-b7f7-4337-a65a-e71238f0b945",
+      "name": "Atendente3",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.6,
+      "position": [
+        -1720,
+        3900
+      ],
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4o-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -1220,
+        4260
+      ],
+      "id": "3aac3fb1-6a5b-48ff-8546-c1d82a5fe031",
+      "name": "OpenAI Chat Model2",
+      "credentials": {
+        "openAiApi": {
+          "id": "MgUovUkOF1DLLH9r",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "tableId": "dados_cliente",
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "telefone",
+              "keyValue": "={{ $json.Telefone }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        -2040,
+        3940
+      ],
+      "id": "9a22174e-059f-4a25-b6af-20221cf7ddf7",
+      "name": "Supabase5",
+      "alwaysOutputData": true,
+      "executeOnce": true,
+      "credentials": {
+        "supabaseApi": {
+          "id": "m8vT3bvqCzb9bDkp",
+          "name": "Supabase SKYNET"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "tel",
+        "include": "allOtherFields",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        -2340,
+        3940
+      ],
+      "id": "f12d65c7-5c2a-42ff-bbb4-529f823f6e6a",
+      "name": "Split Out"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "cd601975-720a-4b8a-b7e7-1d3fc6f60ed7",
+              "name": "Telefone",
+              "value": "={{ $json.tel }}@s.whatsapp.net",
+              "type": "string"
+            },
+            {
+              "id": "491628f2-4e11-445f-b40a-209579b8a6c4",
+              "name": "Nome",
+              "value": "={{ $json.name }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -2180,
+        3940
+      ],
+      "id": "34dd2906-4a17-4100-953f-f8dc845f78b2",
+      "name": "Edit Fields"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": {
+    "node:Schedule Trigger2": {
+      "recurrenceRules": []
+    }
+  },
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-05-08T16:21:58.073Z",
+  "versionId": "a9050cdb-2779-47ec-a645-393a6d9262b4"
+}
