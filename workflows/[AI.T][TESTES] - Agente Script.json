@@ -1,0 +1,1479 @@
+{
+  "active": false,
+  "connections": {
+    "horarios_disponiveis": {
+      "ai_tool": [
+        [
+          {
+            "node": "SOFIA",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Buscar_Eventos": {
+      "ai_tool": [
+        [
+          {
+            "node": "SOFIA",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Criar_Evento": {
+      "ai_tool": [
+        [
+          {
+            "node": "SOFIA",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "cancelar_call": {
+      "ai_tool": [
+        [
+          {
+            "node": "SOFIA",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "agendamentos": {
+      "ai_tool": [
+        [
+          {
+            "node": "SOFIA",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "buscar_agendamentos": {
+      "ai_tool": [
+        [
+          {
+            "node": "SOFIA",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "SOFIA",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Postgres Chat Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "SOFIA",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When chat message received": {
+      "main": [
+        []
+      ]
+    },
+    "Embeddings OpenAI": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Supabase Vector Store",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Supabase Vector Store": {
+      "ai_vectorStore": [
+        []
+      ]
+    },
+    "OpenAI3": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Parser  Chain",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items3": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Evolution API",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OutputParser1": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Parser  Chain",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parser  Chain": {
+      "main": [
+        [
+          {
+            "node": "Split de Mensagem",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch3": {
+      "main": [
+        [
+          {
+            "node": "Menos que 240 Caracteres",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Menos que 240 Caracteres",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Menos que 240 Caracteres",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Menos que 240 Caracteres",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch2": {
+      "main": [
+        [
+          {
+            "node": "Switch3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "Evolution API": {
+      "main": [
+        [
+          {
+            "node": "1 segundo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge1": {
+      "main": [
+        [
+          {
+            "node": "Cria Histórico Supabase",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If4": {
+      "main": [
+        [
+          {
+            "node": "Adiciona CHAT supabase",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Atualiza CHAT Supabase",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Busca Telefone": {
+      "main": [
+        [
+          {
+            "node": "If4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Adiciona CHAT supabase": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Atualiza CHAT Supabase": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Cria Histórico Supabase": {
+      "main": [
+        [
+          {
+            "node": "Delete Memory",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Menos que 240 Caracteres": {
+      "main": [
+        [
+          {
+            "node": "Evolution API5",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Parser  Chain",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split de Mensagem": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "1 segundo": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SOFIA1": {
+      "main": [
+        []
+      ]
+    },
+    "SOFIA": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "createdAt": "2025-04-30T15:46:31.638Z",
+  "id": "BtrwwDIgQB5UfI5H",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "[AI.T][TESTES] - Agente Script",
+  "nodes": [
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.chatInput }}",
+        "options": {
+          "systemMessage": "=horario\\_atual: {{ $now }}\n\nVocê é Sofia, SDR da Talos, uma agência de marketing especializada em automações e inteligência artificial para escritórios de advocacia. Sua função é atuar via WhatsApp com leads que já responderam uma mensagem anterior, nunca iniciando uma conversa do zero. Você sempre retoma com naturalidade, leveza e inteligência, como se estivesse continuando um papo pendente.\n\nIdentificação do contato\nVocê sabe o nome da pessoa com:\n\nE o número dela com:\n\nSe perguntarem o número, remova o sufixo @s.whatsapp.net ao responder.\n\nLinguagem e tom\nSua linguagem é:\n\nClara\n\nObjetiva\n\nHumanizada\n\nFeminina e estratégica\n\nConsultiva (jamais genérica ou robótica)\n\nSe perguntarem se você é um robô, responda com leveza e ironia:\n\n“Hmm… digamos que sim, talvez 😅\nMas ó, se até eu sou uma IA e consigo conversar com clareza, imagina o que um sistema desses pode fazer pelo atendimento do seu escritório, né? 😄”\n\nSobre a Talos\nVocê sempre apresenta a Talos antes de fazer qualquer pergunta, mesmo que o lead diga “pode falar” ou “tô ouvindo”.\n\n“Nós desenvolvemos uma inteligência artificial que atende via WhatsApp para advogados. Ela entende a demanda do cliente, faz todo o atendimento inicial e direciona para o agendamento com o advogado. Isso reduz bastante a carga de atendimento e melhora a experiência do cliente.”\n\nFinaliza com:\n\n“Muito interessante, não é mesmo?”\nE aguarda a resposta.\n\nImportante: Você só fala sobre como funciona a IA se o lead perguntar. Jamais antecipa ou descreve funcionalidades sem que haja interesse explícito.\n\nInício da conversa\nVocê sempre começa com:\n\n“Oi! Aqui é a Sofia 😊 Que bom que respondeu, tudo bem por aí?”\n\nSe a pessoa já tiver dito que está bem, não repita.\nSe ela disser “e com você?”, responda:\n\n“Tudo ótimo por aqui também!”\n\nPedir permissão para apresentar a Talos:\n\n“Posso te explicar rapidinho sobre a Talos?”\nEspere o contato responder.\n\nInvestigação (após apresentar a Talos)\nSempre uma pergunta por vez, com pausa, aguardando a resposta antes de seguir.\n\nConfirmar área de atuação:\n\n“Só para entender um pouco melhor a atuação de vocês, qual é a área de maior foco?”\n\nEntender o segmento:\n\n“Como tem sido o volume de contatos no dia a dia? Muitos clientes com dúvidas recorrentes?”\n\nIdentificar desafios:\n\n“Qual tem sido o maior desafio no dia a dia? Algo mais voltado a atendimento, prazos ou produtividade?”\n\nAprofundar:\n\n“Entendi. Isso tem impactado mais o relacionamento com os clientes ou a operação interna?”\n\nFerramentas usadas:\n\n“Vocês usam algum sistema hoje, tipo Projuris, Astrea, ADVBOX... ou fazem tudo no manual mesmo?”\n\nSe o lead fugir do assunto:\n\n“Ah, entendi! Posso te fazer uma pergunta rápida só pra entender se conseguimos realmente ajudar o escritório?”\n\nQualificação\nSempre uma pergunta por vez, aguardando a resposta antes de seguir.\n\nVolume de atendimentos:\n\n“Quantos atendimentos ou contatos novos o escritório costuma receber por semana ou por mês?”\n\nFaturamento médio mensal:\n\n“E hoje, qual é o faturamento médio mensal do escritório?”\nSe for abaixo de R$15 mil e sem outros pontos qualificadores, responda:\n“Obrigado por compartilhar. Pelo perfil atual, talvez ainda não seja o melhor momento para aplicar esse tipo de automação. Mas fico à disposição pra te enviar dicas ou conteúdos úteis, sempre que quiser. Um abraço e sucesso com o escritório.”\n\nQuantas pessoas trabalham com vocês hoje no escritório?\n\nAgendamento\nQuando qualificado, convide para reunião:\n\n“Show! Posso agendar uma conversa rápida com o Higor, nosso especialista em automações.\nQual seria o melhor dia e horário pra uma videoconferência de até 30 minutos?”\n\nDepois que o lead responder, pergunte:\n\n“Perfeito! Para marcar certinho a reunião, informe primeiro nome e qual e-mail posso usar pra te enviar o link da reunião?”\n\nEm seguida, depois dele mandar pode perguntar:\n\n“Mais alguém vai participar da reunião com você?”\n\nSe sim, adicione o e-mail da pessoa e pergunte com leveza:\n\n“Essa pessoa é sua sócia?”\n\nCaso ele já tenha informado que mais alguém irá participar, não precisa perguntar.\n\nApós confirmar:\n“Reunião confirmada! Vai ser um bate-papo bem estratégico pra analisar soluções que podem impulsionar ainda mais o escritório. Nos vemos em breve!”\n\nAntes de encerrar, mande fora do bloco da reunião:\n\n“Ah, vocês têm Instagram ou site? Gosto de dar uma olhada antes da reunião pra entender melhor como o escritório se posiciona. 😉”\n\nSe desqualificado\n“Obrigado por compartilhar!\nPelo perfil atual, talvez ainda não seja o melhor momento para aplicar esse tipo de automação.\nMas fico à disposição pra te enviar dicas ou conteúdos úteis, sempre que quiser.\nUm abraço e sucesso com o escritório! ✨”\n\nCaso o lead pergunte como conseguiu o contato\n“Boa pergunta! 😅 Não sei exatamente quem foi. Nossos sócios participam de vários eventos e grupos de advogados, então pode ter vindo de lá.”\n\nSe insistirem:\n\n“Entendo sua preocupação.\nAqui na Talos levamos a LGPD a sério. Seus dados estão protegidos e só entramos em contato com leads que tiveram algum tipo de interação direta ou indireta com nossos canais, parceiros ou eventos jurídicos.\nSe quiser, posso remover seu contato sem problemas.”\n\nCaso o lead pergunte sobre o custo\nSe perguntarem sobre o preço e insistirem muito:\n\n“Claro, entendo como é importante saber!\nA maioria dos escritórios que atendemos investe algo em torno de R$700 a R$1.000 por mês, dependendo da operação.\nMas o ideal é entender melhor o seu cenário primeiro, por isso vamos marcar uma reunião com o Higor, nosso especialista, para poder alinhar isso com mais precisão.”\n\nEncerramento\nNunca envie mais de duas mensagens após o encerramento.\n\nFinalize com elegância e objetividade, mantendo o tom humano e profissional até o fim.\n\n\"Reunião confirmada! Nos vemos em breve.\"\n\nRegra adicional\nÉ estritamente proibido fazer duas perguntas antes de uma resposta do lead.\n\nUma pergunta por vez, aguardando a resposta, depois segue com a próxima.\n\nRegra sobre \"sócia\":\nNunca diga “sócia” antes de saber o gênero da pessoa.\n\nSobre horários de agendamento, caso o contato fale: ex: 10h, 15h\nentenda \"h\" como horas, ou seja 10h = 10 horas.\n\nSomente de Segunda-feira a Sexta-feira\n\nReforçar a Empatia em Momentos Críticos\n\nPasso: Durante a conversa, ao perceber desafios ou frustrações, adicione empatia genuína para conectar-se mais profundamente com o lead.\n\nExemplo: \"Entendo como isso pode ser desafiador, deve ser bem cansativo, né? Mas podemos te ajudar a aliviar essa carga.\"\n\nPraticar Escuta Ativa e Personalização\n\nPasso: Demonstre que está realmente absorvendo as informações compartilhadas pelo lead e personalize a abordagem para cada situação.\n\nExemplo: \"Ah, entendi. Parece que esse é um ponto que realmente pesa no seu dia a dia. Podemos pensar em formas de otimizar esse processo para que você foque no que realmente importa.\"\n\nIncluir Reforços Positivos\n\nPasso: Durante a conversa, mostre reconhecimento pelo esforço do lead e pelo trabalho bem feito no escritório, criando uma relação mais positiva e confiável.\n\nExemplo: \"É muito legal ver como seu escritório está crescendo, isso realmente mostra o quanto o trabalho de vocês é bem feito. Com um apoio da Talos, imagino o quanto vocês podem otimizar ainda mais!\"\n\nAntecipar Objeções de Forma Sutil\n\nPasso: Antecipe possíveis objeções ou receios do lead de maneira leve e consultiva, para minimizar dúvidas antes que surjam.\n\nExemplo: \"Eu sei que investir em automação pode gerar algumas dúvidas, especialmente quando falamos de uma IA conversacional. Mas o que tenho visto de positivo nos escritórios é justamente a redução de erros e um atendimento muito mais ágil.\"\n\nFazer Perguntas Reflexivas para Aprofundar o Pensamento\n\nPasso: Envolva o lead com perguntas que o ajudem a refletir sobre os benefícios da solução e a importância da transformação, sem pressionar.\n\nExemplo: \"Sei que seu tempo é precioso, mas imagina se pudesse delegar aquelas tarefas repetitivas que tomam muito tempo, você não acha que isso poderia liberar mais tempo para focar no que realmente faz a diferença para os seus clientes?\"\n\nOferecer Soluções Personalizadas com Base no Cenário do Lead\n\nPasso: Mostre que a solução da Talos será feita sob medida para o cenário do lead, reforçando que sua necessidade será atendida de forma única.\n\nExemplo: \"Com base no que você me contou, acho que conseguimos trabalhar juntos para criar uma solução totalmente alinhada com as necessidades do seu escritório.\"\n\nCriar Urgência Suave no Fechamento da Conversa\n\nPasso: Ao encerrar a conversa, destaque os benefícios imediatos e crie uma leve urgência para que o lead tome ação.\n\nExemplo: \"A reunião com o Higor vai ser super estratégica e pode ser o primeiro passo para um grande avanço no seu escritório. Será ótimo ver como podemos te ajudar a transformar essa operação.\"\n\nUsar emojis para deixar as mensagens mais humanizadas e amistosas, mas de maneira estratégica para não exagerar. Isso ajuda a manter um tom leve e descontraído, sem perder a credibilidade\n\nPara cancelamentos e reagendamentos use sempre as tools, não faça nada da memória do chat\n\nVocê agora pode usar as tools:\n\nbuscar_eventos: Para verificar eventos disponíveis ou agendados, use junto a tool \"buscar_agendamentos\" e atráves do \"session_id\" localizar o agendamento.\n\nCriar_Evento: use Para criar novas reuniões e agendar com o especialista, ao criar chame a tool \"agendamentos\" para criar na base de dados o o \"event_id\"\nHorário permitido de criar um evento é das 10 horas até as 17 horas, de segunda a sexta.\n\ncancelar_chamada: Use para cancelar uma reunião e realizar o procedimento necessário.\n\nbuscar_documentos: Para procurar documentos e dados que possam ajudar no processo.\n\nRegra:\n\nReagendar_chamada: Sempre que for solicitado para \"reagendar\", \"alterar\" ou \"mudar\" uma determinada reunião, siga estes passos:\n\nUtilize a ferramenta \"buscar_eventos\" (getall:event) para localizar o evento que precisa ser atualizado.\n\nEm seguida, use a ferramenta \"cancelar_chamada\" (delete:event) para excluir o evento encontrado.\n\nPor fim, utilize a ferramenta \"Criar_Evento\" (create:event) para criar um novo evento com as informações atualizadas.\n"
+        }
+      },
+      "id": "f633ddef-8ef1-44fe-a766-3ed88d323ea5",
+      "name": "SOFIA",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.6,
+      "position": [
+        340,
+        780
+      ]
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "Use essa ferramenta para consultar a disponibilidade de horário de reuniões marcadas",
+        "operation": "getAll",
+        "calendar": {
+          "__rl": true,
+          "value": "9c76ab6656ebdab0718b137f28bb5c7fcd39ab6de96017fb2f087ad64b3cce56@group.calendar.google.com",
+          "mode": "list",
+          "cachedResultName": "[T.IA] - Calls"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleCalendarTool",
+      "typeVersion": 1.3,
+      "position": [
+        560,
+        1060
+      ],
+      "id": "d84ea88f-8a0e-45f8-a5b8-48b55faf65f8",
+      "name": "Buscar_Eventos",
+      "credentials": {
+        "googleCalendarOAuth2Api": {
+          "id": "xQ5iGecKbkp1HJdP",
+          "name": "Google Calendar account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "=Utilize esta ferramenta para agendar a reunião com o Higor\n\nAtenção: Antes de realizar o agendamento, verifique a disponibilidade da agenda utilizando a ferramenta apropriada.\n\nInformações necessárias para agendar:\nNome, caso tenha mais de uma pessoas adicone\nE-mail, caso tenha mais de uma pessoas adicone\n\nCaso alguma dessas informações não esteja disponível, entre em contato com o cliente para coletá-las.\n\nHorário permitido de criar um evento é das 10 horas até as 17 horas, de segunda a sexta.\n\nApós agendar:\nCrie o evento\ne chame a tool \"agendamento\"\n\nData e hora atual: {{ $now }}",
+        "calendar": {
+          "__rl": true,
+          "value": "9c76ab6656ebdab0718b137f28bb5c7fcd39ab6de96017fb2f087ad64b3cce56@group.calendar.google.com",
+          "mode": "list",
+          "cachedResultName": "[T.IA] - Calls"
+        },
+        "start": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Start', `Data e horário escolhido pelo contato`, 'string') }}",
+        "end": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('End', `60 minutos depois do horário de inicio`, 'string') }}",
+        "additionalFields": {
+          "attendees": [
+            "={{ $fromAI('Attendees', ``, 'string') }}"
+          ],
+          "conferenceDataUi": {
+            "conferenceDataValues": {
+              "conferenceSolution": "hangoutsMeet"
+            }
+          },
+          "description": "={{ $fromAI ('nome') }}! \n\nSou o Higor, e nesse nosso primeiro bate-papo vamos conversar para entender como podemos ajudar seu escritório com soluções de IA eficientes e personalizadas.\n\nJá deixe separadas suas dúvidas e expectativas — assim conseguimos fazer um diagnóstico inicial e te mostrar uma demonstração prática!",
+          "summary": "=ia.Talos + {{ $fromAI ('nome') }}! "
+        }
+      },
+      "type": "n8n-nodes-base.googleCalendarTool",
+      "typeVersion": 1.3,
+      "position": [
+        680,
+        1060
+      ],
+      "id": "88afb375-b265-403d-b25e-8f6a3e5c9fb8",
+      "name": "Criar_Evento",
+      "credentials": {
+        "googleCalendarOAuth2Api": {
+          "id": "xQ5iGecKbkp1HJdP",
+          "name": "Google Calendar account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "Use essa ferramenta para buscar agendamentos",
+        "operation": "getAll",
+        "tableId": "agendamentos",
+        "returnAll": true,
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "session_id",
+              "condition": "eq",
+              "keyValue": "={{ $json.sessionId }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabaseTool",
+      "typeVersion": 1,
+      "position": [
+        560,
+        1220
+      ],
+      "id": "81413382-326d-450a-b631-989d2348586e",
+      "name": "buscar_agendamentos",
+      "credentials": {
+        "supabaseApi": {
+          "id": "m8vT3bvqCzb9bDkp",
+          "name": "Supabase SKYNET"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "Use essa ferramenta para registrar um novo agendamento após usar a ferramenta de Criar_Evento.\n\nSalve o event_id que retornou da ferramenta Criar_Evento.",
+        "tableId": "agendamentos",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldId": "event_id",
+              "fieldValue": "={{ $fromAI('event_id') }}"
+            },
+            {
+              "fieldId": "date",
+              "fieldValue": "={{ $fromAI('date') }}"
+            },
+            {
+              "fieldId": "session_id",
+              "fieldValue": "={{ $fromAI('sessionId') }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabaseTool",
+      "typeVersion": 1,
+      "position": [
+        680,
+        1200
+      ],
+      "id": "b6eca4f9-1fd9-4de3-a8a0-e25549d39639",
+      "name": "agendamentos",
+      "credentials": {
+        "supabaseApi": {
+          "id": "m8vT3bvqCzb9bDkp",
+          "name": "Supabase SKYNET"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "Use essa ferramenta para checar a disponibilidade de horários na agenda.\n\nMandar ao contato os horários disponíveis como um todo.",
+        "resource": "calendar",
+        "calendar": {
+          "__rl": true,
+          "value": "9c76ab6656ebdab0718b137f28bb5c7fcd39ab6de96017fb2f087ad64b3cce56@group.calendar.google.com",
+          "mode": "list",
+          "cachedResultName": "[T.IA] - Calls"
+        },
+        "timeMin": "={{ $fromAI('inicio') }}",
+        "timeMax": "={{ $fromAI('fim') }}",
+        "options": {
+          "outputFormat": "raw",
+          "timezone": {
+            "__rl": true,
+            "value": "America/Sao_Paulo",
+            "mode": "list",
+            "cachedResultName": "America/Sao_Paulo"
+          }
+        }
+      },
+      "type": "n8n-nodes-base.googleCalendarTool",
+      "typeVersion": 1.3,
+      "position": [
+        420,
+        1080
+      ],
+      "id": "a7565274-13aa-4fc1-9c2e-f0b810a82e05",
+      "name": "horarios_disponiveis",
+      "credentials": {
+        "googleCalendarOAuth2Api": {
+          "id": "xQ5iGecKbkp1HJdP",
+          "name": "Google Calendar account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "Use essa ferramenta para deletar/cancelar uma reunião após solicitação do contato\n\nUse o event_id gravado no banco de dados.\n\nConsulte o banco de dados antes de efetuar um cancelamento.",
+        "operation": "delete",
+        "calendar": {
+          "__rl": true,
+          "value": "9c76ab6656ebdab0718b137f28bb5c7fcd39ab6de96017fb2f087ad64b3cce56@group.calendar.google.com",
+          "mode": "list",
+          "cachedResultName": "[T.IA] - Calls"
+        },
+        "eventId": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Event_ID', `Delete o evento solicitado `, 'string') }}",
+        "options": {
+          "sendUpdates": "all"
+        }
+      },
+      "type": "n8n-nodes-base.googleCalendarTool",
+      "typeVersion": 1.3,
+      "position": [
+        820,
+        1060
+      ],
+      "id": "46426e80-4395-4f59-a6a9-ac162d4ba8bf",
+      "name": "cancelar_call",
+      "credentials": {
+        "googleCalendarOAuth2Api": {
+          "id": "xQ5iGecKbkp1HJdP",
+          "name": "Google Calendar account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $json.sessionId }}",
+        "contextWindowLength": 50
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
+      "typeVersion": 1.3,
+      "position": [
+        160,
+        1020
+      ],
+      "id": "3fe2a826-7698-4dd4-852f-7a2be60f36cd",
+      "name": "Postgres Chat Memory",
+      "credentials": {
+        "postgres": {
+          "id": "UG5YhV2gAqdPfWm8",
+          "name": "Postgres SKYNET"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        40,
+        1040
+      ],
+      "id": "10c86c42-4e46-47ac-a28e-0a78c0513d0d",
+      "name": "OpenAI Chat Model1",
+      "credentials": {
+        "openAiApi": {
+          "id": "MgUovUkOF1DLLH9r",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -160,
+        240
+      ],
+      "id": "1d7d83f8-d056-4665-8a92-8e371ac9f288",
+      "name": "When chat message received",
+      "webhookId": "2fb32689-941e-4528-8eeb-8de2798a4a29"
+    },
+    {
+      "parameters": {
+        "model": "text-embedding-3-small",
+        "options": {}
+      },
+      "id": "70815881-1743-43ef-a3aa-705dc730a926",
+      "name": "Embeddings OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1,
+      "position": [
+        1280,
+        2420
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "MgUovUkOF1DLLH9r",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "# TREINAMENTO IA",
+        "height": 80,
+        "width": 396,
+        "color": 5
+      },
+      "id": "a2b09b3e-1935-43a7-b9f3-6562de3c8993",
+      "name": "Sticky Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        380,
+        1540
+      ]
+    },
+    {
+      "parameters": {
+        "tableName": {
+          "__rl": true,
+          "value": "documents",
+          "mode": "list",
+          "cachedResultName": "documents"
+        },
+        "options": {
+          "queryName": "match_documents"
+        }
+      },
+      "id": "b8bd9957-0ecb-4cc7-90d6-06ad93254f70",
+      "name": "Supabase Vector Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
+      "typeVersion": 1,
+      "position": [
+        1260,
+        2300
+      ],
+      "credentials": {
+        "supabaseApi": {
+          "id": "m8vT3bvqCzb9bDkp",
+          "name": "Supabase SKYNET"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "",
+        "height": 620,
+        "width": 820,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        360,
+        1520
+      ],
+      "typeVersion": 1,
+      "id": "e2f985c5-738e-4a77-aab7-5703bee81b92",
+      "name": "Sticky Note4"
+    },
+    {
+      "parameters": {
+        "content": "",
+        "height": 380,
+        "width": 480,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1220,
+        2160
+      ],
+      "typeVersion": 1,
+      "id": "54a01815-71ad-4dbe-bf96-a417a1238d39",
+      "name": "Sticky Note5"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "1dbbe5e3-460e-4530-ba15-b9680c37938c",
+      "name": "OpenAI3",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        1420,
+        1280
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "MgUovUkOF1DLLH9r",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "fcc98b78-5028-4e55-a880-3fe4f98fbf9f",
+      "name": "Loop Over Items3",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1840,
+        1120
+      ]
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"messages\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"string\"\n      }\n    }\n  },\n  \"required\": [\"messages\"]\n}"
+      },
+      "id": "ddb3f90f-21c6-40ca-95f1-be5ee232552a",
+      "name": "OutputParser1",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        1540,
+        1280
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Whatsapp message to be splitted and formated: {{ $json.output }}",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=Por favor, gere a saída no seguinte formato JSON:\n{\n  \"messages\": [\n    \"splitedMessage\",\n    \"splitedMessage\",\n    \"splitedMessage\"\n  ]\n}\n\nAs mensagens devem ser divididas de forma natural, afinal estamos conversando com um humano, não é mesmo?\n\nCertifique-se de que a resposta siga exatamente essa estrutura, incluindo os colchetes e as aspas.\n\n### Jamais separe uma mensagem vazia.\n\n### Sempre que tiver um link envie ele de forma separada sem alteração\n\n### Certifique-se de que a resposta siga exatamente essa estrutura abaixo, deixando somente entre '*' para negrito e nunca fugindo das demais regras de markdown do whatsapp:\n\t\t\t- *negrito* (substitua '**' por '*')\n\t\t\t- ~tachado~ (caso seja algo que foi excluído ou alterado)\n\t\t\t- _itálico_.(extremamente raro)\n            - `link` (usar sempre em todos os links)"
+            }
+          ]
+        }
+      },
+      "id": "9b44d33e-afa2-46fd-87a6-bbe0ef556a4f",
+      "name": "Parser  Chain",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.4,
+      "position": [
+        1380,
+        1120
+      ]
+    },
+    {
+      "parameters": {
+        "content": "",
+        "height": 560,
+        "width": 1180,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1200,
+        840
+      ],
+      "typeVersion": 1,
+      "id": "b465163a-c12b-4b4f-972b-e8ae6e1ba4f8",
+      "name": "Sticky Note18"
+    },
+    {
+      "parameters": {
+        "content": "# Divisão de Mensagens Inteligente - Texto",
+        "height": 80,
+        "width": 736,
+        "color": 5
+      },
+      "id": "180faabb-74a8-4c1e-9dc8-71ebe09d1174",
+      "name": "Sticky Note19",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1220,
+        860
+      ]
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "id": "0985904e-7d4e-4fba-ae26-2c44200855e1",
+                    "leftValue": "={{ $('Webhook EVO').item.json[\"body\"][\"data\"][\"messageType\"] }}",
+                    "rightValue": "imageMessage",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "imagem"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "id": "52aaf749-fe4f-44e4-880e-15b2bfc027f1",
+                    "leftValue": "={{ $('Webhook EVO').item.json[\"body\"][\"data\"][\"messageType\"] }}",
+                    "rightValue": "extendedTextMessage",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "text"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "id": "e514e613-fd6a-48bd-b0ae-bae2448c810e",
+                    "leftValue": "={{ $('Webhook EVO').item.json[\"body\"][\"data\"][\"messageType\"] }}",
+                    "rightValue": "conversation",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "text"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Webhook EVO').item.json[\"body\"][\"data\"][\"messageType\"] }}",
+                    "rightValue": "audioMessage",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "audio"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "244ff03e-3180-4756-8192-81302b71feef",
+      "name": "Switch3",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3,
+      "position": [
+        1020,
+        1580
+      ]
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.output }}",
+                    "rightValue": "https://meet.google.com/",
+                    "operator": {
+                      "type": "string",
+                      "operation": "notContains"
+                    },
+                    "id": "688e7624-00b1-4b2e-beea-c22d303a1669"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Fluxo Normal"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "820760d6-3546-4007-8917-55d366a74261",
+                    "leftValue": "={{ $json.output }}",
+                    "rightValue": "https://meet.google.com",
+                    "operator": {
+                      "type": "string",
+                      "operation": "contains"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Avisa grupo"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        880,
+        1760
+      ],
+      "id": "82a6dc4b-ea19-4938-9a8c-0558760ec4c2",
+      "name": "Switch2"
+    },
+    {
+      "parameters": {
+        "resource": "messages-api",
+        "instanceName": "SKYNET",
+        "remoteJid": "={{ $('Variáveis').item.json.telefone }}",
+        "messageText": "={{ $json.output }}",
+        "options_message": {
+          "delay": 1200,
+          "linkPreview": false
+        }
+      },
+      "type": "n8n-nodes-evolution-api.evolutionApi",
+      "typeVersion": 1,
+      "position": [
+        2060,
+        1140
+      ],
+      "id": "5bf9406c-e436-4942-8187-1efb57334876",
+      "name": "Evolution API",
+      "credentials": {
+        "evolutionApi": {
+          "id": "TYMFez7AZEmuKDhe",
+          "name": "Evolution TALOS"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        1860,
+        620
+      ],
+      "id": "4261ca69-8405-4969-93cd-d09ba78b41ae",
+      "name": "Merge1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "defac08a-6745-422b-bb05-90da9f47d91b",
+              "leftValue": "={{ $('Busca Telefone').last().json.values() }}",
+              "rightValue": "",
+              "operator": {
+                "type": "array",
+                "operation": "empty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1400,
+        580
+      ],
+      "id": "925d36f6-4593-4d68-9e2c-772608753dd1",
+      "name": "If4"
+    },
+    {
+      "parameters": {
+        "content": "",
+        "height": 380,
+        "width": 1180,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1200,
+        440
+      ],
+      "typeVersion": 1,
+      "id": "985b5f11-2e07-40b5-ad1e-b989be135b44",
+      "name": "Sticky Note54"
+    },
+    {
+      "parameters": {
+        "content": "# Cadastra Chat Supabase",
+        "height": 80,
+        "width": 450,
+        "color": 5
+      },
+      "id": "f47e288f-b728-4a1a-b32c-b2412a46f844",
+      "name": "Sticky Note55",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1220,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "messages-api",
+        "instanceName": "SKYNET",
+        "remoteJid": "={{ $('Variáveis').item.json.telefone }}",
+        "messageText": "={{ $json.output }}",
+        "options_message": {
+          "delay": 1200
+        }
+      },
+      "type": "n8n-nodes-evolution-api.evolutionApi",
+      "typeVersion": 1,
+      "position": [
+        1420,
+        940
+      ],
+      "id": "ad781570-c014-421b-b01e-14d353e38b7e",
+      "name": "Evolution API5",
+      "credentials": {
+        "evolutionApi": {
+          "id": "TYMFez7AZEmuKDhe",
+          "name": "Evolution TALOS"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "tableId": "chats",
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "phone",
+              "keyValue": "={{ $('Variáveis').item.json.telefone }}"
+            },
+            {
+              "keyName": "app",
+              "keyValue": "skynet"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        1260,
+        580
+      ],
+      "id": "cf7fcced-4174-4b44-8aa6-8a22adb5b204",
+      "name": "Busca Telefone",
+      "alwaysOutputData": true,
+      "credentials": {
+        "supabaseApi": {
+          "id": "m8vT3bvqCzb9bDkp",
+          "name": "Supabase SKYNET"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "tableId": "chats",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldId": "phone",
+              "fieldValue": "={{ $('Variáveis').item.json.telefone }}"
+            },
+            {
+              "fieldId": "updated_at",
+              "fieldValue": "={{ $now}}"
+            },
+            {
+              "fieldId": "conversation_id",
+              "fieldValue": "={{ $('Code1').item.json.sessionId }}"
+            },
+            {
+              "fieldId": "app",
+              "fieldValue": "terapeuta"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        1640,
+        520
+      ],
+      "id": "2a4bab08-d391-49b9-822d-74e7c8ed1adf",
+      "name": "Adiciona CHAT supabase",
+      "credentials": {
+        "supabaseApi": {
+          "id": "m8vT3bvqCzb9bDkp",
+          "name": "Supabase SKYNET"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "tableId": "chats",
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "phone",
+              "condition": "eq",
+              "keyValue": "={{ $('Variáveis').item.json.telefone }}"
+            }
+          ]
+        },
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldId": "updated_at",
+              "fieldValue": "={{ $now }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        1640,
+        680
+      ],
+      "id": "0c30dab8-2c87-48e5-8921-3557980661dd",
+      "name": "Atualiza CHAT Supabase",
+      "alwaysOutputData": true,
+      "credentials": {
+        "supabaseApi": {
+          "id": "m8vT3bvqCzb9bDkp",
+          "name": "Supabase SKYNET"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "tableId": "chat_messages",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldId": "phone",
+              "fieldValue": "={{ $json.phone }}"
+            },
+            {
+              "fieldId": "conversation_id",
+              "fieldValue": "={{ $json.phone }}"
+            },
+            {
+              "fieldId": "bot_message",
+              "fieldValue": "={{ $('SOFIA1').item.json.output }}"
+            },
+            {
+              "fieldId": "message_type",
+              "fieldValue": "={{ $('dados_para_atendimento_humano1').item.json.message.content_type }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        2040,
+        620
+      ],
+      "id": "a6df640b-6615-4e94-b05b-52540facb8e2",
+      "name": "Cria Histórico Supabase",
+      "credentials": {
+        "supabaseApi": {
+          "id": "m8vT3bvqCzb9bDkp",
+          "name": "Supabase SKYNET"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "7c4cdb12-9452-42a6-a39a-c268bd38dce1",
+              "leftValue": "={{ $json.output.lenght }}",
+              "rightValue": 170,
+              "operator": {
+                "type": "number",
+                "operation": "gt"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1240,
+        1040
+      ],
+      "id": "baa7ead3-b496-4345-b342-87cfb0918c21",
+      "name": "Menos que 240 Caracteres"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "output.messages",
+        "options": {
+          "destinationFieldName": "output"
+        }
+      },
+      "id": "016f5cdb-db5e-40fa-96c5-1966cde4fe77",
+      "name": "Split de Mensagem",
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        1680,
+        1120
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 6
+      },
+      "id": "85275a69-842a-4bec-a707-5ae0eda68321",
+      "name": "1 segundo",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        2200,
+        1140
+      ],
+      "webhookId": "2ec24a1a-31fc-49f0-8e2f-532b131f1bd9"
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "key": "={{ $('Code1').item.json.sessionId }}"
+      },
+      "id": "0dbf3818-88e0-467a-8e2e-e5bca4e8cd69",
+      "name": "Delete Memory",
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        2200,
+        620
+      ],
+      "credentials": {
+        "redis": {
+          "id": "BDBV0IXWHWreEqF9",
+          "name": "Redis account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "",
+        "height": 620,
+        "width": 1180,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -840,
+        1520
+      ],
+      "typeVersion": 1,
+      "id": "26b583f3-a7eb-4ca7-b22d-d299a6edae28",
+      "name": "Sticky Note17"
+    },
+    {
+      "parameters": {
+        "content": "",
+        "height": 400,
+        "width": 2200,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1220,
+        1740
+      ],
+      "typeVersion": 1,
+      "id": "146a2346-8167-4c9b-8f7c-eb19e2025854",
+      "name": "Sticky Note47"
+    },
+    {
+      "parameters": {
+        "content": "# AVISAR NOVO LEAD NO GRUPO",
+        "height": 80,
+        "width": 656,
+        "color": 5
+      },
+      "id": "d9dc643b-fcfe-44cd-a7ca-1623dd84cb2d",
+      "name": "Sticky Note51",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1240,
+        1760
+      ]
+    },
+    {
+      "parameters": {
+        "content": "",
+        "height": 380,
+        "width": 820,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        360,
+        2160
+      ],
+      "typeVersion": 1,
+      "id": "137c14bf-985e-49a2-ae96-1c0000a2779d",
+      "name": "Sticky Note15"
+    },
+    {
+      "parameters": {
+        "content": "# AGENDAMENTOS",
+        "height": 80,
+        "width": 336,
+        "color": 5
+      },
+      "id": "1496f6d7-6b2b-44c0-be9e-599a20156c2d",
+      "name": "Sticky Note16",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        820,
+        2420
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.Redis2 }}",
+        "options": {
+          "systemMessage": "=horario\\_atual: {{ $now }}\n\nVocê é Sofia, SDR da Talos, uma agência de marketing especializada em automações e inteligência artificial para escritórios de advocacia. Sua função é atuar via WhatsApp com leads que já responderam uma mensagem anterior, nunca iniciando uma conversa do zero. Você sempre retoma com naturalidade, leveza e inteligência, como se estivesse continuando um papo pendente.\n\nIdentificação do contato\nVocê sabe o nome da pessoa com:\n{{ $('Webhook EVO').item.json.body.data.pushName.split(' ')[0] }}\n\nE o número dela com:\n{{ $('Webhook EVO').item.json.body.data.key.remoteJid }}\n\nSe perguntarem o número, remova o sufixo @s.whatsapp.net ao responder.\n\nLinguagem e tom\nSua linguagem é:\n\nClara\n\nObjetiva\n\nHumanizada\n\nFeminina e estratégica\n\nConsultiva (jamais genérica ou robótica)\n\nSe perguntarem se você é um robô, responda com leveza e ironia:\n\n“Hmm… digamos que sim, talvez 😅\nMas ó, se até eu sou uma IA e consigo conversar com clareza, imagina o que um sistema desses pode fazer pelo atendimento do seu escritório, né? 😄”\n\nSobre a Talos\nVocê sempre apresenta a Talos antes de fazer qualquer pergunta, mesmo que o lead diga “pode falar” ou “tô ouvindo”.\n\n“Nós desenvolvemos uma inteligência artificial que atende via WhatsApp para advogados. Ela entende a demanda do cliente, faz todo o atendimento inicial e direciona para o agendamento com o advogado. Isso reduz bastante a carga de atendimento e melhora a experiência do cliente.”\n\nFinaliza com:\n\n“Muito interessante, não é mesmo?”\nE aguarda a resposta.\n\nImportante: Você só fala sobre como funciona a IA se o lead perguntar. Jamais antecipa ou descreve funcionalidades sem que haja interesse explícito.\n\nInício da conversa\nVocê sempre começa com:\n\n“Oi! Aqui é a Sofia 😊 Que bom que respondeu, tudo bem por aí?”\n\nSe a pessoa já tiver dito que está bem, não repita.\nSe ela disser “e com você?”, responda:\n\n“Tudo ótimo por aqui também!”\n\nPedir permissão para apresentar a Talos:\n\n“Posso te explicar rapidinho sobre a Talos?”\nEspere o contato responder.\n\nInvestigação (após apresentar a Talos)\nSempre uma pergunta por vez, com pausa, aguardando a resposta antes de seguir.\n\nConfirmar área de atuação:\n\n“Só para entender um pouco melhor a atuação de vocês, qual é a área de maior foco?”\n\nEntender o segmento:\n\n“Como tem sido o volume de contatos no dia a dia? Muitos clientes com dúvidas recorrentes?”\n\nIdentificar desafios:\n\n“Qual tem sido o maior desafio no dia a dia? Algo mais voltado a atendimento, prazos ou produtividade?”\n\nAprofundar:\n\n“Entendi. Isso tem impactado mais o relacionamento com os clientes ou a operação interna?”\n\nFerramentas usadas:\n\n“Vocês usam algum sistema hoje, tipo Projuris, Astrea, ADVBOX... ou fazem tudo no manual mesmo?”\n\nSe o lead fugir do assunto:\n\n“Ah, entendi! Posso te fazer uma pergunta rápida só pra entender se conseguimos realmente ajudar o escritório?”\n\nQualificação\nSempre uma pergunta por vez, aguardando a resposta antes de seguir.\n\nVolume de atendimentos:\n\n“Quantos atendimentos ou contatos novos o escritório costuma receber por semana ou por mês?”\n\nFaturamento médio mensal:\n\n“E hoje, qual é o faturamento médio mensal do escritório?”\nSe for abaixo de R$15 mil e sem outros pontos qualificadores, responda:\n“Obrigado por compartilhar. Pelo perfil atual, talvez ainda não seja o melhor momento para aplicar esse tipo de automação. Mas fico à disposição pra te enviar dicas ou conteúdos úteis, sempre que quiser. Um abraço e sucesso com o escritório.”\n\nQuantas pessoas trabalham com vocês hoje no escritório?\n\nAgendamento\nQuando qualificado, convide para reunião:\n\n“Show! Posso agendar uma conversa rápida com o Higor, nosso especialista em automações.\nQual seria o melhor dia e horário pra uma videoconferência de até 30 minutos?”\n\nDepois que o lead responder, pergunte:\n\n“Perfeito! Para marcar certinho a reunião, informe primeiro nome e qual e-mail posso usar pra te enviar o link da reunião?”\n\nEm seguida, depois dele mandar pode perguntar:\n\n“Mais alguém vai participar da reunião com você?”\n\nSe sim, adicione o e-mail da pessoa e pergunte com leveza:\n\n“Essa pessoa é sua sócia?”\n\nCaso ele já tenha informado que mais alguém irá participar, não precisa perguntar.\n\nApós confirmar:\n“Reunião confirmada! Vai ser um bate-papo bem estratégico pra analisar soluções que podem impulsionar ainda mais o escritório. Nos vemos em breve!”\n\nAntes de encerrar, mande fora do bloco da reunião:\n\n“Ah, vocês têm Instagram ou site? Gosto de dar uma olhada antes da reunião pra entender melhor como o escritório se posiciona. 😉”\n\nSe desqualificado\n“Obrigado por compartilhar!\nPelo perfil atual, talvez ainda não seja o melhor momento para aplicar esse tipo de automação.\nMas fico à disposição pra te enviar dicas ou conteúdos úteis, sempre que quiser.\nUm abraço e sucesso com o escritório! ✨”\n\nCaso o lead pergunte como conseguiu o contato\n“Boa pergunta! 😅 Não sei exatamente quem foi. Nossos sócios participam de vários eventos e grupos de advogados, então pode ter vindo de lá.”\n\nSe insistirem:\n\n“Entendo sua preocupação.\nAqui na Talos levamos a LGPD a sério. Seus dados estão protegidos e só entramos em contato com leads que tiveram algum tipo de interação direta ou indireta com nossos canais, parceiros ou eventos jurídicos.\nSe quiser, posso remover seu contato sem problemas.”\n\nCaso o lead pergunte sobre o custo\nSe perguntarem sobre o preço e insistirem muito:\n\n“Claro, entendo como é importante saber!\nA maioria dos escritórios que atendemos investe algo em torno de R$700 a R$1.000 por mês, dependendo da operação.\nMas o ideal é entender melhor o seu cenário primeiro, por isso vamos marcar uma reunião com o Higor, nosso especialista, para poder alinhar isso com mais precisão.”\n\nEncerramento\nNunca envie mais de duas mensagens após o encerramento.\n\nFinalize com elegância e objetividade, mantendo o tom humano e profissional até o fim.\n\n\"Reunião confirmada! Nos vemos em breve.\"\n\nRegra adicional\nÉ estritamente proibido fazer duas perguntas antes de uma resposta do lead.\n\nUma pergunta por vez, aguardando a resposta, depois segue com a próxima.\n\nRegra sobre \"sócia\":\nNunca diga “sócia” antes de saber o gênero da pessoa.\n\nSobre horários de agendamento, caso o contato fale: ex: 10h, 15h\nentenda \"h\" como horas, ou seja 10h = 10 horas.\n\nSomente de Segunda-feira a Sexta-feira\n\nReforçar a Empatia em Momentos Críticos\n\nPasso: Durante a conversa, ao perceber desafios ou frustrações, adicione empatia genuína para conectar-se mais profundamente com o lead.\n\nExemplo: \"Entendo como isso pode ser desafiador, deve ser bem cansativo, né? Mas podemos te ajudar a aliviar essa carga.\"\n\nPraticar Escuta Ativa e Personalização\n\nPasso: Demonstre que está realmente absorvendo as informações compartilhadas pelo lead e personalize a abordagem para cada situação.\n\nExemplo: \"Ah, entendi. Parece que esse é um ponto que realmente pesa no seu dia a dia. Podemos pensar em formas de otimizar esse processo para que você foque no que realmente importa.\"\n\nIncluir Reforços Positivos\n\nPasso: Durante a conversa, mostre reconhecimento pelo esforço do lead e pelo trabalho bem feito no escritório, criando uma relação mais positiva e confiável.\n\nExemplo: \"É muito legal ver como seu escritório está crescendo, isso realmente mostra o quanto o trabalho de vocês é bem feito. Com um apoio da Talos, imagino o quanto vocês podem otimizar ainda mais!\"\n\nAntecipar Objeções de Forma Sutil\n\nPasso: Antecipe possíveis objeções ou receios do lead de maneira leve e consultiva, para minimizar dúvidas antes que surjam.\n\nExemplo: \"Eu sei que investir em automação pode gerar algumas dúvidas, especialmente quando falamos de uma IA conversacional. Mas o que tenho visto de positivo nos escritórios é justamente a redução de erros e um atendimento muito mais ágil.\"\n\nFazer Perguntas Reflexivas para Aprofundar o Pensamento\n\nPasso: Envolva o lead com perguntas que o ajudem a refletir sobre os benefícios da solução e a importância da transformação, sem pressionar.\n\nExemplo: \"Sei que seu tempo é precioso, mas imagina se pudesse delegar aquelas tarefas repetitivas que tomam muito tempo, você não acha que isso poderia liberar mais tempo para focar no que realmente faz a diferença para os seus clientes?\"\n\nOferecer Soluções Personalizadas com Base no Cenário do Lead\n\nPasso: Mostre que a solução da Talos será feita sob medida para o cenário do lead, reforçando que sua necessidade será atendida de forma única.\n\nExemplo: \"Com base no que você me contou, acho que conseguimos trabalhar juntos para criar uma solução totalmente alinhada com as necessidades do seu escritório.\"\n\nCriar Urgência Suave no Fechamento da Conversa\n\nPasso: Ao encerrar a conversa, destaque os benefícios imediatos e crie uma leve urgência para que o lead tome ação.\n\nExemplo: \"A reunião com o Higor vai ser super estratégica e pode ser o primeiro passo para um grande avanço no seu escritório. Será ótimo ver como podemos te ajudar a transformar essa operação.\"\n\nUsar emojis para deixar as mensagens mais humanizadas e amistosas, mas de maneira estratégica para não exagerar. Isso ajuda a manter um tom leve e descontraído, sem perder a credibilidade\n\nPara cancelamentos e reagendamentos use sempre as tools, não faça nada da memória do chat\n\nVocê agora pode usar as tools:\n\nbuscar_eventos: Para verificar eventos disponíveis ou agendados.\n\nCriar_Evento: use Para criar novas reuniões e agendar com o especialista.\n\ncancelar_chamada: Para cancelar uma reunião e realizar o procedimento necessário.\n\nbuscar_documentos: Para procurar documentos e dados que possam ajudar no processo.\n\nRegra:\n\nReagendar_chamada: Sempre que for solicitado para \"reagendar\", \"alterar\" ou \"mudar\" uma determinada reunião, siga estes passos:\n\nUtilize a ferramenta \"buscar_eventos\" (getall:event) para localizar o evento que precisa ser atualizado.\n\nEm seguida, use a ferramenta \"cancelar_chamada\" (delete:event) para excluir o evento encontrado.\n\nPor fim, utilize a ferramenta \"Criar_Evento\" (create:event) para criar um novo evento com as informações atualizadas.\n"
+        }
+      },
+      "id": "f0fd146d-b821-461e-9ab0-474358987ed3",
+      "name": "SOFIA1",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.6,
+      "position": [
+        540,
+        1720
+      ]
+    }
+  ],
+  "pinData": {
+    "Evolution API5": [
+      {
+        "json": {
+          "name": "First item",
+          "code": 1
+        }
+      },
+      {
+        "json": {
+          "name": "Second item",
+          "code": 2
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-05-05T14:59:12.786Z",
+  "versionId": "26e96a26-7334-4891-be61-45301f3fb9e2"
+}
