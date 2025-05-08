@@ -1,0 +1,1140 @@
+{
+  "active": false,
+  "connections": {
+    "Loop Over Items1": {
+      "main": [
+        [
+          {
+            "node": "Atualizar Status1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Verificar Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Pegar lista de leads": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Pegar mensagem": {
+      "main": [
+        [
+          {
+            "node": "Atualizar Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Delay": {
+      "main": [
+        []
+      ]
+    },
+    "Verificar Status": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Gerar número",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enviar Mensagem 1": {
+      "main": [
+        [
+          {
+            "node": "Evolution API9",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Dados": {
+      "main": [
+        [
+          {
+            "node": "Pegar mensagem",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enviar Mensagem 2": {
+      "main": [
+        [
+          {
+            "node": "Evolution API9",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Atualizar Status": {
+      "main": [
+        [
+          {
+            "node": "Pegar lista de leads",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Atualizar Active": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gerar número": {
+      "main": [
+        []
+      ]
+    },
+    "Gerar número1": {
+      "main": [
+        [
+          {
+            "node": "Switch5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch5": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields10",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Enviar Mensagem 2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger3": {
+      "main": [
+        [
+          {
+            "node": "Dados",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Evolution API9": {
+      "main": [
+        [
+          {
+            "node": "Atualizar Active",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Atendente": {
+      "main": [
+        [
+          {
+            "node": "Gerar número1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model7": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Atendente",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields10": {
+      "main": [
+        [
+          {
+            "node": "Enviar Mensagem 1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Postgres Chat Memory3": {
+      "ai_memory": [
+        [
+          {
+            "node": "Atendente",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Notion",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-05-07T19:58:41.626Z",
+  "id": "DiN7ChjgVr2g9mDJ",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "[AI.T][DISPARADOR] - SKYNET CÓPIA",
+  "nodes": [
+    {
+      "parameters": {
+        "content": "",
+        "height": 720,
+        "width": 3060,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -160,
+        -80
+      ],
+      "typeVersion": 1,
+      "id": "8ca972f7-ac79-4f97-8816-c313b42d97c9",
+      "name": "Sticky Note60"
+    },
+    {
+      "parameters": {
+        "content": "# DISPARADOR",
+        "height": 80,
+        "width": 256,
+        "color": 5
+      },
+      "id": "84e1f5b1-f4fb-43f0-a3f5-e591075ad805",
+      "name": "Sticky Note68",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -120,
+        -60
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "f05538c7-a97b-4c8d-a816-e9a34452faf6",
+      "name": "Loop Over Items1",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1180,
+        -20
+      ]
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1WbnTpLlkZiJ840i7xFq9OriTHAkttyvVge5TPvw78Vw",
+          "mode": "list",
+          "cachedResultName": "DISPARADOR - WHATSAPP",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1WbnTpLlkZiJ840i7xFq9OriTHAkttyvVge5TPvw78Vw/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 715280340,
+          "mode": "list",
+          "cachedResultName": "Cópia de NUMEROS",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1WbnTpLlkZiJ840i7xFq9OriTHAkttyvVge5TPvw78Vw/edit#gid=715280340"
+        },
+        "options": {}
+      },
+      "id": "ee318a1f-a4f6-4046-9d94-3bee0a0d8ee7",
+      "name": "Pegar lista de leads",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.3,
+      "position": [
+        960,
+        -20
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "Dj6DR5Chb0xYbnqN",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1WbnTpLlkZiJ840i7xFq9OriTHAkttyvVge5TPvw78Vw",
+          "mode": "list",
+          "cachedResultName": "DISPARADOR - WHATSAPP",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1WbnTpLlkZiJ840i7xFq9OriTHAkttyvVge5TPvw78Vw/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "MENSAGEIRO",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1WbnTpLlkZiJ840i7xFq9OriTHAkttyvVge5TPvw78Vw/edit#gid=0"
+        },
+        "options": {}
+      },
+      "id": "e6273f15-6377-4c8e-9cb7-c3486f4d3f94",
+      "name": "Pegar mensagem",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.3,
+      "position": [
+        580,
+        -20
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "Dj6DR5Chb0xYbnqN",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "amount": "={{ $item(\"0\").$node[\"Gerar número\"].json[\"randomNumber\"] }}"
+      },
+      "id": "f71d879d-30ea-4850-a635-c09dd07923df",
+      "name": "Delay",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        400,
+        260
+      ],
+      "webhookId": "dd1e2ac0-d29b-4c42-bc7d-991296c92ab8"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 1
+          },
+          "conditions": [
+            {
+              "id": "0c5f5f0f-7d04-439a-8b31-6e7ff7fd7345",
+              "leftValue": "={{ $json.active }}",
+              "rightValue": "\"true\"",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "1644a027-bd5b-400e-af94-81bdd8daeab0",
+      "name": "Verificar Status",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1560,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $json.url_motada }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "={{ $('Dados').item.json.api_key1 }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"number\": \"{{ $('Pegar lista de leads').item.json.tel }}\",\n  \"text\": \"Olá, {{ $('Verificar Status').item.json.name }}! {{ $('Atendente').item.json.output }}\"\n}",
+        "options": {
+          "allowUnauthorizedCerts": true
+        }
+      },
+      "id": "03741077-808d-45ea-a742-527947ca1bcd",
+      "name": "Enviar Mensagem 1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1880,
+        180
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2f32f35f-e985-47e0-be28-f6959d9844a9",
+              "name": "api_url",
+              "value": "https://api.agenciatalos.com.br/",
+              "type": "string"
+            },
+            {
+              "id": "4291ce09-2085-4137-b13e-37949e349c36",
+              "name": "api_instance1",
+              "value": "Sofia",
+              "type": "string"
+            },
+            {
+              "id": "4331c9c5-4713-4c11-8c08-c703e2c63332",
+              "name": "api_key1",
+              "value": "1DB3F89A828B-4C36-A62E-8780F1C7A527",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d4df389a-915f-409c-ac06-5d3ba7a519e6",
+      "name": "Dados",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        380,
+        -20
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('Dados').item.json.api_url }}/message/sendText/{{ $('Dados').item.json.api_instance2 }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "={{ $('Dados').item.json.api_key2 }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n    \"number\": \"{{ $('Pegar lista de leads').item.json.tel }}\",\n    \"text\": \"{{ $('OpenAI2').item.json.message.content }}\"\n}",
+        "options": {
+          "allowUnauthorizedCerts": true
+        }
+      },
+      "id": "2f6a65a0-33fb-4fa3-8f9e-4c5cb04f0f11",
+      "name": "Enviar Mensagem 2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1720,
+        420
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1WbnTpLlkZiJ840i7xFq9OriTHAkttyvVge5TPvw78Vw",
+          "mode": "list",
+          "cachedResultName": "DISPARADOR - WHATSAPP",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1WbnTpLlkZiJ840i7xFq9OriTHAkttyvVge5TPvw78Vw/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "MENSAGEIRO",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1WbnTpLlkZiJ840i7xFq9OriTHAkttyvVge5TPvw78Vw/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "MENSAGEM": "={{ $json.MENSAGEM }}",
+            "STATUS": "Desparando"
+          },
+          "matchingColumns": [
+            "MENSAGEM"
+          ],
+          "schema": [
+            {
+              "id": "MENSAGEM",
+              "displayName": "MENSAGEM",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "STATUS",
+              "displayName": "STATUS",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "id": "a6ff8476-50f5-4771-a1b4-27d05b705173",
+      "name": "Atualizar Status",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.3,
+      "position": [
+        780,
+        -20
+      ],
+      "alwaysOutputData": false,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "Dj6DR5Chb0xYbnqN",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1WbnTpLlkZiJ840i7xFq9OriTHAkttyvVge5TPvw78Vw",
+          "mode": "list",
+          "cachedResultName": "Cópia de AUDTAX - DISPARADOR",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1WbnTpLlkZiJ840i7xFq9OriTHAkttyvVge5TPvw78Vw/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "MENSAGEIRO",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1es4TCZ7gYTZh2YX7pifixqyjTGxiXOug4WiRa-P72V4/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "row_number": "={{ $('Pegar mensagem').item.json.row_number }}",
+            "STATUS": "Finalizado"
+          },
+          "matchingColumns": [
+            "row_number"
+          ],
+          "schema": [
+            {
+              "id": "MENSAGEM",
+              "displayName": "MENSAGEM",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "STATUS",
+              "displayName": "STATUS",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": false
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "28ccc4f3-7e69-4821-baf4-b4ffb058c3ad",
+      "name": "Atualizar Status1",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.3,
+      "position": [
+        1900,
+        -40
+      ],
+      "alwaysOutputData": false,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "Dj6DR5Chb0xYbnqN",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1WbnTpLlkZiJ840i7xFq9OriTHAkttyvVge5TPvw78Vw",
+          "mode": "list",
+          "cachedResultName": "DISPARADOR - WHATSAPP",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1WbnTpLlkZiJ840i7xFq9OriTHAkttyvVge5TPvw78Vw/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 715280340,
+          "mode": "list",
+          "cachedResultName": "Cópia de NUMEROS",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1WbnTpLlkZiJ840i7xFq9OriTHAkttyvVge5TPvw78Vw/edit#gid=715280340"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "active": "true",
+            "tel": "={{ $('Pegar lista de leads').item.json.tel }}",
+            "row_number": "={{ $('Pegar lista de leads').item.json.row_number }}"
+          },
+          "matchingColumns": [
+            "row_number"
+          ],
+          "schema": [
+            {
+              "id": "tel",
+              "displayName": "tel",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "name",
+              "displayName": "name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "active",
+              "displayName": "active",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": false
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "cf67d1e4-aab2-42c6-b17b-9ea413d7f534",
+      "name": "Atualizar Active",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.3,
+      "position": [
+        2120,
+        440
+      ],
+      "alwaysOutputData": false,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "Dj6DR5Chb0xYbnqN",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Executa o código de geração do número aleatório\nconst min = 2;\nconst max = 5;\nconst randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;\n\n// Retorna o valor em um array de objetos com a propriedade \"json\"\nreturn [\n  {\n    json: {\n      randomNumber: randomNumber,\n    },\n  },\n];"
+      },
+      "id": "4ec2e442-6a0c-47ad-9a89-5af51cf6e30e",
+      "name": "Gerar número",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        200,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "randomNumber = Math.floor(Math.random() * 1) + 1;\n\nreturn [\n  {\n    json: {\n      randomNumber: randomNumber\n    }\n  }\n]"
+      },
+      "id": "19dd82cb-1909-4449-a649-243e7e8ab34d",
+      "name": "Gerar número1",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        940,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.randomNumber }}",
+                    "rightValue": 1,
+                    "operator": {
+                      "type": "number",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Instancia 1"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "f6145ca8-af77-489d-8abe-92f995e4e453",
+                    "leftValue": "={{ $json.randomNumber }}",
+                    "rightValue": 2,
+                    "operator": {
+                      "type": "number",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Instancia 2"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "befd2ec6-7fea-496c-bf76-857e49eaeb42",
+      "name": "Switch5",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        1160,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "00 9 * * 1-5"
+            }
+          ]
+        }
+      },
+      "id": "73982837-6f13-4cf2-861d-dbc02a689dc7",
+      "name": "Schedule Trigger3",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        200,
+        -20
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "messages-api",
+        "instanceName": "Sofia",
+        "remoteJid": "={{ $('Verificar Status').item.json.tel }}",
+        "messageText": "=",
+        "options_message": {}
+      },
+      "type": "n8n-nodes-evolution-api.evolutionApi",
+      "typeVersion": 1,
+      "position": [
+        2260,
+        180
+      ],
+      "id": "03968b36-7b49-457d-aca3-5e1d2e73f5ad",
+      "name": "Evolution API9",
+      "alwaysOutputData": false,
+      "credentials": {
+        "evolutionApi": {
+          "id": "TYMFez7AZEmuKDhe",
+          "name": "Evolution TALOS"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Envie essa mansagem:\n\nRecebi uma indicação para te mostrar nosso sistema de atendimento de WhatsApp para advogados com Inteligência Artificial, podemos bater um papo?\"",
+        "options": {
+          "systemMessage": "=Me da a resposta sem dicas de uso ou textos adicionais"
+        }
+      },
+      "id": "ba968117-9ea2-43c5-90e2-df2ff4c7925b",
+      "name": "Atendente",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.6,
+      "position": [
+        580,
+        280
+      ],
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4o-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        560,
+        420
+      ],
+      "id": "7ff1740c-e4bc-45e4-b752-05704d3ad462",
+      "name": "OpenAI Chat Model7",
+      "credentials": {
+        "openAiApi": {
+          "id": "MgUovUkOF1DLLH9r",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "042528b4-d074-418e-98e7-0e3f007f3430",
+              "name": "url_motada",
+              "value": "={{ $('Dados').item.json.api_url }}{{ $('Dados').item.json.api_instance1 }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1540,
+        260
+      ],
+      "id": "5c2cb751-2242-4a04-8e55-23598be95eaf",
+      "name": "Edit Fields10"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.randomNumber }}",
+                    "rightValue": 1,
+                    "operator": {
+                      "type": "number",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Instancia 1"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "f6145ca8-af77-489d-8abe-92f995e4e453",
+                    "leftValue": "={{ $json.randomNumber }}",
+                    "rightValue": 2,
+                    "operator": {
+                      "type": "number",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Instancia 2"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "78df36a6-6fa7-4e02-a51a-b01c050656f1",
+      "name": "Switch7",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        1200,
+        440
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "return [\n  {\n    json: {\n      message: \"Olá, {{ $('Pegar lista de leads').item.json.name }}! Como vai? Recebi uma indicação sobre você e achei que seria interessante te apresentar nosso sistema de atendimento com Inteligência Artificial, especialmente desenvolvido para escritórios de advocacia. Podemos conversar um pouquinho?\"\n    }\n  },\n  {\n    json: {\n      message: \"Oi, {{ $('Pegar lista de leads').item.json.name }}! Tudo bem? Peguei seu contato por indicação e gostaria de te mostrar uma solução com IA que pode agilizar muito a rotina do seu escritório. Podemos conversar por um minuto?\"\n    }\n  },\n  {\n    json: {\n      message: \"Oi, {{ $('Pegar lista de leads').item.json.name }}! Como você está? Recebi uma indicação sua e quero te mostrar como nossa Inteligência Artificial pode otimizar o atendimento do seu escritório de forma rápida e prática. Que tal um bate-papo?\"\n    }\n  }\n];"
+      },
+      "id": "5a7728c7-a744-404f-ac4b-2e2c44a679e2",
+      "name": "Gerar Mensagem",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        920,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "=7ecedd7a-affb-42cd-9d30-3d752ee047ce",
+        "contextWindowLength": 100
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
+      "typeVersion": 1.3,
+      "position": [
+        700,
+        480
+      ],
+      "id": "cfb4a5ee-4a35-41d6-9a6b-5bc2a428b9f9",
+      "name": "Postgres Chat Memory3",
+      "credentials": {
+        "postgres": {
+          "id": "UG5YhV2gAqdPfWm8",
+          "name": "Postgres SKYNET"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "e3680f3e-5a0d-44f5-a680-e335074041c6",
+              "leftValue": "={{ $json.active }}",
+              "rightValue": "true",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2380,
+        440
+      ],
+      "id": "4b69c6dd-1332-4ee7-a765-7a5f346a9a92",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "databaseId": {
+          "__rl": true,
+          "value": "1e401791-4259-80f9-b7a1-d0185aa77e23",
+          "mode": "list",
+          "cachedResultName": "CRM para WhatsApp",
+          "cachedResultUrl": "https://www.notion.so/1e401791425980f9b7a1d0185aa77e23"
+        },
+        "title": "={{ $('Pegar lista de leads').item.json.name }} + {{ $('Pegar lista de leads').item.json.tel }}",
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "Nome|rich_text",
+              "textContent": "={{ $('Pegar lista de leads').item.json.name }}"
+            },
+            {
+              "key": "Em atendimento|checkbox",
+              "checkboxValue": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        2600,
+        420
+      ],
+      "id": "2578479b-6c34-4f74-8909-f3f0af028e28",
+      "name": "Notion",
+      "credentials": {
+        "notionApi": {
+          "id": "j4JhdtGWgufj9rxT",
+          "name": "SKYNET N8N"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": {
+    "node:Schedule Trigger3": {
+      "recurrenceRules": []
+    }
+  },
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-05-08T16:10:26.604Z",
+  "versionId": "d63eb0f6-b40a-4386-a781-66a5298d37ba"
+}
