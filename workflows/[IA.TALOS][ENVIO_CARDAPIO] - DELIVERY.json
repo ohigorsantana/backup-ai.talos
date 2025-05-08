@@ -1,0 +1,169 @@
+{
+  "active": false,
+  "connections": {
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Formalizar",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Formalizar": {
+      "main": [
+        [
+          {
+            "node": "GetCardapio",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Evolution API": {
+      "main": [
+        [
+          {
+            "node": "Resposta para o Agente",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GetCardapio": {
+      "main": [
+        [
+          {
+            "node": "Evolution API",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-05-08T22:11:17.919Z",
+  "id": "TJH0hmMP2bf2dkRB",
+  "meta": null,
+  "name": "[IA.TALOS][ENVIO_CARDAPIO] - DELIVERY",
+  "nodes": [
+    {
+      "parameters": {
+        "resource": "messages-api",
+        "operation": "send-document",
+        "instanceName": "[SUA INSTANCIA]",
+        "remoteJid": "={{ $('Formalizar').item.json.telefoneCliente }}",
+        "media": "={{ $json.cardapio }}",
+        "caption": "Aqui está nosso cardápio",
+        "fileName": "CardapioBucaneiro.pdf",
+        "options_message": {}
+      },
+      "type": "n8n-nodes-evolution-api.evolutionApi",
+      "typeVersion": 1,
+      "position": [
+        680,
+        0
+      ],
+      "id": "b7bdbbf3-96af-48c3-a472-5b97d8a8ca80",
+      "name": "Evolution API"
+    },
+    {
+      "parameters": {},
+      "id": "52d6054a-7e69-4d67-a2ac-51b51c36d9ae",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2b028bb9-de07-4197-98bc-d69adc91f065",
+              "name": "telefoneCliente",
+              "value": "={{ $json.telefoneCliente }}",
+              "type": "string"
+            },
+            {
+              "id": "83a8097c-75fc-49c1-b277-c87b0825a785",
+              "name": "nomeCliente",
+              "value": "={{ $json.nomeCliente }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ba6f6153-72d9-4e69-b1a1-3c6c72dfed80",
+      "name": "Formalizar",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        220,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "817f12c4-7d2a-45bd-8c12-74ab0c196308",
+              "name": "response",
+              "value": "=O cardápio já foi enviado! Pergunte agora, somente o pedido que o cliente deseja fazer.\n",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "99f4f1df-fba3-4c96-842e-dd254095dbfc",
+      "name": "Resposta para o Agente",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        920,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "tableId": "cardapio",
+        "filterType": "none"
+      },
+      "id": "9c90a28c-e35d-45a4-8e52-cbaed6dad17b",
+      "name": "GetCardapio",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        440,
+        0
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-05-08T22:09:58.055Z",
+      "updatedAt": "2025-05-08T22:09:58.055Z",
+      "id": "2NvoSHGMxzlbK0Rv",
+      "name": "Delivery"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-05-08T22:12:56.954Z",
+  "versionId": "2ffc9917-0732-4375-8ab6-20358be41a5a"
+}
