@@ -63,13 +63,7 @@
     },
     "Supabase5": {
       "main": [
-        [
-          {
-            "node": "Atendente3",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Split Out": {
@@ -432,6 +426,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-05-08T16:21:58.073Z",
-  "versionId": "a9050cdb-2779-47ec-a645-393a6d9262b4"
+  "updatedAt": "2025-05-08T22:58:00.119Z",
+  "versionId": "d8931dc7-95fb-4221-97bd-176d05befbe9"
 }
