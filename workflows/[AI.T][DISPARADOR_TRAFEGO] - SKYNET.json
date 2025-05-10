@@ -1,0 +1,958 @@
+{
+  "active": false,
+  "connections": {
+    "Loop Over Items": {
+      "main": [
+        [
+          {
+            "node": "Nenhuma operação",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Gerar número2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser1": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out": {
+      "main": [
+        [
+          {
+            "node": "Loop mensagens",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Atualiza Tabela": {
+      "main": [
+        [
+          {
+            "node": "Dados Leads",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Dados Leads": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "Split Out",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Atualiza Tabela1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Atualiza Tabela1": {
+      "main": [
+        [
+          {
+            "node": "Dados Leads",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop mensagens": {
+      "main": [
+        [
+          {
+            "node": "Atualiza Tabela1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Evolution API",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Evolution API": {
+      "main": [
+        [
+          {
+            "node": "Atualiza Tabela",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Atualiza Tabela1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gerar número2": {
+      "main": [
+        [
+          {
+            "node": "Delay1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Delay1": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger1": {
+      "main": [
+        [
+          {
+            "node": "Dados Leads",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-05-09T18:20:50.574Z",
+  "id": "ZJDKdsN6n8SzUTIv",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "[AI.T][DISPARADOR_TRAFEGO] - SKYNET",
+  "nodes": [
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "14c51024-a508-47cd-af23-21fc3ca4f3fb",
+              "leftValue": "={{ $('Loop Over Items').item.json.Enviar }}",
+              "rightValue": "=1",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        940,
+        540
+      ],
+      "id": "d5a8e092-f26d-4ed6-b1f8-c53fa32dde00",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        260,
+        560
+      ],
+      "id": "efb42584-abf8-4078-b7ec-66850acdd75c",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.1,
+      "position": [
+        1520,
+        740
+      ],
+      "id": "c5f291ea-242f-48b2-b674-f28727d17206",
+      "name": "OpenAI Chat Model1",
+      "credentials": {
+        "openAiApi": {
+          "id": "MgUovUkOF1DLLH9r",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \t\"numero\": \"numero de telefone aqui\",\n    \"originalPhone\": \"numero de telefone original\",\n\t\"text\": \"mensagem enviada aqui\",\n  \"url\": \"link\"\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        1720,
+        740
+      ],
+      "id": "36492962-60b4-431c-ac6c-0f3bca11ffd8",
+      "name": "Structured Output Parser1"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "text",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        2120,
+        540
+      ],
+      "id": "561c0469-6047-433f-8f5c-c46e3c480d24",
+      "name": "Split Out"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1QFkfnbkQJRF8yMhV40giQQD7o4HUBILvTPI7KuN6zaI",
+          "mode": "list",
+          "cachedResultName": "TESTE01",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1QFkfnbkQJRF8yMhV40giQQD7o4HUBILvTPI7KuN6zaI/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Folha1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1QFkfnbkQJRF8yMhV40giQQD7o4HUBILvTPI7KuN6zaI/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "phone": "={{ $('Edit Fields1').item.json.originalPhone }}",
+            "Enviar": "FALSE"
+          },
+          "matchingColumns": [
+            "phone"
+          ],
+          "schema": [
+            {
+              "id": "ID",
+              "displayName": "ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Nome",
+              "displayName": "Nome",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "email",
+              "displayName": "email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "phone",
+              "displayName": "phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Services",
+              "displayName": "Services",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "City",
+              "displayName": "City",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "URL",
+              "displayName": "URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Enviar",
+              "displayName": "Enviar",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        3080,
+        800
+      ],
+      "id": "f6e5ec04-40f4-4221-9e09-4f5d3395e6d2",
+      "name": "Atualiza Tabela",
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "Dj6DR5Chb0xYbnqN",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=<CONTATO>{{ $('If').item.json.contato }}</CONTATO>\n\n<EXEMPLO> Olá!?\n\ntelefoneOriginal: {{ $('If').item.json.originalPhone }}\n",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "=Você é uma assistente comercial e a sua função é criar uma mensagem de whatsapp personalisada para o potencial Lead.\n\nA mensagem deve ser no modelo acima"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        1520,
+        540
+      ],
+      "id": "e7a2968b-29dd-4c60-8723-8afd3bcf36f1",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1QFkfnbkQJRF8yMhV40giQQD7o4HUBILvTPI7KuN6zaI",
+          "mode": "list",
+          "cachedResultName": "TESTE01",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1QFkfnbkQJRF8yMhV40giQQD7o4HUBILvTPI7KuN6zaI/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Folha1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1QFkfnbkQJRF8yMhV40giQQD7o4HUBILvTPI7KuN6zaI/edit#gid=0"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        20,
+        560
+      ],
+      "id": "89289a17-125c-46e2-b4d3-d6395eac8e4a",
+      "name": "Dados Leads",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "Dj6DR5Chb0xYbnqN",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1100,
+        240
+      ],
+      "id": "e780f38a-9c4e-4e6e-ac58-bc0060897936",
+      "name": "Nenhuma operação"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://evolution.eliteaisolutions.com.br/message/sendText/elite",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apiKey",
+              "value": "87EBCF207A9F-4B27-B1DB-742F62F4E56C"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "number",
+              "value": "={{ $('Edit Fields1').item.json.numero }}"
+            },
+            {
+              "name": "text",
+              "value": "={{ $json.text }}"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2660,
+        260
+      ],
+      "id": "daf14618-9e24-4bd8-bb42-84fec05845db",
+      "name": "Evolution",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "content": "## End\n****",
+        "height": 240,
+        "width": 380,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        960,
+        180
+      ],
+      "id": "d1a0ae8a-4916-4497-9a21-e7c3ca320f1d",
+      "name": "Sticky Note10"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "14c8c098-ce7d-44f4-9ae0-5f6273bf1b43",
+              "name": "text",
+              "value": "={{ $json.output.text.split('\\n\\n') }}",
+              "type": "array"
+            },
+            {
+              "id": "a3cb0f7c-f455-4165-b8cc-375d4320a037",
+              "name": "numero",
+              "value": "={{ $('AI Agent').item.json.output.numero }}",
+              "type": "string"
+            },
+            {
+              "id": "adf512a2-60c8-4e62-acf6-7375bf4299cc",
+              "name": "originalPhone",
+              "value": "={{ $json.output.originalPhone }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1920,
+        540
+      ],
+      "id": "d6dc564c-219d-4db7-a77f-804920f94100",
+      "name": "Edit Fields1"
+    },
+    {
+      "parameters": {
+        "jsCode": "return $input.all().map(item => {\n    // 1. Captura o telefone original\n    const originalPhone = item.json.phone || \"\";\n\n    // 2. Remove tudo que não for dígito\n    let contato = originalPhone.replace(/\\D/g, \"\");\n\n    // 3. Se tiver 11 dígitos, adiciona \"55\" no começo\n    if (contato.length === 11) {\n        contato = \"55\" + contato;\n    }\n\n    // 4. Verifica se possui exatamente 13 dígitos\n    const isValid = /^\\d{13}$/.test(contato);\n\n    // 5. Retorna o telefone original, o número ajustado e se é válido\n    return {\n        json: {\n            originalPhone,\n            contato,\n            valido: isValid\n        }\n    };\n});\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        500,
+        580
+      ],
+      "id": "235238bc-9fdd-4cc8-84f7-c46f34542bbf",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "53525ae6-7d8e-4a2a-ad50-57da6e042ee0",
+              "leftValue": "={{ $json.valido }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        720,
+        580
+      ],
+      "id": "682e472f-4e59-4cff-aae1-1a818d8f96c7",
+      "name": "If1"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1QFkfnbkQJRF8yMhV40giQQD7o4HUBILvTPI7KuN6zaI",
+          "mode": "list",
+          "cachedResultName": "TESTE01",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1QFkfnbkQJRF8yMhV40giQQD7o4HUBILvTPI7KuN6zaI/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Folha1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1QFkfnbkQJRF8yMhV40giQQD7o4HUBILvTPI7KuN6zaI/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "phone": "={{ $json.originalPhone }}",
+            "Enviar": "FALSE"
+          },
+          "matchingColumns": [
+            "phone"
+          ],
+          "schema": [
+            {
+              "id": "ID",
+              "displayName": "ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Nome",
+              "displayName": "Nome",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "email",
+              "displayName": "email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "phone",
+              "displayName": "phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Services",
+              "displayName": "Services",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "City",
+              "displayName": "City",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "URL",
+              "displayName": "URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Enviar",
+              "displayName": "Enviar",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        940,
+        720
+      ],
+      "id": "dc5e0735-1ad4-4927-bde1-5c58e2962969",
+      "name": "Atualiza Tabela1",
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "Dj6DR5Chb0xYbnqN",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Disparador",
+        "height": 1000,
+        "width": 3880,
+        "color": 7
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -540,
+        60
+      ],
+      "id": "078fb710-26ea-446d-a597-c163608fc837",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "## Workflow Trigger\n**Acionar Fluxo**",
+        "height": 440,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -280,
+        440
+      ],
+      "id": "2ac24ed0-e5b3-4e7f-ab50-ce6f6154ad48",
+      "name": "Sticky Note11"
+    },
+    {
+      "parameters": {
+        "resource": "messages-api",
+        "instanceName": "SKYNET",
+        "remoteJid": "={{ $('Edit Fields1').item.json.numero }}",
+        "messageText": "={{ $json.text }}",
+        "options_message": {}
+      },
+      "type": "n8n-nodes-evolution-api.evolutionApi",
+      "typeVersion": 1,
+      "position": [
+        2700,
+        540
+      ],
+      "id": "4537cd89-e2c8-4fe3-9d85-63159a3be6c9",
+      "name": "Evolution API",
+      "credentials": {
+        "evolutionApi": {
+          "id": "TYMFez7AZEmuKDhe",
+          "name": "Evolution TALOS"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "options": {
+          "reset": "={{ $('Loop mensagens').context.done}}"
+        }
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        2340,
+        540
+      ],
+      "id": "e862d567-e965-44be-b2d4-78b4cf3d5d46",
+      "name": "Loop mensagens"
+    },
+    {
+      "parameters": {
+        "amount": "={{ $item(\"0\").$node[\"Gerar número2\"].json[\"randomNumber\"] }}"
+      },
+      "id": "89666c9a-da24-423d-9f31-2db36fbd0283",
+      "name": "Delay1",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1360,
+        540
+      ],
+      "webhookId": "4a497d97-89a9-4348-92de-91355d008998"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Executa o código de geração do número aleatório\nconst min = 10;\nconst max = 8;\nconst randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;\n\n// Retorna o valor em um array de objetos com a propriedade \"json\"\nreturn [\n  {\n    json: {\n      randomNumber: randomNumber,\n    },\n  },\n];"
+      },
+      "id": "5be72a63-6d03-477b-84e3-95e4ff443b60",
+      "name": "Gerar número2",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1140,
+        540
+      ]
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "seconds",
+              "secondsInterval": 3
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -180,
+        560
+      ],
+      "id": "576fc7e1-aa04-42cd-a0a3-7418c8f68b81",
+      "name": "Schedule Trigger1"
+    },
+    {
+      "parameters": {
+        "path": "bea498da-a923-49d3-b6ce-6834629bc4e1",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -140,
+        1260
+      ],
+      "id": "1a03aba6-4f3b-4251-be57-99ea882778e3",
+      "name": "Webhook",
+      "webhookId": "bea498da-a923-49d3-b6ce-6834629bc4e1"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": {
+    "node:Schedule Trigger": {
+      "recurrenceRules": []
+    },
+    "node:Schedule Trigger1": {
+      "recurrenceRules": []
+    }
+  },
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-05-09T19:57:38.258Z",
+  "versionId": "fee65631-6c84-4fd3-863a-d5f1f39da5a0"
+}
