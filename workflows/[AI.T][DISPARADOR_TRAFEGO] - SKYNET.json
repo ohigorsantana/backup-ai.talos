@@ -134,31 +134,14 @@
             "index": 0
           }
         ],
-        [
-          {
-            "node": "Atualiza Tabela1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Atualiza Tabela1": {
-      "main": [
-        [
-          {
-            "node": "Dados Leads",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Loop mensagens": {
       "main": [
         [
           {
-            "node": "Atualiza Tabela1",
+            "node": "Atualiza Tabela2",
             "type": "main",
             "index": 0
           }
@@ -183,7 +166,7 @@
         ],
         [
           {
-            "node": "Atualiza Tabela1",
+            "node": "Atualiza Tabela2",
             "type": "main",
             "index": 0
           }
@@ -213,6 +196,17 @@
       ]
     },
     "Schedule Trigger1": {
+      "main": [
+        [
+          {
+            "node": "Dados Leads",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Atualiza Tabela2": {
       "main": [
         [
           {
@@ -668,146 +662,6 @@
     },
     {
       "parameters": {
-        "operation": "update",
-        "documentId": {
-          "__rl": true,
-          "value": "1QFkfnbkQJRF8yMhV40giQQD7o4HUBILvTPI7KuN6zaI",
-          "mode": "list",
-          "cachedResultName": "TESTE01",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1QFkfnbkQJRF8yMhV40giQQD7o4HUBILvTPI7KuN6zaI/edit?usp=drivesdk"
-        },
-        "sheetName": {
-          "__rl": true,
-          "value": "gid=0",
-          "mode": "list",
-          "cachedResultName": "Folha1",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1QFkfnbkQJRF8yMhV40giQQD7o4HUBILvTPI7KuN6zaI/edit#gid=0"
-        },
-        "columns": {
-          "mappingMode": "defineBelow",
-          "value": {
-            "phone": "={{ $json.originalPhone }}",
-            "Enviar": "FALSE"
-          },
-          "matchingColumns": [
-            "phone"
-          ],
-          "schema": [
-            {
-              "id": "ID",
-              "displayName": "ID",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
-            },
-            {
-              "id": "Nome",
-              "displayName": "Nome",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
-            },
-            {
-              "id": "email",
-              "displayName": "email",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
-            },
-            {
-              "id": "phone",
-              "displayName": "phone",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "Services",
-              "displayName": "Services",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
-            },
-            {
-              "id": "City",
-              "displayName": "City",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
-            },
-            {
-              "id": "URL",
-              "displayName": "URL",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
-            },
-            {
-              "id": "Enviar",
-              "displayName": "Enviar",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "row_number",
-              "displayName": "row_number",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "readOnly": true,
-              "removed": true
-            }
-          ],
-          "attemptToConvertTypes": false,
-          "convertFieldsToString": false
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.googleSheets",
-      "typeVersion": 4.5,
-      "position": [
-        940,
-        720
-      ],
-      "id": "dc5e0735-1ad4-4927-bde1-5c58e2962969",
-      "name": "Atualiza Tabela1",
-      "alwaysOutputData": true,
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "Dj6DR5Chb0xYbnqN",
-          "name": "Google Sheets account"
-        }
-      }
-    },
-    {
-      "parameters": {
         "content": "## Disparador",
         "height": 1000,
         "width": 3880,
@@ -925,18 +779,142 @@
     },
     {
       "parameters": {
-        "path": "bea498da-a923-49d3-b6ce-6834629bc4e1",
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1QFkfnbkQJRF8yMhV40giQQD7o4HUBILvTPI7KuN6zaI",
+          "mode": "list",
+          "cachedResultName": "TESTE01",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1QFkfnbkQJRF8yMhV40giQQD7o4HUBILvTPI7KuN6zaI/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Folha1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1QFkfnbkQJRF8yMhV40giQQD7o4HUBILvTPI7KuN6zaI/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "phone": "={{ $('Edit Fields1').item.json.originalPhone }}",
+            "Enviar": "FALSE"
+          },
+          "matchingColumns": [
+            "phone"
+          ],
+          "schema": [
+            {
+              "id": "ID",
+              "displayName": "ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Nome",
+              "displayName": "Nome",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "email",
+              "displayName": "email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "phone",
+              "displayName": "phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Services",
+              "displayName": "Services",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "City",
+              "displayName": "City",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "URL",
+              "displayName": "URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Enviar",
+              "displayName": "Enviar",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
         "options": {}
       },
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 2,
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
       "position": [
-        -140,
-        1260
+        960,
+        720
       ],
-      "id": "1a03aba6-4f3b-4251-be57-99ea882778e3",
-      "name": "Webhook",
-      "webhookId": "bea498da-a923-49d3-b6ce-6834629bc4e1"
+      "id": "35362bcc-2bf6-4694-809c-f4920687ee50",
+      "name": "Atualiza Tabela2",
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "Dj6DR5Chb0xYbnqN",
+          "name": "Google Sheets account"
+        }
+      }
     }
   ],
   "pinData": {},
@@ -953,6 +931,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-05-09T19:57:38.258Z",
-  "versionId": "fee65631-6c84-4fd3-863a-d5f1f39da5a0"
+  "updatedAt": "2025-05-11T23:56:07.653Z",
+  "versionId": "337a2c4e-8e3a-4e51-b0bc-ee8072a7ec59"
 }
