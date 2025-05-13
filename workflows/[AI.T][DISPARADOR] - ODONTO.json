@@ -1,24 +1,6 @@
 {
   "active": false,
   "connections": {
-    "Loop Over Items": {
-      "main": [
-        [
-          {
-            "node": "Nenhuma operação",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Code",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "If": {
       "main": [
         [
@@ -31,6 +13,24 @@
         [
           {
             "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [
+          {
+            "node": "Nenhuma operação",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Code",
             "type": "main",
             "index": 0
           }
@@ -116,13 +116,7 @@
     },
     "Code": {
       "main": [
-        [
-          {
-            "node": "If1",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "If1": {
@@ -133,8 +127,25 @@
             "type": "main",
             "index": 0
           }
+        ]
+      ]
+    },
+    "Evolution API": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
         ],
-        []
+        [
+          {
+            "node": "Atualiza Tabela2",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     },
     "Loop mensagens": {
@@ -155,18 +166,11 @@
         ]
       ]
     },
-    "Evolution API": {
+    "Delay1": {
       "main": [
         [
           {
-            "node": "Atualiza Tabela",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Atualiza Tabela2",
+            "node": "AI Agent",
             "type": "main",
             "index": 0
           }
@@ -178,17 +182,6 @@
         [
           {
             "node": "Delay1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Delay1": {
-      "main": [
-        [
-          {
-            "node": "AI Agent",
             "type": "main",
             "index": 0
           }
@@ -211,6 +204,22 @@
         [
           {
             "node": "Dados Leads",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Loop mensagens",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Atualiza Tabela",
             "type": "main",
             "index": 0
           }
@@ -253,10 +262,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        940,
-        540
+        -860,
+        -280
       ],
-      "id": "1c7e80db-786b-4ba3-bb26-4a816fc3783d",
+      "id": "9a3ab0fb-9043-45d5-9c09-e63638e0be55",
       "name": "If"
     },
     {
@@ -266,10 +275,10 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 3,
       "position": [
-        260,
-        560
+        -1540,
+        -260
       ],
-      "id": "fbe4c62f-b904-43dd-a469-06b72ce0c38f",
+      "id": "9e1da073-1043-4e36-8ef9-3a697356fc3c",
       "name": "Loop Over Items"
     },
     {
@@ -280,10 +289,10 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.1,
       "position": [
-        1520,
-        740
+        -280,
+        -80
       ],
-      "id": "0ffcb609-2314-4ce6-ac7f-53c027acbdf1",
+      "id": "2aa82e82-fb63-4270-89e8-7fe802919948",
       "name": "OpenAI Chat Model1",
       "credentials": {
         "openAiApi": {
@@ -299,10 +308,10 @@
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.2,
       "position": [
-        1720,
-        740
+        -80,
+        -80
       ],
-      "id": "465235bb-68fd-4e96-bf77-320e08b8e2cf",
+      "id": "a2356182-49ce-4cfa-8340-79274a2230fe",
       "name": "Structured Output Parser1"
     },
     {
@@ -313,10 +322,10 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        2120,
-        540
+        320,
+        -280
       ],
-      "id": "d9983588-5e9d-4b24-86da-7200854104ce",
+      "id": "3f7fd9cf-f7b2-497a-ae65-fdf7b6f6e47d",
       "name": "Split Out"
     },
     {
@@ -324,17 +333,17 @@
         "operation": "update",
         "documentId": {
           "__rl": true,
-          "value": "1QFkfnbkQJRF8yMhV40giQQD7o4HUBILvTPI7KuN6zaI",
+          "value": "1ETKAj8mWuw4WDO0CQLzXBeDUW58KqiR67WfzRW4yJoA",
           "mode": "list",
-          "cachedResultName": "TESTE01",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1QFkfnbkQJRF8yMhV40giQQD7o4HUBILvTPI7KuN6zaI/edit?usp=drivesdk"
+          "cachedResultName": "DISPARADOR_WHATSAPP",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1ETKAj8mWuw4WDO0CQLzXBeDUW58KqiR67WfzRW4yJoA/edit?usp=drivesdk"
         },
         "sheetName": {
           "__rl": true,
-          "value": "gid=0",
+          "value": 20437805,
           "mode": "list",
-          "cachedResultName": "Folha1",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1QFkfnbkQJRF8yMhV40giQQD7o4HUBILvTPI7KuN6zaI/edit#gid=0"
+          "cachedResultName": "ODONTO",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1ETKAj8mWuw4WDO0CQLzXBeDUW58KqiR67WfzRW4yJoA/edit#gid=20437805"
         },
         "columns": {
           "mappingMode": "defineBelow",
@@ -445,10 +454,10 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        3080,
-        800
+        1340,
+        -20
       ],
-      "id": "e6939630-1e0b-40b5-bf37-01f695fc1cbf",
+      "id": "22d6f542-d780-4805-b3c9-1b52082a0297",
       "name": "Atualiza Tabela",
       "alwaysOutputData": true,
       "credentials": {
@@ -461,46 +470,46 @@
     {
       "parameters": {
         "promptType": "define",
-        "text": "=<CONTATO>{{ $('If').item.json.contato }}</CONTATO>\n\n<EXEMPLO> Olá!?\n\ntelefoneOriginal: {{ $('If').item.json.originalPhone }}\n",
+        "text": "=<CONTATO>{{ $('If').item.json.contato }}</CONTATO>\n\n<EXEMPLO> Olá! Falo com {{ $('Loop Over Items').item.json.Nome.split(' ')[0] }}?\n\nVocê sabia que é possível automatizar o WhatsApp da sua clínica pra responder pacientes, marcar consultas e organizar tudo com IA, sem perder o toque humano? Posso te mostrar como funciona?\n\nMande uma mensagem por vez!\n\nSe o campo Loop Over Items estiver vazio, mande só olá!\n\ntelefoneOriginal: {{ $('If').item.json.originalPhone }}\n",
         "hasOutputParser": true,
         "options": {
-          "systemMessage": "=Você é uma assistente comercial e a sua função é criar uma mensagem de whatsapp personalisada para o potencial Lead.\n\nA mensagem deve ser no modelo acima"
+          "systemMessage": "=Você é uma assistente comercial e a sua função é mandar uma mensagem de whatsapp.\n\nA mensagem deve ser no modelo acima"
         }
       },
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.7,
       "position": [
-        1520,
-        540
+        -280,
+        -280
       ],
-      "id": "d202be24-02c8-40d8-86c3-5e3f4a38e651",
+      "id": "3bf643b7-df9d-4e70-b0bb-32eaa4572b22",
       "name": "AI Agent"
     },
     {
       "parameters": {
         "documentId": {
           "__rl": true,
-          "value": "1QFkfnbkQJRF8yMhV40giQQD7o4HUBILvTPI7KuN6zaI",
+          "value": "1ETKAj8mWuw4WDO0CQLzXBeDUW58KqiR67WfzRW4yJoA",
           "mode": "list",
-          "cachedResultName": "TESTE01",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1QFkfnbkQJRF8yMhV40giQQD7o4HUBILvTPI7KuN6zaI/edit?usp=drivesdk"
+          "cachedResultName": "DISPARADOR_WHATSAPP",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1ETKAj8mWuw4WDO0CQLzXBeDUW58KqiR67WfzRW4yJoA/edit?usp=drivesdk"
         },
         "sheetName": {
           "__rl": true,
-          "value": "gid=0",
+          "value": 20437805,
           "mode": "list",
-          "cachedResultName": "Folha1",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1QFkfnbkQJRF8yMhV40giQQD7o4HUBILvTPI7KuN6zaI/edit#gid=0"
+          "cachedResultName": "ODONTO",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1ETKAj8mWuw4WDO0CQLzXBeDUW58KqiR67WfzRW4yJoA/edit#gid=20437805"
         },
         "options": {}
       },
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        20,
-        560
+        -1780,
+        -260
       ],
-      "id": "673d835a-06bd-475b-b66d-0cdaf1cc06d5",
+      "id": "c0b35b2a-2c8c-42b8-82a7-7a809e34def6",
       "name": "Dados Leads",
       "credentials": {
         "googleSheetsOAuth2Api": {
@@ -514,53 +523,11 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        1100,
-        240
+        -700,
+        -580
       ],
-      "id": "3931fd0f-06ab-4409-9a45-156aca5e6cab",
+      "id": "95bad0d2-e941-4d93-8c12-256ac5af9fff",
       "name": "Nenhuma operação"
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "https://evolution.eliteaisolutions.com.br/message/sendText/elite",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "apiKey",
-              "value": "87EBCF207A9F-4B27-B1DB-742F62F4E56C"
-            }
-          ]
-        },
-        "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "number",
-              "value": "={{ $('Edit Fields1').item.json.numero }}"
-            },
-            {
-              "name": "text",
-              "value": "={{ $json.text }}"
-            }
-          ]
-        },
-        "options": {
-          "redirect": {
-            "redirect": {}
-          }
-        }
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        1440,
-        220
-      ],
-      "id": "cc2568d3-769c-4acd-ae08-82a7d6dae7e1",
-      "name": "Evolution",
-      "disabled": true
     },
     {
       "parameters": {
@@ -572,10 +539,10 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        960,
-        180
+        -840,
+        -640
       ],
-      "id": "fe0b2228-9509-4a6e-9a18-010dc01fc056",
+      "id": "cf2c0ce1-27c1-4f94-a680-da007533b794",
       "name": "Sticky Note10"
     },
     {
@@ -607,10 +574,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1920,
-        540
+        120,
+        -280
       ],
-      "id": "be36b28e-93ad-43ce-88a9-7dacd033d12f",
+      "id": "b0ebcc6e-e68c-4c18-b9e1-e75a3bfdb6de",
       "name": "Edit Fields1"
     },
     {
@@ -620,10 +587,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        500,
-        580
+        -1300,
+        -240
       ],
-      "id": "3d6a575e-5bb0-417f-a8ee-e89c38e6e8bb",
+      "id": "978b229d-dc1f-4f0f-ab04-5b361f169b80",
       "name": "Code"
     },
     {
@@ -654,10 +621,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        720,
-        580
+        -1080,
+        -240
       ],
-      "id": "99c9a595-b26f-481c-8992-c91d3de05979",
+      "id": "096d04c7-7762-4bb2-822b-d74aac92a6bc",
       "name": "If1"
     },
     {
@@ -670,10 +637,10 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -540,
-        60
+        -2340,
+        -760
       ],
-      "id": "efcf4caf-9418-4d6e-8722-673f808daccc",
+      "id": "0dd4925d-cde9-4fff-9d94-20cb5550d65a",
       "name": "Sticky Note"
     },
     {
@@ -685,10 +652,10 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -280,
-        440
+        -2080,
+        -380
       ],
-      "id": "93fd3239-8b6b-4d83-84fe-3a1363d572e6",
+      "id": "5c69157e-e933-450b-a84b-a5813d271d43",
       "name": "Sticky Note11"
     },
     {
@@ -702,10 +669,10 @@
       "type": "n8n-nodes-evolution-api.evolutionApi",
       "typeVersion": 1,
       "position": [
-        2700,
-        540
+        900,
+        -280
       ],
-      "id": "9d1da473-d0ac-41c6-af0d-dbbe0ee160d0",
+      "id": "43ee0393-7b08-4a02-a66a-3be8eb393d53",
       "name": "Evolution API",
       "credentials": {
         "evolutionApi": {
@@ -724,37 +691,38 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 3,
       "position": [
-        2340,
-        540
+        540,
+        -280
       ],
-      "id": "4ec4b9d5-83e9-441a-80e5-a86ab6c8473b",
+      "id": "3f357c47-1399-4099-84fe-f9cef88caa5c",
       "name": "Loop mensagens"
     },
     {
       "parameters": {
-        "amount": "={{ $item(\"0\").$node[\"Gerar número2\"].json[\"randomNumber\"] }}"
+        "amount": "={{ $item(\"0\").$node[\"Gerar número2\"].json[\"randomNumber\"] }}",
+        "unit": "minutes"
       },
-      "id": "f2f58753-d11e-4d8e-b10d-5f085168f607",
+      "id": "7825c7bc-07bd-4c37-8483-640a82f3b783",
       "name": "Delay1",
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        1360,
-        540
+        -460,
+        -280
       ],
-      "webhookId": "ca9fff6a-e5c2-4f09-964d-595db51ff1e0"
+      "webhookId": "4a497d97-89a9-4348-92de-91355d008998"
     },
     {
       "parameters": {
         "jsCode": "// Executa o código de geração do número aleatório\nconst min = 10;\nconst max = 8;\nconst randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;\n\n// Retorna o valor em um array de objetos com a propriedade \"json\"\nreturn [\n  {\n    json: {\n      randomNumber: randomNumber,\n    },\n  },\n];"
       },
-      "id": "b24ed4cb-4cf3-4cc3-8b56-5e780dc6dcd6",
+      "id": "2eb6b3e9-983d-4249-9161-755a2ca3e367",
       "name": "Gerar número2",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1140,
-        540
+        -660,
+        -280
       ]
     },
     {
@@ -771,10 +739,10 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        -180,
-        560
+        -1980,
+        -260
       ],
-      "id": "e3060382-6809-4a5a-b8bd-14307dcabfe2",
+      "id": "16eb663d-1032-4a44-977c-20f65fb9ab1d",
       "name": "Schedule Trigger1"
     },
     {
@@ -782,17 +750,17 @@
         "operation": "update",
         "documentId": {
           "__rl": true,
-          "value": "1QFkfnbkQJRF8yMhV40giQQD7o4HUBILvTPI7KuN6zaI",
+          "value": "1ETKAj8mWuw4WDO0CQLzXBeDUW58KqiR67WfzRW4yJoA",
           "mode": "list",
-          "cachedResultName": "TESTE01",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1QFkfnbkQJRF8yMhV40giQQD7o4HUBILvTPI7KuN6zaI/edit?usp=drivesdk"
+          "cachedResultName": "DISPARADOR_WHATSAPP",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1ETKAj8mWuw4WDO0CQLzXBeDUW58KqiR67WfzRW4yJoA/edit?usp=drivesdk"
         },
         "sheetName": {
           "__rl": true,
-          "value": "gid=0",
+          "value": 20437805,
           "mode": "list",
-          "cachedResultName": "Folha1",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1QFkfnbkQJRF8yMhV40giQQD7o4HUBILvTPI7KuN6zaI/edit#gid=0"
+          "cachedResultName": "ODONTO",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1ETKAj8mWuw4WDO0CQLzXBeDUW58KqiR67WfzRW4yJoA/edit#gid=20437805"
         },
         "columns": {
           "mappingMode": "defineBelow",
@@ -903,10 +871,10 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        960,
-        720
+        -840,
+        -100
       ],
-      "id": "8cf246b7-6612-479c-b70c-37540a560c70",
+      "id": "fdf6172e-b6c7-4b0c-aff7-a37473e6f39e",
       "name": "Atualiza Tabela2",
       "alwaysOutputData": true,
       "credentials": {
@@ -915,6 +883,18 @@
           "name": "Google Sheets account"
         }
       }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1160,
+        -200
+      ],
+      "id": "5ef215ea-ab30-4b28-83d8-b702fcfecb2d",
+      "name": "Wait",
+      "webhookId": "bcb5b9cf-c255-4308-819f-f8772d52dd98"
     }
   ],
   "pinData": {},
@@ -931,6 +911,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-05-11T23:59:15.813Z",
-  "versionId": "e01e2dc9-5d06-4e84-8b1f-df806a4cee09"
+  "updatedAt": "2025-05-12T21:22:09.247Z",
+  "versionId": "770aebf8-7b91-4dd2-bc68-f9695e13c478"
 }
