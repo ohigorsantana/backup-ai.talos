@@ -1,0 +1,1357 @@
+{
+  "active": false,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Buscar etiqueta no chat",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Buscar etiqueta no chat": {
+      "main": [
+        [
+          {
+            "node": "Filter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter": {
+      "main": [
+        []
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Filter1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Memory 1": {
+      "main": [
+        [
+          {
+            "node": "Wait1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Memory 2": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Text Memory": {
+      "main": [
+        [
+          {
+            "node": "Get Memory 1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Data Handler": {
+      "main": [
+        [
+          {
+            "node": "Supabase",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Number exist?": {
+      "main": [
+        [
+          {
+            "node": "Switch1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Supabase5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait1": {
+      "main": [
+        [
+          {
+            "node": "Get Memory 2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Supabase": {
+      "main": [
+        [
+          {
+            "node": "Number exist?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Supabase5": {
+      "main": [
+        [
+          {
+            "node": "Switch1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to File1": {
+      "main": [
+        [
+          {
+            "node": "OpenAI1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields3": {
+      "main": [
+        [
+          {
+            "node": "Convert to File1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If3": {
+      "main": [
+        [
+          {
+            "node": "Redis5",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Redis4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Redis4": {
+      "main": [
+        [
+          {
+            "node": "Get Memory 1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Redis5": {
+      "main": [
+        [
+          {
+            "node": "Get Memory 1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch1": {
+      "main": [
+        [
+          {
+            "node": "Text Memory",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Text Memory",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Evolution API1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI1": {
+      "main": [
+        [
+          {
+            "node": "If3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Audio Memory1": {
+      "main": [
+        [
+          {
+            "node": "Get Memory 1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to File": {
+      "main": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "main": [
+        [
+          {
+            "node": "Audio Memory1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "Convert to File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Evolution API1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook1": {
+      "main": [
+        [
+          {
+            "node": "Data Handler",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter1": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Postgres Chat Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MCP Agendamento": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Chamar Humano": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-05-12T22:32:30.410Z",
+  "id": "TRetK4oLstwz8GmV",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "My workflow 2",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "odonto",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -420,
+        -80
+      ],
+      "id": "407e0281-88dc-4db8-8b89-6f9bcca97bb4",
+      "name": "Webhook",
+      "webhookId": "1471ba2d-9836-47be-b8c3-b2a31b4a3bf3"
+    },
+    {
+      "parameters": {
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "token-evolution"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -240,
+        -80
+      ],
+      "id": "3db55869-5aeb-42f0-a3d6-b55dc9b6450f",
+      "name": "Buscar etiqueta no chat"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "953090dc-c433-454f-a58c-bdbc965cdc2f",
+              "leftValue": "",
+              "rightValue": "10",
+              "operator": {
+                "type": "string",
+                "operation": "notContains"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        -20,
+        -80
+      ],
+      "id": "c7656d83-151e-49e4-a56f-017e5a1e2e36",
+      "name": "Filter"
+    },
+    {
+      "parameters": {
+        "jsCode": "const maxChars = 1000;\n\nfunction combineWithLimit(arr, maxLength) {\n  let result = '';\n  for (const item of arr) {\n    if ((result + item + ' ').length > maxLength) break;\n    result += item + ' ';\n  }\n  return result.trim();\n}\n\nconst data1 = $items('Get Memory 1')[0]?.json?.Message1 || [];\nconst data2 = $items('Get Memory 2')[0]?.json?.Message2 || [];\n\nconst combinedText1 = combineWithLimit(data1, maxChars);\nconst combinedText2 = combineWithLimit(data2, maxChars);\n\nreturn [\n  {\n    json: {\n      combinedText1,\n      combinedText2,\n    },\n  },\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2020,
+        620
+      ],
+      "id": "49e14b7b-e212-4f3d-bf3d-cd924fe70dba",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "propertyName": "Message1",
+        "key": "={{ $('Data Handler').item.json.remoteJid }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        1580,
+        620
+      ],
+      "id": "73e06542-6886-4c3e-978d-4cd340f6f4e8",
+      "name": "Get Memory 1",
+      "credentials": {
+        "redis": {
+          "id": "BDBV0IXWHWreEqF9",
+          "name": "Redis account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "propertyName": "Message2",
+        "key": "={{ $('Data Handler').item.json.remoteJid }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        1880,
+        620
+      ],
+      "id": "f58bc55d-5ca1-47b1-92ef-f59c133458cc",
+      "name": "Get Memory 2",
+      "credentials": {
+        "redis": {
+          "id": "BDBV0IXWHWreEqF9",
+          "name": "Redis account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "push",
+        "list": "={{ $('Data Handler').item.json.remoteJid }}",
+        "messageData": "={{ $('Data Handler').item.json.conversation }}",
+        "tail": true
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        1280,
+        280
+      ],
+      "id": "6b57b772-7bd9-4a83-a6da-e25f789e7f37",
+      "name": "Text Memory",
+      "credentials": {
+        "redis": {
+          "id": "BDBV0IXWHWreEqF9",
+          "name": "Redis account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2911e082-e712-4b85-bcf7-611f60d1559f",
+              "name": "remoteJid",
+              "value": "={{ $json.body.data.key.remoteJid }}",
+              "type": "string"
+            },
+            {
+              "id": "16a9c5c0-5a35-4db2-ab94-ef251115696f",
+              "name": "conversation",
+              "value": "={{ $json.body.data.message.conversation }}",
+              "type": "string"
+            },
+            {
+              "id": "95ca6185-7794-4411-82c5-d30676a6ca52",
+              "name": "evo.instance",
+              "value": "={{ $json.body.instance }}",
+              "type": "string"
+            },
+            {
+              "id": "66fcd40d-88da-4117-958d-7b4a29454136",
+              "name": "evo.server_url",
+              "value": "={{ $json.body.server_url }}",
+              "type": "string"
+            },
+            {
+              "id": "477ee9d8-59d3-4dd4-9eab-038367517cb1",
+              "name": "evo.apikey",
+              "value": "={{ $json.body.apikey }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -360,
+        400
+      ],
+      "id": "955adf62-d8d4-47e0-9079-ae67a4cf0d5e",
+      "name": "Data Handler"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "9052c4ba-c9eb-468b-a15e-2eb63821823e",
+              "leftValue": "={{ $json.isEmpty() }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "false",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        20,
+        400
+      ],
+      "id": "f23b54ac-6096-4679-8bb2-f1e609f33094",
+      "name": "Number exist?"
+    },
+    {
+      "parameters": {
+        "amount": 35
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1740,
+        620
+      ],
+      "id": "6ab3c347-5c20-4cef-8f72-78857b6ab149",
+      "name": "Wait1",
+      "webhookId": "262938d5-7d34-4374-851f-732bb7e32533"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "tableId": "dados_cliente",
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "telefone",
+              "keyValue": "={{ $('Data Handler').item.json.remoteJid }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        -160,
+        400
+      ],
+      "id": "0f9bf54a-d72e-46ec-b263-9e9cb680ada6",
+      "name": "Supabase",
+      "alwaysOutputData": true,
+      "credentials": {
+        "supabaseApi": {
+          "id": "m8vT3bvqCzb9bDkp",
+          "name": "Supabase SKYNET"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "tableId": "dados_cliente",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldId": "created_at",
+              "fieldValue": "={{ $now }}"
+            },
+            {
+              "fieldId": "telefone",
+              "fieldValue": "={{ $('Data Handler').item.json.remoteJid }}"
+            },
+            {
+              "fieldId": "sessionid",
+              "fieldValue": "={{ $('Webhook1').item.json.body.data.key.id }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        220,
+        600
+      ],
+      "id": "5973fc77-c0de-4e4c-b7e5-b1a9bf09c4b8",
+      "name": "Supabase5",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000,
+      "credentials": {
+        "supabaseApi": {
+          "id": "m8vT3bvqCzb9bDkp",
+          "name": "Supabase SKYNET"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "toBinary",
+        "sourceProperty": "data",
+        "options": {
+          "fileName": "file.png",
+          "mimeType": "image/png"
+        }
+      },
+      "id": "0085128a-6d8e-4190-8070-efb3809fd93b",
+      "name": "Convert to File1",
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        700,
+        680
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "3c5ccbc9-69d1-4b13-a7c3-e6945bc8c655",
+              "name": "data",
+              "value": "={{ $('Webhook EVO').item.json.body.data.message.base64 }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "953cec0b-0cfb-4e1b-a919-eaf0a1759dfd",
+      "name": "Edit Fields3",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        500,
+        680
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 1
+          },
+          "conditions": [
+            {
+              "id": "ade56c50-1520-4760-8df5-e99617d6d3ad",
+              "leftValue": "={{ $('Webhook EVO').item.json.body.data.message.imageMessage.caption }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "empty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "f29b33c1-2bd9-4cb8-b37b-e3ad21c129fa",
+      "name": "If3",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1040,
+        680
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "push",
+        "list": "={{ $('Code1').item.json.sessionId }}",
+        "messageData": "={{ $('Webhook EVO').item.json[\"body\"][\"data\"][\"message\"][\"imageMessage\"][\"caption\"] }}, {{ $json.content.replace(/\\n/g, \"\\\\n\").replace(/['\"]/g, '').trim()  }}",
+        "tail": true
+      },
+      "id": "7a537b89-a040-4905-8722-83f3ebfaf3bf",
+      "name": "Redis4",
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        1280,
+        780
+      ],
+      "credentials": {
+        "redis": {
+          "id": "BDBV0IXWHWreEqF9",
+          "name": "Redis account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "push",
+        "list": "={{ $('Code1').item.json.sessionId }}",
+        "messageData": "={{ $json.content.replace(/\\n/g, \"\\\\n\").replace(/['\"]/g, '').trim()  }}",
+        "tail": true
+      },
+      "id": "e73f2678-395c-48c4-91fa-1eeea5c475b5",
+      "name": "Redis5",
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        1280,
+        600
+      ],
+      "credentials": {
+        "redis": {
+          "id": "BDBV0IXWHWreEqF9",
+          "name": "Redis account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "id": "52aaf749-fe4f-44e4-880e-15b2bfc027f1",
+                    "leftValue": "={{ $('Webhook1').item.json.body.data.messageType }}",
+                    "rightValue": "extendedTextMessage",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "text"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "id": "e514e613-fd6a-48bd-b0ae-bae2448c810e",
+                    "leftValue": "={{ $('Webhook1').item.json.body.data.messageType }}",
+                    "rightValue": "conversation",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "text"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Webhook1').item.json.body.data.messageType }}",
+                    "rightValue": "audioMessage",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "8e64a461-6ad5-44b8-8d91-1d20c69bc9c9"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "audio"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "id": "c0e434dd-1268-421d-b81b-3a5e90ed9550",
+                    "leftValue": "={{ $('Webhook1').item.json.body.data.messageType }}",
+                    "rightValue": "imageMessage",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "image"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "09a9bf9a-2bda-41dd-9b0a-872bea9e9a2e",
+      "name": "Switch1",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3,
+      "position": [
+        360,
+        440
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# Mensagem Picotada",
+        "height": 80,
+        "width": 396,
+        "color": 5
+      },
+      "id": "6f0c8e56-e30a-467f-a764-0adecaa126e7",
+      "name": "Sticky Note3",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1580,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "image",
+        "operation": "analyze",
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "text": "Resumo curto da imagem. Responda sem acento, sem hifens",
+        "inputType": "base64",
+        "options": {}
+      },
+      "id": "7b53eecf-5056-4a1d-8806-63f90d2b0739",
+      "name": "OpenAI1",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.6,
+      "position": [
+        880,
+        680
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "MgUovUkOF1DLLH9r",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "push",
+        "list": "={{ $('Code1').item.json.sessionId }}",
+        "messageData": "={{ $json.text }}",
+        "tail": true
+      },
+      "id": "c5e82a4b-704b-4977-a07c-25d2c517dd39",
+      "name": "Audio Memory1",
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        1280,
+        440
+      ],
+      "credentials": {
+        "redis": {
+          "id": "BDBV0IXWHWreEqF9",
+          "name": "Redis account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "toBinary",
+        "sourceProperty": "base64",
+        "options": {
+          "fileName": "audio.mp4",
+          "mimeType": "audio/mpeg"
+        }
+      },
+      "id": "eb3b6bed-8ac6-428b-afaf-577deed9c06c",
+      "name": "Convert to File",
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        920,
+        480
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "audio",
+        "operation": "transcribe",
+        "options": {}
+      },
+      "id": "4c5dbdba-9eb7-49fa-ba95-e024806a9f68",
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.6,
+      "position": [
+        1100,
+        440
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "MgUovUkOF1DLLH9r",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "# Filtro de mensagem",
+        "height": 80,
+        "width": 356,
+        "color": 5
+      },
+      "id": "e77c0df2-d1d9-4615-a579-c7e6dac69fc7",
+      "name": "Sticky Note9",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        480,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "3c5ccbc9-69d1-4b13-a7c3-e6945bc8c655",
+              "name": "base64",
+              "value": "={{ $('Webhook EVO').item.json.body.data.message.base64 }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "11a4918b-645f-46d4-85fb-061cdce8a967",
+      "name": "Edit Fields1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        740,
+        520
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "chat-api",
+        "operation": "get-media-base64",
+        "instanceName": "Sofia",
+        "messageId": "={{ $('Webhook EVO').item.json.body.data.key.id }}",
+        "convertToMp4": true
+      },
+      "type": "n8n-nodes-evolution-api.evolutionApi",
+      "typeVersion": 1,
+      "position": [
+        560,
+        520
+      ],
+      "id": "a2fee799-573b-49a8-a1b5-062c5650c8ce",
+      "name": "Evolution API1",
+      "credentials": {
+        "evolutionApi": {
+          "id": "TYMFez7AZEmuKDhe",
+          "name": "Evolution TALOS"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "# Inicio",
+        "height": 80,
+        "width": 356,
+        "color": 5
+      },
+      "id": "09a6c5e1-8dcc-440d-ba83-083e37b44c33",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -540,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "content": "",
+        "height": 580,
+        "width": 1040,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -620,
+        240
+      ],
+      "typeVersion": 1,
+      "id": "fd73b642-095d-47fa-a9ea-0c04da596883",
+      "name": "Sticky Note17"
+    },
+    {
+      "parameters": {
+        "content": "",
+        "height": 700,
+        "width": 1080,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        440,
+        240
+      ],
+      "typeVersion": 1,
+      "id": "93eab29d-a1f2-4c31-bfbd-188c9ad908d7",
+      "name": "Sticky Note20"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "sofia",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -540,
+        400
+      ],
+      "id": "22ac8714-84f0-4308-b4dc-7da3fb57e575",
+      "name": "Webhook1",
+      "webhookId": "5710f3e9-a637-40d3-a758-8b8acf8bc67c"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "6de225a3-3524-4810-8ce2-6b96d1dff463",
+              "leftValue": "={{ $json.combinedText1 }}",
+              "rightValue": "={{ $json.combinedText2 }}",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        2160,
+        620
+      ],
+      "id": "2c8487f9-9f80-4922-a3c6-14f58b3df637",
+      "name": "Filter1"
+    },
+    {
+      "parameters": {
+        "content": "",
+        "height": 560,
+        "width": 860,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1540,
+        320
+      ],
+      "typeVersion": 1,
+      "id": "aa73d6a7-fc54-470b-b175-a589a283a6e2",
+      "name": "Sticky Note21"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "options": {
+          "systemMessage": "=HOJE É: [DataHora: 2025-04-15T18:11:13.092-03:00]\n\nTELEFONE DE CONTACTO: 553491228732\n\nINSTRUÇÃO IMPORTANTE:\n\nAo criar ou editar qualquer evento no Google Calendar, inclua sempre o número de telefone do paciente na descrição da marcação, juntamente com o nome completo, os dados de nascimento e quaisquer outras informações relevantes fornecidas pelo paciente.\n\n------------------------------------------------------------\nPAPEL:\n\nÉ um assistente do WhatsApp, altamente especializado, que atua em nome da Clínica Moreira, prestando um serviço de excelência. A sua missão é atender os pacientes de forma ágil e eficiente, respondendo a dúvidas e auxiliando em marcações, cancelamentos ou remarcações de consultas.\n\nPERSONALIDADE E TOM DE VOZ:\n\nSimpática, prestável e humana\n\nTom de voz sempre simpático, acolhedor e respeitador\n\nOBJETIVO:\n\n1.º Prestar atendimento diferenciado e cuidados aos doentes.\n\n2.º Responder a dúvidas sobre a clínica (especialidade, horários, localização, formas de pagamento).\n\n3.º Agendar, marcar e cancelar consultas de forma simples e eficaz.\n\n4.º Agir passo a passo para garantir rapidez e precisão em cada atendimento.\n\nCONTEXTO:\n\nOtimiza o fluxo interno da clínica, fornecendo informação e facilitando a carga administrativa dos profissionais de saúde.\n\nO seu desempenho impacta diretamente a satisfação do paciente e a eficiência das operações médicas.\n\n-----------------------------------------------------\nSOP (Procedimento Operacional Padrão):\n\n1. Início do atendimento e identificação de interesse em agendar:\n\nCumprimente o doente de forma acolhedora.\n\nExplique que é possível agendar por texto, este link para visualizar todos os horários do médico de forma rápida.\nSe possível, incentive o envio de áudio caso o doente prefira, destacando a praticidade.\n\n2.º Solicitar dados do doente:\n\nPeça o nome completo e a data de nascimento.\n\nConfirme o telefone de contacto que chegou à mensagem (estará incluído na descrição do agendamento).\n\n3. identificar necessidade:\n\nPergunte a dados de preferência para a consulta e se o doente tem preferência por algum turno (manhã ou tarde).\n\n4.º Verifique a disponibilidade:\n\nUtilize a ferramenta “MCP Google Calendar” apenas após ter todos os dados necessários do paciente.\n\nForneça os dados de preferência ao MCP Google Calendar para obter os horários disponíveis.\n\n5.º Informar disponibilidade:\n\nVolte ao doente com os tempos livres encontrados para os dados solicitados.\n\n6.º Recolher informações adicionais:\n\nSe o paciente fornecer dados extra (ex.: condição de saúde, acordo, etc.), incluindo tudo na descrição do evento no Google Calendar.\n\n7.º Agendar consulta:\n\nApós confirmação do doente:\n\nUtilize o MCP Google Calendar para criar o evento, passando:\n\nNome completo\n\nData de nascimento\n\nTelefone de contacto\n\nDados e hora escolhidos\n\nNunca agende datas ou horários passados ​​ou com conflitos.\n\n8.º Confirmar agendamento:\n\n- Aguarde o retorno de sucesso do MCP Google Calendar e de seguida confirme com o paciente.\n\nINSTRUÇÕES GERAIS:\n\n1. Respostas claras, objetivas e úteis:\n\nForneça informações sobre especialidades, horários, moradas, valores e acordos.\n\n2. Sem diagnósticos ou opiniões médicas:\n\nSe o doente insistir num diagnóstico, utilize a ferramenta \"Escalar Humano\".\n\n3. Doentes insatisfeitos:\n\nMantenha a empatia e utilize a ferramenta \"Escalar humano\".\n\n4. Assuntos fora do âmbito da clínica:\n\nResposta:\n\n\"Desculpe, mas não consigo ajudar com este assunto. Por favor, contacte-nos através do número 0800 940 000. Enviei uma cópia da nossa conversa para o gestor de serviço.\"\n\nutilizo a ferramenta \"Escalar humano\", pois é fundamental para a minha carreira e para a imagem da clínica.\n\n5. Nunca forneça informações erradas:\n\nEvite erros sobre horários, contactos ou serviços.\n\n6.º Nunca utilize emojis ou linguagem informal:\n\nMantenha a sobriedade do atendimento.\n\n7. Nunca confirme consultas sem o retorno do MCP Google Calendar:\nGaranta que o evento foi criado com sucesso antes de dar a resposta final.\n\n8. Dupla verificação:\n\nConfirme sempre os dados para evitar equívocos nos agendamentos, remarcações ou cancelamentos.\n\nHORÁRIOS DE FUNCIONAMENTO:\n\nSegunda a Sábado: 08h às 19h\n\nDomingo e Feriados: Encerrado\n\nLOCALIZAÇÃO E CONTACTO:\n\nMorada: Av. Pres. das Palmeiras, 1500 Jardim América, São Paulo SP, CEP: 04567-000\n\nTelefone: (11) 4456-7890\n\nWhatsApp: (11) 99999-9999\n\nE-mail: contato@clinicamoreira.com.br\n\nSite: www.clinicamoreira.com.br\n\nPROFISSIONAIS E ESPECIALIDADES:\n\nDr. João Paulo Ferreira | Médico Cardiologista\n\nVALORES E FORMAS DE PAGAMENTO:\n\nConsulta: R$ 500,00\n\nFormas de pagamento: PIX, dinheiro, cartão de débito ou crédito\n\nAcordos aceites: Bradesco Saúde, Unimed, SulAmérica, Amil\n\nFERRAMENTAS:\n\n1. Google Calendar MCP\n\nAgendar, listar, remarcar ou desmarcar consultas.\nGaranta que o evento foi criado com sucesso antes de dar a resposta final.\n\n8. Dupla verificação:\n\nConfirme sempre os dados para evitar equívocos nos agendamentos, remarcações ou cancelamentos.\n\nHORÁRIOS DE FUNCIONAMENTO:\n\nSegunda a Sábado: 08h às 19h\n\nDomingo e Feriados: Encerrado\n\nLOCALIZAÇÃO E CONTACTO:\n\nMorada: Av. Pres. das Palmeiras, 1500 Jardim América, São Paulo SP, CEP: 04567-000\n\nTelefone: (11) 4456-7890\n\nWhatsApp: (11) 99999-9999\n\nE-mail: contato@clinicamoreira.com.br\n\nSite: www.clinicamoreira.com.br\n\nPROFISSIONAIS E ESPECIALIDADES:\n\nDr. João Paulo Ferreira | Médico Cardiologista\n\nVALORES E FORMAS DE PAGAMENTO:\n\nConsulta: R$ 500,00\n\nFormas de pagamento: PIX, dinheiro, cartão de débito ou crédito\n\nAcordos aceites: Bradesco Saúde, Unimed, SulAmérica, Amil\n\nFERRAMENTAS:\n\n1. Google Calendar MCP\n\nAgendar, listar, remarcar ou desmarcar consultas.Garanta que o evento foi criado com sucesso antes de dar a resposta final.\n\n8. Dupla verificação:\n\nConfirme sempre os dados para evitar equívocos nos agendamentos, remarcações ou cancelamentos.\n\nHORÁRIOS DE FUNCIONAMENTO:\n\nSegunda a Sábado: 08h às 19h\n\nDomingo e Feriados: Encerrado\n\nLOCALIZAÇÃO E CONTACTO:\n\nMorada: Av. Pres. das Palmeiras, 1500 Jardim América, São Paulo SP, CEP: 04567-000\n\nTelefone: (11) 4456-7890\n\nWhatsApp: (11) 99999-9999\n\nE-mail: contato@clinicamoreira.com.br\n\nSite: www.clinicamoreira.com.br\n\nPROFISSIONAIS E ESPECIALIDADES:\n\nDr. João Paulo Ferreira | Médico Cardiologista\n\nVALORES E FORMAS DE PAGAMENTO:\n\nConsulta: R$ 500,00\n\nFormas de pagamento: PIX, dinheiro, cartão de débito ou crédito\n\nAcordos aceites: Bradesco Saúde, Unimed, SulAmérica, Amil\n\nFERRAMENTAS:\n\n1. Google Calendar MCP\n\nAgendar, listar, remarcar ou desmarcar consultas.\nGaranta que o evento foi criado com sucesso antes de dar a resposta final.\n\n8. Dupla verificação:\n\nConfirme sempre os dados para evitar equívocos nos agendamentos, remarcações ou cancelamentos.\n\nHORÁRIOS DE FUNCIONAMENTO:\n\nSegunda a Sábado: 08h às 19h\n\nDomingo e Feriados: Encerrado\n\nLOCALIZAÇÃO E CONTACTO:\n\nMorada: Av. Pres. das Palmeiras, 1500 Jardim América, São Paulo SP, CEP: 04567-000\n\nTelefone: (11) 4456-7890\n\nWhatsApp: (11) 99999-9999\n\nE-mail: contato@clinicamoreira.com.br\n\nSite: www.clinicamoreira.com.br\n\nPROFISSIONAIS E ESPECIALIDADES:\n\nDr. João Paulo Ferreira | Médico Cardiologista\n\nVALORES E FORMAS DE PAGAMENTO:\n\nConsulta: R$ 500,00\n\nFormas de pagamento: PIX, dinheiro, cartão de débito ou crédito\n\nAcordos aceites: Bradesco Saúde, Unimed, SulAmérica, Amil\n\nFERRAMENTAS:\n\n1. Google Calendar MCP\n\nAgendar, listar, remarcar ou desmarcar consultas.\n\nAo criar ou editar o evento, inclua:\n\nNome completo sem título\n\nTelefone\n\nData de nascimento\n\nInformações adicionais (se existirem)\n\n2. Humano escalar\n\nUtilize quando:\n\nExistir urgência (doente com mal-estar grave).\n\nExistirem qualquer assuntos alheios à clínica ou que ponham em risco a reputação do serviço.\n\nHouve insatisfação do doente ou pedido de atendimento humano.\n\n3.º Enviar cancelamento de telegrama\n\nEm caso de cancelamento:\n\nLocalizar a consulta no calendário e remover através do MCP Google Calendar.\n\nEnviar através da ferramenta \"Enviar telegrama cancelamento\" nome, dia e hora cancelados.\n\nConfirme ao doente que o cancelamento foi efetuado.\n\nEXEMPLOS DE FLUXO:\n\nEXEMPLOS DE FLUXO:\n\n1.º Marcar consulta\n\nDoente: \"Quero marcar consulta\"\n\nVocê:\n\nCumprimente, explique que pode agendar aqui mesmo no WhatsApp por texto, áudio ou se preferir temos a agenda nesse link.\n\nSolicite o nome completo e a data de nascimento.\n\nConsulte dados e escolha os seus preferidos.\n\nConsulte o MCP Google Calendar.\n\nInforme horários disponíveis.\n\nAgenda telefónica com o MCP Google Calendar, incluindo telefone, nome e data de nascimento na descrição.\n\nConfirme após o sucesso do Calendário.\n\n2. Consulta de observação\n\nDoente: \"Não posso esperar amanhã, quero remarcar.\"\n\nVocê:\n\nSolicite o nome completo e a data de nascimento.\n\nConsulte novos dados e torne-se preferido.\n\nConsulte e atualize através do MCP Google Calendar.\n\nConfirme após o sucesso do Calendário.\n\n3.º Cancelar consulta\n\nDoente: \"Preciso de cancelar a consulta.\"\n\nVocê:\n\nSolicite o nome completo e a data de nascimento.\n\nLocalize o ID do evento no MCP Google Calendar.\n\nCancele o evento.\n\nUtilize a ferramenta \"Enviar cancelamento do telegrama\" indicando o nome, dia e hora.\n\nConfirme o cancelamento.\n\n4. Mensagens recebidas pelo agente de acompanhamento\n\nQuando o paciente responde \"Confirmar, ID do evento\":\n\nDiga que a consulta está confirmada e aguardada.\n\nNo título do evento no Google Calendar, adicione o texto [Confirmado] ao lado do nome do paciente.\n\nQuando o paciente responde \"Reagendar, ID do evento\":\nDA O EVENTO a reagendar DA AGENDA\n\nOBSERVAÇÕES FINAIS:\n\nNunca forneça diagnósticos ou opiniões médicas.\n\nQualquer assunto fora do âmbito da clínica deve ser direcionado para a ferramenta \"Escalar humano\".\n\nMantenha o tom profissional, claro e respeitoso em todos os momentos, NÃO utilize emoji.\n\nLink da agenda para marcação online:\n\nhttps://calendar.app.google/k43eFCyMvQts1ZSs9"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.9,
+      "position": [
+        2580,
+        600
+      ],
+      "id": "4d26c1d7-c820-4bff-b115-05166e31cf42",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4o-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        2520,
+        820
+      ],
+      "id": "aa299b8f-f453-4c99-8b36-3fff5db701f6",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "MgUovUkOF1DLLH9r",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "contextWindowLength": 50
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
+      "typeVersion": 1.3,
+      "position": [
+        2680,
+        820
+      ],
+      "id": "a536098b-da11-4a75-be97-e820df980060",
+      "name": "Postgres Chat Memory",
+      "credentials": {
+        "postgres": {
+          "id": "yStfQs7Pa2SVe8kq",
+          "name": "Postgres ADV"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+      "typeVersion": 1.1,
+      "position": [
+        3120,
+        820
+      ],
+      "id": "4511bf75-c4bd-43a7-8f18-d3a73908c058",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "sseEndpoint": "link do trigger"
+      },
+      "type": "@n8n/n8n-nodes-langchain.mcpClientTool",
+      "typeVersion": 1,
+      "position": [
+        2980,
+        820
+      ],
+      "id": "7ad6cbc2-d6b0-40ab-a60c-69daf4b460d0",
+      "name": "MCP Agendamento"
+    },
+    {
+      "parameters": {
+        "name": "chamar_humano",
+        "description": "Descrição\n\nUtilize esta ferramenta ao perceber que o doente fala de:\n\n- Situações urgentes (sentir-se mal, etc.)\n\n- Assuntos não relacionados com a clínica\n\n- Insatisfação extrema ou pedidos para falar com um humano",
+        "workflowId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "DFTDSRxX6lxwAVvT",
+          "cachedResultName": "[TOOL][AGENTE_ODONTO]"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.1,
+      "position": [
+        2820,
+        820
+      ],
+      "id": "fa96108e-ff66-4481-bb8e-035c5b6bab81",
+      "name": "Chamar Humano"
+    },
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "telefone"
+            },
+            {
+              "name": "nome"
+            },
+            {
+              "name": "ultima_mensagem"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -320,
+        1400
+      ],
+      "id": "5b67eb91-f058-49ce-9db7-99a3304129d6",
+      "name": "When Executed by Another Workflow"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-05-12T22:32:30.410Z",
+  "versionId": "a3f62782-1ac9-413d-8154-a0217e356ac1"
+}
