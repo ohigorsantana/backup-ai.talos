@@ -1,0 +1,178 @@
+{
+  "active": false,
+  "connections": {
+    "GPT": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Listar ": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enviar ": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-05-13T21:45:04.899Z",
+  "id": "sVfOACG5KnIixfZ6",
+  "meta": null,
+  "name": "[IA.T][ASSISTENTE_PESSOAL] - E-MAIL",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "Você é um assistente de emails que envia, lista e lê emails\n\nVoce tem acesso a tools para realizar as acoes necessarias"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        200,
+        0
+      ],
+      "id": "bbfbc57c-cf10-4f9e-827f-01706eb09d82",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        140,
+        220
+      ],
+      "id": "6913bf4e-de96-4bca-825d-53fadba38615",
+      "name": "GPT"
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "2"
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        280,
+        260
+      ],
+      "id": "6581238c-781f-49c7-ab88-0b8bef088b72",
+      "name": "Memory"
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "Chame essa tool para listar emails",
+        "operation": "getAll",
+        "limit": "={{ $fromAI(\"limite\", \"aqui vai o limite de registros desejados\") }}",
+        "filters": {}
+      },
+      "type": "n8n-nodes-base.gmailTool",
+      "typeVersion": 2.1,
+      "position": [
+        400,
+        220
+      ],
+      "id": "65805184-e9bd-4c1c-907b-e081a1d6e3bc",
+      "name": "Listar ",
+      "webhookId": "58beb4a6-296c-4b65-8e78-0046655e2fb6"
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "Chame essa tool para enviar emails",
+        "sendTo": "={{$fromAI(\"email\", \"aqui vai o endereco de email\")}}",
+        "subject": "={{$fromAI(\"assunto\", \"aqui vai o assunto do email\")}}",
+        "emailType": "text",
+        "message": "={{ $fromAI(\"mensagem\", \"aqui vai a mensagem que sera enviada\") }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmailTool",
+      "typeVersion": 2.1,
+      "position": [
+        540,
+        260
+      ],
+      "id": "3fedab4b-d209-497e-9fb8-ac6435ec969b",
+      "name": "Enviar ",
+      "webhookId": "494ef85e-0192-45c0-906f-4520165dccf8"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "e2a9a7de-0135-4b5f-8de2-cae01a3ecc9f",
+      "name": "When chat message received",
+      "webhookId": "e64a5bc5-1c44-40e6-9cb9-ac2d37c560df"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-05-13T21:44:03.432Z",
+      "updatedAt": "2025-05-13T21:44:03.432Z",
+      "id": "Zo3onenB7cyRGleo",
+      "name": "Agente Pessoal"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-05-13T21:45:17.020Z",
+  "versionId": "a21ec2e8-c6de-4616-87e5-05fe860ef1cb"
+}
