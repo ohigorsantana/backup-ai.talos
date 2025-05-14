@@ -1,6 +1,24 @@
 {
   "active": false,
   "connections": {
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Gerar número2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Dados Leads",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
     "Loop Over Items": {
       "main": [
         [
@@ -13,24 +31,6 @@
         [
           {
             "node": "Code",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "If": {
-      "main": [
-        [
-          {
-            "node": "Gerar número2",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Loop Over Items",
             "type": "main",
             "index": 0
           }
@@ -54,17 +54,6 @@
           {
             "node": "AI Agent",
             "type": "ai_outputParser",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Split Out": {
-      "main": [
-        [
-          {
-            "node": "Loop mensagens",
-            "type": "main",
             "index": 0
           }
         ]
@@ -107,7 +96,7 @@
       "main": [
         [
           {
-            "node": "Split Out",
+            "node": "Menos que 240 Caracteres1",
             "type": "main",
             "index": 0
           }
@@ -133,34 +122,14 @@
             "type": "main",
             "index": 0
           }
-        ],
-        []
+        ]
       ]
     },
-    "Loop mensagens": {
+    "Delay1": {
       "main": [
         [
           {
-            "node": "Atualiza Tabela2",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        []
-      ]
-    },
-    "Evolution API": {
-      "main": [
-        [
-          {
-            "node": "Wait",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Atualiza Tabela2",
+            "node": "AI Agent",
             "type": "main",
             "index": 0
           }
@@ -178,28 +147,6 @@
         ]
       ]
     },
-    "Delay1": {
-      "main": [
-        [
-          {
-            "node": "AI Agent",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Schedule Trigger1": {
-      "main": [
-        [
-          {
-            "node": "Dados Leads",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Atualiza Tabela2": {
       "main": [
         [
@@ -211,11 +158,108 @@
         ]
       ]
     },
-    "Wait": {
+    "When clicking ‘Test workflow’": {
       "main": [
         [
           {
-            "node": "Loop mensagens",
+            "node": "Dados Leads",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI4": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Parser  Chain1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items5": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Evolution API3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OutputParser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Parser  Chain1",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parser  Chain1": {
+      "main": [
+        [
+          {
+            "node": "Split de Mensagem1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Evolution API3": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Atualiza Tabela2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Menos que 240 Caracteres1": {
+      "main": [
+        [
+          {
+            "node": "Evolution API8",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Parser  Chain1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split de Mensagem1": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "1 segundo1": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items5",
             "type": "main",
             "index": 0
           },
@@ -235,6 +279,22 @@
   },
   "name": "[AI.T][DISPARADOR_TRAFEGO] - SKYNET",
   "nodes": [
+    {
+      "parameters": {
+        "content": "## Disparador",
+        "height": 1000,
+        "width": 4220,
+        "color": 7
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -1340,
+        -40
+      ],
+      "id": "078fb710-26ea-446d-a597-c163608fc837",
+      "name": "Sticky Note"
+    },
     {
       "parameters": {
         "conditions": {
@@ -263,10 +323,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        940,
-        540
+        -20,
+        360
       ],
-      "id": "d5a8e092-f26d-4ed6-b1f8-c53fa32dde00",
+      "id": "f82a173b-043d-4560-b5fb-a2ea493abf81",
       "name": "If"
     },
     {
@@ -276,10 +336,10 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 3,
       "position": [
-        260,
-        560
+        -700,
+        380
       ],
-      "id": "efb42584-abf8-4078-b7ec-66850acdd75c",
+      "id": "5c90d3eb-10e7-4779-a9fc-2658e08c54f3",
       "name": "Loop Over Items"
     },
     {
@@ -290,10 +350,10 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.1,
       "position": [
-        1520,
-        740
+        560,
+        560
       ],
-      "id": "c5f291ea-242f-48b2-b674-f28727d17206",
+      "id": "f398fbda-9e94-46e2-bd80-956be8755732",
       "name": "OpenAI Chat Model1",
       "credentials": {
         "openAiApi": {
@@ -309,42 +369,28 @@
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.2,
       "position": [
-        1720,
-        740
+        760,
+        560
       ],
-      "id": "36492962-60b4-431c-ac6c-0f3bca11ffd8",
+      "id": "f2c2ac62-208c-4da7-97b8-1bceaceab4b2",
       "name": "Structured Output Parser1"
-    },
-    {
-      "parameters": {
-        "fieldToSplitOut": "text",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.splitOut",
-      "typeVersion": 1,
-      "position": [
-        2120,
-        540
-      ],
-      "id": "561c0469-6047-433f-8f5c-c46e3c480d24",
-      "name": "Split Out"
     },
     {
       "parameters": {
         "operation": "update",
         "documentId": {
           "__rl": true,
-          "value": "1ETKAj8mWuw4WDO0CQLzXBeDUW58KqiR67WfzRW4yJoA",
+          "value": "1zGiJ1BH54RXs-vVCpyo0WnRXcx3gYxXlPKq36lafxf4",
           "mode": "list",
-          "cachedResultName": "DISPARADOR_WHATSAPP",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1ETKAj8mWuw4WDO0CQLzXBeDUW58KqiR67WfzRW4yJoA/edit?usp=drivesdk"
+          "cachedResultName": "DISPARADOR_TRAFEGO",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1zGiJ1BH54RXs-vVCpyo0WnRXcx3gYxXlPKq36lafxf4/edit?usp=drivesdk"
         },
         "sheetName": {
           "__rl": true,
-          "value": 400044204,
+          "value": 1041448687,
           "mode": "list",
           "cachedResultName": "TRAFEGO PAGO_DELIVERY",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1ETKAj8mWuw4WDO0CQLzXBeDUW58KqiR67WfzRW4yJoA/edit#gid=400044204"
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1zGiJ1BH54RXs-vVCpyo0WnRXcx3gYxXlPKq36lafxf4/edit#gid=1041448687"
         },
         "columns": {
           "mappingMode": "defineBelow",
@@ -455,10 +501,10 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        3140,
-        800
+        2460,
+        640
       ],
-      "id": "f6e5ec04-40f4-4221-9e09-4f5d3395e6d2",
+      "id": "11d7479e-2345-4e9b-9d06-48a38d1245c4",
       "name": "Atualiza Tabela",
       "alwaysOutputData": true,
       "credentials": {
@@ -471,45 +517,46 @@
     {
       "parameters": {
         "promptType": "define",
-        "text": "=<CONTATO>{{ $('If').item.json.contato }}</CONTATO>\n\n<EXEMPLO> Olá! Tudo bem? Vi que você trabalha com delivery, né? \n\nSe eu te mostrasse como colocar sua entrega entre os mais pedidos da região no iFood ou WhatsApp com um investimento pequeno, você gostaria de ver como funciona?\n\nMande uma mensagem por vez!\n\ntelefoneOriginal: {{ $('If').item.json.originalPhone }}\n",
+        "text": "=<CONTATO>{{ $('If').item.json.contato }}</CONTATO>\n\n<EXEMPLO> Olá. falo com {{ $('Loop Over Items').item.json.Nome }}? Vi que você trabalha com delivery, né? \n\nSe eu te mostrasse como colocar sua entrega entre os mais pedidos da região no iFood ou WhatsApp com um investimento pequeno, você gostaria de ver como funciona?\n\n// Mande uma mensagem por vez!\n\n// Se o campo Loop Over Items estiver vazio, mande só olá!\n\ntelefoneOriginal: {{ $('If').item.json.originalPhone }}\n",
         "hasOutputParser": true,
         "options": {
-          "systemMessage": "=Você é uma assistente comercial e a sua função é criar uma mensagem de whatsapp personalisada para o potencial Lead.\n\nA mensagem deve ser no modelo acima"
+          "systemMessage": "=Você é uma assistente comercial e a sua função é mandar uma mensagem de whatsapp.\n\nA mensagem deve ser no modelo acima"
         }
       },
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.7,
       "position": [
-        1520,
-        540
+        560,
+        360
       ],
-      "id": "e7a2968b-29dd-4c60-8723-8afd3bcf36f1",
+      "id": "bc20f64d-7321-4540-929b-b6431cce7fdc",
       "name": "AI Agent"
     },
     {
       "parameters": {
         "documentId": {
           "__rl": true,
-          "value": "1TfuvQrU3_HxHdtXadN2rSG2qyRBB1PebdXnmJRFsZNQ",
+          "value": "1zGiJ1BH54RXs-vVCpyo0WnRXcx3gYxXlPKq36lafxf4",
           "mode": "list",
-          "cachedResultName": "TALOS_Segmentações_Secretas_MetaAds",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1TfuvQrU3_HxHdtXadN2rSG2qyRBB1PebdXnmJRFsZNQ/edit?usp=drivesdk"
+          "cachedResultName": "DISPARADOR_TRAFEGO",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1zGiJ1BH54RXs-vVCpyo0WnRXcx3gYxXlPKq36lafxf4/edit?usp=drivesdk"
         },
         "sheetName": {
           "__rl": true,
-          "value": "",
+          "value": 1041448687,
           "mode": "list",
-          "cachedResultName": "",
-          "cachedResultUrl": ""
-        }
+          "cachedResultName": "TRAFEGO PAGO_DELIVERY",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1zGiJ1BH54RXs-vVCpyo0WnRXcx3gYxXlPKq36lafxf4/edit#gid=1041448687"
+        },
+        "options": {}
       },
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        20,
-        560
+        -940,
+        380
       ],
-      "id": "89289a17-125c-46e2-b4d3-d6395eac8e4a",
+      "id": "650fe1bd-b676-4b37-acfb-43d082557158",
       "name": "Dados Leads",
       "credentials": {
         "googleSheetsOAuth2Api": {
@@ -523,10 +570,10 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        1100,
-        240
+        140,
+        60
       ],
-      "id": "e780f38a-9c4e-4e6e-ac58-bc0060897936",
+      "id": "95519722-f581-46a0-becc-b5f242d27827",
       "name": "Nenhuma operação"
     },
     {
@@ -539,10 +586,10 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        960,
-        180
+        0,
+        0
       ],
-      "id": "d1a0ae8a-4916-4497-9a21-e7c3ca320f1d",
+      "id": "d714aafb-b20b-4257-b677-475df34b3850",
       "name": "Sticky Note10"
     },
     {
@@ -553,7 +600,7 @@
               "id": "14c8c098-ce7d-44f4-9ae0-5f6273bf1b43",
               "name": "text",
               "value": "={{ $json.output.text.split('\\n\\n') }}",
-              "type": "array"
+              "type": "string"
             },
             {
               "id": "a3cb0f7c-f455-4165-b8cc-375d4320a037",
@@ -574,10 +621,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1920,
-        540
+        960,
+        360
       ],
-      "id": "d6dc564c-219d-4db7-a77f-804920f94100",
+      "id": "a0aa689a-1af4-4033-8127-3b197c14e425",
       "name": "Edit Fields1"
     },
     {
@@ -587,10 +634,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        500,
-        580
+        -460,
+        400
       ],
-      "id": "235238bc-9fdd-4cc8-84f7-c46f34542bbf",
+      "id": "12848fe1-4baf-4df6-879e-98ea7bc209ec",
       "name": "Code"
     },
     {
@@ -621,27 +668,11 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        720,
-        580
+        -240,
+        400
       ],
-      "id": "682e472f-4e59-4cff-aae1-1a818d8f96c7",
+      "id": "89aef7a3-b83f-4ecd-9753-7006d7283df6",
       "name": "If1"
-    },
-    {
-      "parameters": {
-        "content": "## Disparador",
-        "height": 1000,
-        "width": 3880,
-        "color": 7
-      },
-      "type": "n8n-nodes-base.stickyNote",
-      "typeVersion": 1,
-      "position": [
-        -540,
-        60
-      ],
-      "id": "078fb710-26ea-446d-a597-c163608fc837",
-      "name": "Sticky Note"
     },
     {
       "parameters": {
@@ -652,78 +683,38 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -280,
-        440
+        -1240,
+        260
       ],
-      "id": "2ac24ed0-e5b3-4e7f-ab50-ce6f6154ad48",
+      "id": "cd12ae25-3866-4f14-a612-367f86ad9b38",
       "name": "Sticky Note11"
-    },
-    {
-      "parameters": {
-        "resource": "messages-api",
-        "instanceName": "SKYNET",
-        "remoteJid": "={{ $('Edit Fields1').item.json.numero }}",
-        "messageText": "={{ $json.text }}",
-        "options_message": {}
-      },
-      "type": "n8n-nodes-evolution-api.evolutionApi",
-      "typeVersion": 1,
-      "position": [
-        2700,
-        540
-      ],
-      "id": "4537cd89-e2c8-4fe3-9d85-63159a3be6c9",
-      "name": "Evolution API",
-      "credentials": {
-        "evolutionApi": {
-          "id": "TYMFez7AZEmuKDhe",
-          "name": "Evolution TALOS"
-        }
-      },
-      "disabled": true,
-      "onError": "continueErrorOutput"
-    },
-    {
-      "parameters": {
-        "options": {
-          "reset": "={{ $json.text }}"
-        }
-      },
-      "type": "n8n-nodes-base.splitInBatches",
-      "typeVersion": 3,
-      "position": [
-        2340,
-        540
-      ],
-      "id": "e862d567-e965-44be-b2d4-78b4cf3d5d46",
-      "name": "Loop mensagens"
     },
     {
       "parameters": {
         "amount": "={{ $item(\"0\").$node[\"Gerar número2\"].json[\"randomNumber\"] }}",
         "unit": "minutes"
       },
-      "id": "89666c9a-da24-423d-9f31-2db36fbd0283",
+      "id": "030f8196-b301-4f41-9d0c-76365cdd34db",
       "name": "Delay1",
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        1340,
-        540
+        380,
+        360
       ],
       "webhookId": "4a497d97-89a9-4348-92de-91355d008998"
     },
     {
       "parameters": {
-        "jsCode": "// Executa o código de geração do número aleatório\nconst min = 8;\nconst max = 10;\nconst randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;\n\n// Retorna o valor em um array de objetos com a propriedade \"json\"\nreturn [\n  {\n    json: {\n      randomNumber: randomNumber,\n    },\n  },\n];"
+        "jsCode": "// Executa o código de geração do número aleatório\nconst min = 10;\nconst max = 8;\nconst randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;\n\n// Retorna o valor em um array de objetos com a propriedade \"json\"\nreturn [\n  {\n    json: {\n      randomNumber: randomNumber,\n    },\n  },\n];"
       },
-      "id": "5be72a63-6d03-477b-84e3-95e4ff443b60",
+      "id": "4aeb5512-b1f8-4017-84e6-98d9a05b6739",
       "name": "Gerar número2",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1140,
-        540
+        180,
+        360
       ]
     },
     {
@@ -740,10 +731,10 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        -180,
-        560
+        -1200,
+        40
       ],
-      "id": "576fc7e1-aa04-42cd-a0a3-7418c8f68b81",
+      "id": "5a08a6ba-c5a5-4955-88d6-6801aa0e5d29",
       "name": "Schedule Trigger1",
       "disabled": true
     },
@@ -752,22 +743,22 @@
         "operation": "update",
         "documentId": {
           "__rl": true,
-          "value": "1ETKAj8mWuw4WDO0CQLzXBeDUW58KqiR67WfzRW4yJoA",
+          "value": "1zGiJ1BH54RXs-vVCpyo0WnRXcx3gYxXlPKq36lafxf4",
           "mode": "list",
-          "cachedResultName": "DISPARADOR_WHATSAPP",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1ETKAj8mWuw4WDO0CQLzXBeDUW58KqiR67WfzRW4yJoA/edit?usp=drivesdk"
+          "cachedResultName": "DISPARADOR_TRAFEGO",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1zGiJ1BH54RXs-vVCpyo0WnRXcx3gYxXlPKq36lafxf4/edit?usp=drivesdk"
         },
         "sheetName": {
           "__rl": true,
-          "value": 400044204,
+          "value": 1041448687,
           "mode": "list",
           "cachedResultName": "TRAFEGO PAGO_DELIVERY",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1ETKAj8mWuw4WDO0CQLzXBeDUW58KqiR67WfzRW4yJoA/edit#gid=400044204"
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1zGiJ1BH54RXs-vVCpyo0WnRXcx3gYxXlPKq36lafxf4/edit#gid=1041448687"
         },
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "phone": "={{ $('Edit Fields1').item.json.originalPhone }}",
+            "phone": "={{ $('Edit Fields1').first().json.originalPhone }}",
             "Enviar": "FALSE"
           },
           "matchingColumns": [
@@ -873,10 +864,10 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        960,
-        720
+        0,
+        540
       ],
-      "id": "35362bcc-2bf6-4694-809c-f4920687ee50",
+      "id": "5273f3f5-e8d2-46be-aa82-6a0bb7c53169",
       "name": "Atualiza Tabela2",
       "alwaysOutputData": true,
       "credentials": {
@@ -887,21 +878,217 @@
       }
     },
     {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -1160,
+        380
+      ],
+      "id": "a514c4e5-0515-4059-83b1-49989e9f40be",
+      "name": "When clicking ‘Test workflow’"
+    },
+    {
       "parameters": {
-        "amount": 2
+        "options": {}
       },
+      "id": "b643daee-c6a9-469a-87ca-acd5862b5d74",
+      "name": "OpenAI4",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        1440,
+        440
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "MgUovUkOF1DLLH9r",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "cdbd222f-bf16-401e-894f-3099bacc321b",
+      "name": "Loop Over Items5",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1860,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"messages\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"string\"\n      }\n    }\n  },\n  \"required\": [\"messages\"]\n}"
+      },
+      "id": "387a43ae-0015-41d7-abc5-c0db1c20ddac",
+      "name": "OutputParser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        1560,
+        440
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Whatsapp message to be splitted and formated: {{ $json.text }}",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=Por favor, gere a saída no seguinte formato JSON:\n{\n  \"messages\": [\n    \"splitedMessage\",\n    \"splitedMessage\",\n    \"splitedMessage\"\n  ]\n}\n\nAs mensagens devem ser divididas de forma natural, afinal estamos conversando com um humano, não é mesmo?\n\nCertifique-se de que a resposta siga exatamente essa estrutura, incluindo os colchetes e as aspas.\n\n### Jamais separe uma mensagem vazia.\n\n### Sempre que tiver um link envie ele de forma separada sem alteração\n\n### Certifique-se de que a resposta siga exatamente essa estrutura abaixo, deixando somente entre '*' para negrito e nunca fugindo das demais regras de markdown do whatsapp:\n\t\t\t- *negrito* (substitua '**' por '*')\n\t\t\t- ~tachado~ (caso seja algo que foi excluído ou alterado)\n\t\t\t- _itálico_.(extremamente raro)\n            - `link` (usar sempre em todos os links)"
+            }
+          ]
+        }
+      },
+      "id": "a8b0f3f1-cd0d-48c8-b699-5616b6ac3b5f",
+      "name": "Parser  Chain1",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.4,
+      "position": [
+        1400,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "messages-api",
+        "instanceName": "SKYNET",
+        "remoteJid": "={{ $('Edit Fields1').item.json.numero }}",
+        "messageText": "={{ $json.output }}",
+        "options_message": {
+          "delay": 1800,
+          "linkPreview": false
+        }
+      },
+      "type": "n8n-nodes-evolution-api.evolutionApi",
+      "typeVersion": 1,
+      "position": [
+        2080,
+        300
+      ],
+      "id": "9fe3530d-62fe-452f-b83d-f07bdeec747d",
+      "name": "Evolution API3",
+      "retryOnFail": false,
+      "credentials": {
+        "evolutionApi": {
+          "id": "TYMFez7AZEmuKDhe",
+          "name": "Evolution TALOS"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "resource": "messages-api",
+        "instanceName": "Sofia",
+        "remoteJid": "={{ $('Variáveis').item.json.telefone }}",
+        "messageText": "={{ $json.output }}",
+        "options_message": {
+          "delay": 1200
+        }
+      },
+      "type": "n8n-nodes-evolution-api.evolutionApi",
+      "typeVersion": 1,
+      "position": [
+        1440,
+        100
+      ],
+      "id": "00a1cd0f-0c22-4a94-b4b8-67cc4ed68b7f",
+      "name": "Evolution API8",
+      "credentials": {
+        "evolutionApi": {
+          "id": "TYMFez7AZEmuKDhe",
+          "name": "Evolution TALOS"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "7c4cdb12-9452-42a6-a39a-c268bd38dce1",
+              "leftValue": "={{ $json.output.lenght }}",
+              "rightValue": 90,
+              "operator": {
+                "type": "number",
+                "operation": "gt"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1180,
+        360
+      ],
+      "id": "5536bf5e-32b3-40d8-84ef-c4c09a46d897",
+      "name": "Menos que 240 Caracteres1"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "output.messages",
+        "options": {
+          "destinationFieldName": "output"
+        }
+      },
+      "id": "3d8fefd2-993e-4121-8edf-1435a459c24f",
+      "name": "Split de Mensagem1",
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        1700,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 1
+      },
+      "id": "96e82550-ebbb-42d3-b946-23a6ae4342a1",
+      "name": "1 segundo1",
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        2960,
-        620
+        2360,
+        300
       ],
-      "id": "de87bf91-9e08-4278-930f-d71695c043c8",
-      "name": "Wait",
-      "webhookId": "bcb5b9cf-c255-4308-819f-f8772d52dd98"
+      "webhookId": "28412017-1182-4b80-9cdc-e5c9b466cfe5"
     }
   ],
-  "pinData": {},
+  "pinData": {
+    "Evolution API8": [
+      {
+        "json": {
+          "name": "First item",
+          "code": 1
+        }
+      },
+      {
+        "json": {
+          "name": "Second item",
+          "code": 2
+        }
+      }
+    ]
+  },
   "settings": {
     "executionOrder": "v1"
   },
@@ -913,8 +1100,15 @@
       "recurrenceRules": []
     }
   },
-  "tags": [],
+  "tags": [
+    {
+      "createdAt": "2025-05-13T14:53:16.838Z",
+      "updatedAt": "2025-05-13T14:53:16.838Z",
+      "id": "STbUF5dolqkYdSIV",
+      "name": "Trafego Pago"
+    }
+  ],
   "triggerCount": 1,
-  "updatedAt": "2025-05-13T00:30:19.893Z",
-  "versionId": "bfd1fc40-3e76-4fbc-86b9-5c7f7bdbc710"
+  "updatedAt": "2025-05-13T20:04:55.755Z",
+  "versionId": "c02c3b4d-e4f1-4f66-911e-550a7b6d11d3"
 }
