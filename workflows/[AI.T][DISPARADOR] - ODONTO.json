@@ -12,7 +12,7 @@
         ],
         [
           {
-            "node": "Loop Over Items",
+            "node": "Dados Leads",
             "type": "main",
             "index": 0
           }
@@ -59,17 +59,6 @@
         ]
       ]
     },
-    "Split Out": {
-      "main": [
-        [
-          {
-            "node": "Loop mensagens",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Atualiza Tabela": {
       "main": [
         [
@@ -107,7 +96,7 @@
       "main": [
         [
           {
-            "node": "Split Out",
+            "node": "Menos que 240 Caracteres1",
             "type": "main",
             "index": 0
           }
@@ -116,7 +105,13 @@
     },
     "Code": {
       "main": [
-        []
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     },
     "If1": {
@@ -124,42 +119,6 @@
         [
           {
             "node": "If",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Evolution API": {
-      "main": [
-        [
-          {
-            "node": "Wait",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Atualiza Tabela2",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Loop mensagens": {
-      "main": [
-        [
-          {
-            "node": "Atualiza Tabela2",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Evolution API",
             "type": "main",
             "index": 0
           }
@@ -190,13 +149,7 @@
     },
     "Schedule Trigger1": {
       "main": [
-        [
-          {
-            "node": "Dados Leads",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Atualiza Tabela2": {
@@ -210,11 +163,108 @@
         ]
       ]
     },
-    "Wait": {
+    "When clicking ‘Test workflow’": {
       "main": [
         [
           {
-            "node": "Loop mensagens",
+            "node": "Dados Leads",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI4": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Parser  Chain1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items5": {
+      "main": [
+        [],
+        []
+      ]
+    },
+    "OutputParser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Parser  Chain1",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parser  Chain1": {
+      "main": [
+        [
+          {
+            "node": "Split de Mensagem1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Evolution API3": {
+      "main": [
+        [
+          {
+            "node": "1 segundo1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Atualiza Tabela2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Menos que 240 Caracteres1": {
+      "main": [
+        [
+          {
+            "node": "Evolution API8",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Parser  Chain1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split de Mensagem1": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "1 segundo1": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items5",
             "type": "main",
             "index": 0
           },
@@ -313,20 +363,6 @@
       ],
       "id": "a2356182-49ce-4cfa-8340-79274a2230fe",
       "name": "Structured Output Parser1"
-    },
-    {
-      "parameters": {
-        "fieldToSplitOut": "text",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.splitOut",
-      "typeVersion": 1,
-      "position": [
-        320,
-        -280
-      ],
-      "id": "3f7fd9cf-f7b2-497a-ae65-fdf7b6f6e47d",
-      "name": "Split Out"
     },
     {
       "parameters": {
@@ -454,8 +490,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1340,
-        -20
+        1620,
+        0
       ],
       "id": "22d6f542-d780-4805-b3c9-1b52082a0297",
       "name": "Atualiza Tabela",
@@ -470,7 +506,7 @@
     {
       "parameters": {
         "promptType": "define",
-        "text": "=<CONTATO>{{ $('If').item.json.contato }}</CONTATO>\n\n<EXEMPLO> Olá! Falo com {{ $('Loop Over Items').item.json.Nome.split(' ')[0] }}?\n\nVocê sabia que é possível automatizar o WhatsApp da sua clínica pra responder pacientes, marcar consultas e organizar tudo com IA, sem perder o toque humano? Posso te mostrar como funciona?\n\nMande uma mensagem por vez!\n\nSe o campo Loop Over Items estiver vazio, mande só olá!\n\ntelefoneOriginal: {{ $('If').item.json.originalPhone }}\n",
+        "text": "=<CONTATO>{{ $('If').item.json.contato }}</CONTATO>\n\n<EXEMPLO> Oii! Falo com {{ $('Loop Over Items').item.json.Nome.split(' ')[0] }}?\n\nVocê sabia que é possível automatizar o WhatsApp da sua clínica pra responder pacientes, marcar consultas e organizar tudo com IA, sem perder o toque humano? Posso te mostrar como funciona?\n\n## A mensagem deve ser exatamente como acima\n\n## Mande uma mensagem por vez!\n\n## Se o campo Loop Over Items estiver vazio, mande só olá!\n\ntelefoneOriginal: {{ $('If').item.json.originalPhone }}\n",
         "hasOutputParser": true,
         "options": {
           "systemMessage": "=Você é uma assistente comercial e a sua função é mandar uma mensagem de whatsapp.\n\nA mensagem deve ser no modelo acima"
@@ -552,8 +588,8 @@
             {
               "id": "14c8c098-ce7d-44f4-9ae0-5f6273bf1b43",
               "name": "text",
-              "value": "={{ $json.output.text.split('\\n\\n') }}",
-              "type": "array"
+              "value": "={{ $json.output.text }}",
+              "type": "string"
             },
             {
               "id": "a3cb0f7c-f455-4165-b8cc-375d4320a037",
@@ -578,7 +614,8 @@
         -280
       ],
       "id": "b0ebcc6e-e68c-4c18-b9e1-e75a3bfdb6de",
-      "name": "Edit Fields1"
+      "name": "Edit Fields1",
+      "retryOnFail": false
     },
     {
       "parameters": {
@@ -631,7 +668,7 @@
       "parameters": {
         "content": "## Disparador",
         "height": 1000,
-        "width": 3880,
+        "width": 4300,
         "color": 7
       },
       "type": "n8n-nodes-base.stickyNote",
@@ -657,45 +694,6 @@
       ],
       "id": "5c69157e-e933-450b-a84b-a5813d271d43",
       "name": "Sticky Note11"
-    },
-    {
-      "parameters": {
-        "resource": "messages-api",
-        "instanceName": "SKYNET",
-        "remoteJid": "={{ $('Edit Fields1').item.json.numero }}",
-        "messageText": "={{ $json.text }}",
-        "options_message": {}
-      },
-      "type": "n8n-nodes-evolution-api.evolutionApi",
-      "typeVersion": 1,
-      "position": [
-        900,
-        -280
-      ],
-      "id": "43ee0393-7b08-4a02-a66a-3be8eb393d53",
-      "name": "Evolution API",
-      "credentials": {
-        "evolutionApi": {
-          "id": "TYMFez7AZEmuKDhe",
-          "name": "Evolution TALOS"
-        }
-      },
-      "onError": "continueErrorOutput"
-    },
-    {
-      "parameters": {
-        "options": {
-          "reset": "={{ $('Loop mensagens').context.done}}"
-        }
-      },
-      "type": "n8n-nodes-base.splitInBatches",
-      "typeVersion": 3,
-      "position": [
-        540,
-        -280
-      ],
-      "id": "3f357c47-1399-4099-84fe-f9cef88caa5c",
-      "name": "Loop mensagens"
     },
     {
       "parameters": {
@@ -730,8 +728,8 @@
         "rule": {
           "interval": [
             {
-              "field": "seconds",
-              "secondsInterval": 3
+              "field": "minutes",
+              "minutesInterval": 8
             }
           ]
         }
@@ -739,11 +737,12 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        -1980,
-        -260
+        -2040,
+        -600
       ],
       "id": "16eb663d-1032-4a44-977c-20f65fb9ab1d",
-      "name": "Schedule Trigger1"
+      "name": "Schedule Trigger1",
+      "disabled": true
     },
     {
       "parameters": {
@@ -765,7 +764,7 @@
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "phone": "={{ $('Edit Fields1').item.json.originalPhone }}",
+            "phone": "={{ $('Edit Fields1').first().json.originalPhone }}",
             "Enviar": "FALSE"
           },
           "matchingColumns": [
@@ -886,18 +885,216 @@
     },
     {
       "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -2000,
+        -260
+      ],
+      "id": "b4dba1ea-8798-4f47-919d-b74fccfb86d7",
+      "name": "When clicking ‘Test workflow’"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "4f4e621e-d61c-409b-be76-a666f9126fef",
+      "name": "OpenAI4",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        600,
+        -200
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "MgUovUkOF1DLLH9r",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "c0e3e914-a1dd-4201-b569-cb6e46b2bfda",
+      "name": "Loop Over Items5",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1020,
+        -360
+      ]
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"messages\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"string\"\n      }\n    }\n  },\n  \"required\": [\"messages\"]\n}"
+      },
+      "id": "e60d01ef-1cd9-4d48-991d-4cea5fc83695",
+      "name": "OutputParser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        720,
+        -200
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Whatsapp message to be splitted and formated: {{ $json.text }}",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=Por favor, gere a saída no seguinte formato JSON:\n{\n  \"messages\": [\n    \"splitedMessage\",\n    \"splitedMessage\"\n  ]\n}\n\nAs mensagens devem ser divididas de forma natural, afinal estamos conversando com um humano, não é mesmo?\n\nCertifique-se de que a resposta siga exatamente essa estrutura, incluindo os colchetes e as aspas.\n\n### Jamais separe uma mensagem vazia.\n\n### Sempre que tiver um link envie ele de forma separada sem alteração\n\n### Certifique-se de que a resposta siga exatamente essa estrutura abaixo, deixando somente entre '*' para negrito e nunca fugindo das demais regras de markdown do whatsapp:\n\t\t\t- *negrito* (substitua '**' por '*')\n\t\t\t- ~tachado~ (caso seja algo que foi excluído ou alterado)\n\t\t\t- _itálico_.(extremamente raro)\n            - `link` (usar sempre em todos os links)"
+            }
+          ]
+        }
+      },
+      "id": "dae17916-dc15-44a2-9112-198588d482cd",
+      "name": "Parser  Chain1",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.4,
+      "position": [
+        560,
+        -360
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "messages-api",
+        "instanceName": "Sofia",
+        "remoteJid": "={{ $('Menos que 240 Caracteres1').item.json.numero }}",
+        "messageText": "={{ $json.output }}",
+        "options_message": {
+          "delay": 1800,
+          "linkPreview": false
+        }
+      },
+      "type": "n8n-nodes-evolution-api.evolutionApi",
+      "typeVersion": 1,
+      "position": [
+        1320,
+        -340
+      ],
+      "id": "2d7fe979-013d-44a3-820a-0ba4c93e0ebe",
+      "name": "Evolution API3",
+      "retryOnFail": false,
+      "credentials": {
+        "evolutionApi": {
+          "id": "TYMFez7AZEmuKDhe",
+          "name": "Evolution TALOS"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "resource": "messages-api",
+        "instanceName": "Sofia",
+        "remoteJid": "={{ $('Variáveis').item.json.telefone }}",
+        "messageText": "={{ $json.output }}",
+        "options_message": {
+          "delay": 1200
+        }
+      },
+      "type": "n8n-nodes-evolution-api.evolutionApi",
+      "typeVersion": 1,
+      "position": [
+        600,
+        -540
+      ],
+      "id": "57797307-a519-4501-887b-634323913e64",
+      "name": "Evolution API8",
+      "credentials": {
+        "evolutionApi": {
+          "id": "TYMFez7AZEmuKDhe",
+          "name": "Evolution TALOS"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "7c4cdb12-9452-42a6-a39a-c268bd38dce1",
+              "leftValue": "={{ $json.output.lenght }}",
+              "rightValue": 90,
+              "operator": {
+                "type": "number",
+                "operation": "gt"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        340,
+        -280
+      ],
+      "id": "3510b4a0-088b-494e-b0c4-e259355b0b85",
+      "name": "Menos que 240 Caracteres1"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "output.messages",
+        "options": {
+          "destinationFieldName": "output"
+        }
+      },
+      "id": "7091d84d-bb2a-4922-a63e-755471bd88dd",
+      "name": "Split de Mensagem1",
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        860,
+        -360
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 1
+      },
+      "id": "64befb9a-98d9-4732-bffa-a706ff9217bf",
+      "name": "1 segundo1",
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        1160,
-        -200
+        1580,
+        -360
       ],
-      "id": "5ef215ea-ab30-4b28-83d8-b702fcfecb2d",
-      "name": "Wait",
-      "webhookId": "bcb5b9cf-c255-4308-819f-f8772d52dd98"
+      "webhookId": "28412017-1182-4b80-9cdc-e5c9b466cfe5"
     }
   ],
-  "pinData": {},
+  "pinData": {
+    "Evolution API8": [
+      {
+        "json": {
+          "name": "First item",
+          "code": 1
+        }
+      },
+      {
+        "json": {
+          "name": "Second item",
+          "code": 2
+        }
+      }
+    ]
+  },
   "settings": {
     "executionOrder": "v1"
   },
@@ -909,8 +1106,15 @@
       "recurrenceRules": []
     }
   },
-  "tags": [],
+  "tags": [
+    {
+      "createdAt": "2025-05-13T14:53:30.685Z",
+      "updatedAt": "2025-05-13T14:53:30.685Z",
+      "id": "BjrtG5Bg3LeeeY9m",
+      "name": "Odonto"
+    }
+  ],
   "triggerCount": 1,
-  "updatedAt": "2025-05-12T21:22:09.247Z",
-  "versionId": "770aebf8-7b91-4dd2-bc68-f9695e13c478"
+  "updatedAt": "2025-05-13T20:04:45.849Z",
+  "versionId": "98b1d54d-8311-4671-ae52-26d6be8187be"
 }
