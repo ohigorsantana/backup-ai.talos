@@ -1,0 +1,434 @@
+{
+  "active": false,
+  "connections": {
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Telegram Output",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Email Tool": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GPT": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Agenda Tool": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Telegram Input": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SerpAPI": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Calculator": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Baixa Audio",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Baixa Audio": {
+      "main": [
+        [
+          {
+            "node": "Transcreve",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Transcreve": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-05-13T21:43:28.155Z",
+  "id": "fRcilloTYJyIeusl",
+  "meta": null,
+  "name": "[IA.T][ASSISTENTE_PESSOAL]",
+  "nodes": [
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.text }}",
+        "options": {
+          "systemMessage": "=Você é um assistente pessoal útil chamado Morpheus, seu tom deve ser sempre bem egraçado e simpatico\nVocê está falando com {{ $('Telegram Input').item.json.message.chat.first_name }}.\nData Atual: {{ $now }}\n\nVocê deve atender as minhas necessidades, gerenciando minha agenda, meus emails e realizando pesquisas quando for solicitado\n\n# Visão geral das Tools \nVocê tem acesso as seguintes Tools: Agenda_Tool, Email_Tool, SerpAPI_Tool\n\n\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        400,
+        -20
+      ],
+      "id": "81241fd1-bdfc-4562-8bed-20b9f3fad719",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "name": "Email_Tool",
+        "description": "Chame essa tool quando for necessario enviar, listar ou ler emails",
+        "workflowId": {
+          "__rl": true,
+          "value": "erK1rkmW3IWCpiWL",
+          "mode": "list",
+          "cachedResultName": "Agente Email"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 1.3,
+      "position": [
+        740,
+        240
+      ],
+      "id": "337527b8-5d81-4e09-80f1-77e18cec55d1",
+      "name": "Email Tool"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        400,
+        160
+      ],
+      "id": "032c11d7-500f-407f-93b8-4a06db8b0179",
+      "name": "GPT"
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "1",
+        "contextWindowLength": 10
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        520,
+        200
+      ],
+      "id": "3efc9825-22c8-4b42-8c48-b4f42425706d",
+      "name": "Memory"
+    },
+    {
+      "parameters": {
+        "name": "Agenda_Tool",
+        "description": "Chame essa tool sempre que necessario listar, criar ou deletar um evendo da agenda",
+        "workflowId": {
+          "__rl": true,
+          "value": "ndPB1UOXLMFMmv9M",
+          "mode": "list",
+          "cachedResultName": "Agente Agenda"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 1.3,
+      "position": [
+        640,
+        240
+      ],
+      "id": "c844e2a1-2466-40c8-ba0c-f22c19e30bbb",
+      "name": "Agenda Tool"
+    },
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -340,
+        -20
+      ],
+      "id": "33ec8e27-5e6a-4023-8e66-9da6ab76d058",
+      "name": "Telegram Input",
+      "webhookId": "15c95e1b-6617-4b91-ac56-c39608445223"
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Input').item.json.message.chat.id }}",
+        "text": "={{ $json.output }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        800,
+        -20
+      ],
+      "id": "a1eaeac6-2bb1-48a1-9095-354846202283",
+      "name": "Telegram Output",
+      "webhookId": "eba2704a-1d81-420a-91af-a7a33a9e3a41"
+    },
+    {
+      "parameters": {
+        "options": {
+          "gl": "br",
+          "hl": "pt"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolSerpApi",
+      "typeVersion": 1,
+      "position": [
+        840,
+        240
+      ],
+      "id": "1dd0aa8b-a11f-4e65-b90d-411972fef7b5",
+      "name": "SerpAPI"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.toolCalculator",
+      "typeVersion": 1,
+      "position": [
+        940,
+        240
+      ],
+      "id": "a5ea9cf1-43f4-4413-80c7-5ee2698e9b66",
+      "name": "Calculator"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.message.text }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "exists",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "d759bca8-407d-450c-961e-374667e562c0",
+                    "leftValue": "={{ $json.message.voice.file_id }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "exists",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -140,
+        -20
+      ],
+      "id": "3ac90a94-29fb-4409-b9c3-7b5ed5d7d975",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "5d07d56d-2a02-4949-993d-b2bac302321f",
+              "name": "text",
+              "value": "={{ $json.message.text }}",
+              "type": "string"
+            },
+            {
+              "id": "d41457aa-964b-4d6e-9fd8-a9f82180f317",
+              "name": "",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        120,
+        -120
+      ],
+      "id": "c49e5f6b-f890-411e-98bb-e062894d075f",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "fileId": "={{ $json.message.voice.file_id }}"
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        20,
+        40
+      ],
+      "id": "48be3eb5-cf25-42f5-ab0c-6fc9f50e46d2",
+      "name": "Baixa Audio",
+      "webhookId": "151527c2-5bb7-45d3-b8e6-811540e250f9"
+    },
+    {
+      "parameters": {
+        "resource": "audio",
+        "operation": "transcribe",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.7,
+      "position": [
+        220,
+        40
+      ],
+      "id": "b668a057-efc8-4376-83b1-e833100a9be9",
+      "name": "Transcreve"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-05-13T21:44:03.432Z",
+      "updatedAt": "2025-05-13T21:44:03.432Z",
+      "id": "Zo3onenB7cyRGleo",
+      "name": "Agente Pessoal"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-05-13T21:57:23.814Z",
+  "versionId": "7c419955-60c5-4a48-8c7e-a33d1b537bd6"
+}
