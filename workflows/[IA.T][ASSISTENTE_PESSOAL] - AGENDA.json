@@ -1,0 +1,228 @@
+{
+  "active": false,
+  "connections": {
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Listar ": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Criar ": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Excluir ": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GPT": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-05-13T21:44:42.108Z",
+  "id": "7rOJ5VUWMQp5fyBK",
+  "meta": null,
+  "name": "[IA.T][ASSISTENTE_PESSOAL] - AGENDA",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "de30afd0-0b09-4e49-b576-c68ad89a30a2",
+      "name": "Execute Workflow Trigger"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.query }}",
+        "options": {
+          "systemMessage": "=Você é um assistente que gerencia minha agenda\nData Atual: {{ $now }}\n\nVocê tem acesso a tools para ler, criar ou excluir um evento\n\nSempre que for pedido para deletar algum agendamento, primeiro liste ele por meio da ferramenta de listar tarefas e então recupere o id para poder deletar"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        220,
+        0
+      ],
+      "id": "b37b2a00-0c6f-4c29-a401-709f727b00d8",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "Chame essa tool para listar eventos da agenda",
+        "operation": "getAll",
+        "calendar": {
+          "__rl": true,
+          "value": "c_2caca9e140617e237095c2be1bb3f1bc5b37dc93e08d3d1640778d9ad31bd31d@group.calendar.google.com",
+          "mode": "list",
+          "cachedResultName": "Vitor Pasqualotto"
+        },
+        "returnAll": true,
+        "options": {
+          "timeZone": {
+            "__rl": true,
+            "value": "Brazil/East",
+            "mode": "list",
+            "cachedResultName": "Brazil/East"
+          }
+        }
+      },
+      "type": "n8n-nodes-base.googleCalendarTool",
+      "typeVersion": 1.2,
+      "position": [
+        400,
+        220
+      ],
+      "id": "7da8cd3b-f4e1-4391-97b8-a4f1803d35b6",
+      "name": "Listar "
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "Chame essa tool para criar eventos na agenda",
+        "calendar": {
+          "__rl": true,
+          "value": "c_2caca9e140617e237095c2be1bb3f1bc5b37dc93e08d3d1640778d9ad31bd31d@group.calendar.google.com",
+          "mode": "list",
+          "cachedResultName": "Vitor Pasqualotto"
+        },
+        "start": "={{ $fromAI(\"Horario_inicio\", \"Aqui vai o horario do agendamento\") }}",
+        "end": "={{ $fromAI(\"horario_final\", \"aqui vai o horario do final do agendamento\") }}",
+        "additionalFields": {
+          "description": "={{ $fromAI(\"descricao\", \"aqui vai a descricao do evento\") }}",
+          "summary": "={{ $fromAI(\"nome\", \"aqui vai o nome do evento\") }}"
+        }
+      },
+      "type": "n8n-nodes-base.googleCalendarTool",
+      "typeVersion": 1.2,
+      "position": [
+        540,
+        260
+      ],
+      "id": "ddbd5b87-95cc-4cd3-b252-673de1acab5f",
+      "name": "Criar "
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "Chame essa tool para excluir um evento da agenda",
+        "operation": "delete",
+        "calendar": {
+          "__rl": true,
+          "value": "c_2caca9e140617e237095c2be1bb3f1bc5b37dc93e08d3d1640778d9ad31bd31d@group.calendar.google.com",
+          "mode": "list",
+          "cachedResultName": "Vitor Pasqualotto"
+        },
+        "eventId": "={{ $fromAI(\"ID\", \"aqui vai o id do evendo em questao\") }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleCalendarTool",
+      "typeVersion": 1.2,
+      "position": [
+        680,
+        300
+      ],
+      "id": "d98aabf2-a7f0-4461-9723-d89a96db13f5",
+      "name": "Excluir "
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        140,
+        220
+      ],
+      "id": "c8378fe9-fe64-411b-8e2a-741c1b987241",
+      "name": "GPT"
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "3",
+        "contextWindowLength": 10
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        280,
+        260
+      ],
+      "id": "11d9aee5-3cb1-43bd-a619-f6709342803b",
+      "name": "Memory"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-05-13T21:44:03.432Z",
+      "updatedAt": "2025-05-13T21:44:03.432Z",
+      "id": "Zo3onenB7cyRGleo",
+      "name": "Agente Pessoal"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-05-13T21:44:50.631Z",
+  "versionId": "df5f8e89-4674-4009-bd6b-0c571a62e373"
+}
