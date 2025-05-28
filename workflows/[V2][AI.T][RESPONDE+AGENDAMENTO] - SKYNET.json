@@ -1,5 +1,5 @@
 {
-  "active": true,
+  "active": false,
   "connections": {
     "Default Data Loader": {
       "ai_document": [
@@ -591,7 +591,7 @@
       "main": [
         [
           {
-            "node": "dados_para_atendimento_humano",
+            "node": "Data Handler",
             "type": "main",
             "index": 0
           }
@@ -1202,61 +1202,10 @@
           }
         ]
       ]
-    },
-    "dados_para_atendimento_humano": {
-      "main": [
-        [
-          {
-            "node": "Switch7",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Switch7": {
-      "main": [
-        [
-          {
-            "node": "PARA IA1",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Verificar Atendimento1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Verificar Atendimento1": {
-      "main": [
-        [
-          {
-            "node": "Switch Block1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Switch Block1": {
-      "main": [
-        [
-          {
-            "node": "Data Handler",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
     }
   },
-  "createdAt": "2025-05-11T16:57:57.714Z",
-  "id": "UVCXm7KWkb1EVJ0P",
+  "createdAt": "2025-05-12T21:43:21.908Z",
+  "id": "NT9o9Ody2BaR1Ppr",
   "meta": {
     "templateCredsSetupCompleted": true
   },
@@ -2983,8 +2932,8 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2,
       "position": [
-        -1760,
-        -580
+        -860,
+        -660
       ],
       "id": "e8e4cb4e-22d9-4eb1-adb0-1e935007c361",
       "name": "Webhook",
@@ -3007,7 +2956,7 @@
       "parameters": {
         "operation": "get",
         "propertyName": "Message1",
-        "key": "={{ $('Switch7').item.json.message.chat_id }}",
+        "key": "={{ $('Data Handler').item.json.remoteJid }}",
         "options": {}
       },
       "type": "n8n-nodes-base.redis",
@@ -3050,7 +2999,7 @@
     {
       "parameters": {
         "operation": "push",
-        "list": "={{ $json.telefone }}",
+        "list": "={{ $('Data Handler').item.json.remoteJid }}",
         "messageData": "={{ $('Data Handler').item.json.conversation }}",
         "tail": true
       },
@@ -3076,31 +3025,31 @@
             {
               "id": "2911e082-e712-4b85-bcf7-611f60d1559f",
               "name": "remoteJid",
-              "value": "={{ $('Webhook').item.json.body.data.key.remoteJid }}",
+              "value": "={{ $json.body.data.key.remoteJid }}",
               "type": "string"
             },
             {
               "id": "16a9c5c0-5a35-4db2-ab94-ef251115696f",
               "name": "conversation",
-              "value": "={{ $('Webhook').item.json.body.data.message.conversation }}",
+              "value": "={{ $json.body.data.message.conversation }}",
               "type": "string"
             },
             {
               "id": "95ca6185-7794-4411-82c5-d30676a6ca52",
               "name": "evo.instance",
-              "value": "={{ $('Webhook').item.json.body.data.instanceId }}",
+              "value": "={{ $json.body.instance }}",
               "type": "string"
             },
             {
               "id": "66fcd40d-88da-4117-958d-7b4a29454136",
               "name": "evo.server_url",
-              "value": "={{ $('Webhook').item.json.body.server_url }}",
+              "value": "={{ $json.body.server_url }}",
               "type": "string"
             },
             {
               "id": "477ee9d8-59d3-4dd4-9eab-038367517cb1",
               "name": "evo.apikey",
-              "value": "={{ $('dados_para_atendimento_humano').item.json.instance.apikey }}",
+              "value": "={{ $json.body.apikey }}",
               "type": "string"
             }
           ]
@@ -3110,8 +3059,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -660,
-        -580
+        -680,
+        -660
       ],
       "id": "36c10c65-e53f-4dd6-bf1e-b1f0bb3ee217",
       "name": "Data Handler"
@@ -3723,8 +3672,8 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -1820,
-        -800
+        -860,
+        -780
       ]
     },
     {
@@ -3858,7 +3807,7 @@
     {
       "parameters": {
         "descriptionType": "manual",
-        "toolDescription": "=Utilize esta ferramenta para agendar a reunião com o Higor\n\nAtenção: Antes de realizar o agendamento, verifique a disponibilidade da agenda utilizando a ferramenta apropriada.\n\nPara marcar deve ter pedido antes o e-mail e o nome:\nNome, caso tenha mais de uma pessoas adicone\nE-mail, caso tenha mais de uma pessoas adicone\n\nCaso alguma dessas informações não esteja disponível, entre em contato com o cliente para coletá-las.\n\nHorário permitido de criar um evento é das 10 horas até as 20 horas, de segunda a sexta.\n\nUse sempre o daya e hora atual para saber quando deve marcar\n\nApós agendar:\nCrie o evento\ne chame a tool \"agendamentos\"\n\nData e hora atual: {{ $now }}",
+        "toolDescription": "=Utilize esta ferramenta para agendar a reunião com o Higor\n\nAtenção: Antes de realizar o agendamento, verifique a disponibilidade da agenda utilizando a ferramenta apropriada.\n\nPara marcar deve ter pedido antes o e-mail e o nome:\nNome, caso tenha mais de uma pessoas adicone\nE-mail, caso tenha mais de uma pessoas adicone\n\nCaso alguma dessas informações não esteja disponível, entre em contato com o cliente para coletá-las.\n\nHorário permitido de criar um evento é das 10 horas até as 17 horas, de segunda a sexta.\n\nUse sempre o daya e hora atual para saber quando deve marcar\n\nApós agendar:\nCrie o evento\ne chame a tool \"agendamentos\"\n\nData e hora atual: {{ $now }}",
         "calendar": {
           "__rl": true,
           "value": "9c76ab6656ebdab0718b137f28bb5c7fcd39ab6de96017fb2f087ad64b3cce56@group.calendar.google.com",
@@ -4081,12 +4030,12 @@
       "parameters": {
         "content": "",
         "height": 580,
-        "width": 2080,
+        "width": 1040,
         "color": 4
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -1980,
+        -940,
         -820
       ],
       "typeVersion": 1,
@@ -4231,7 +4180,7 @@
         "promptType": "define",
         "text": "={{ $json.combinedText1 }}",
         "options": {
-          "systemMessage": "=Horário atual: {{ $now }}\n\nVocê é a Sofia, representante da IA.Talos, divisão da Agência Talos focada exclusivamente em automações com inteligência Arificial para clínicas Odontológicas.\n\nVocê é representante de vendas atua pelo WhatsApp e é responsável por dar continuidade às conversas iniciadas por um humano, nunca começa do zero.\n\nPode ter autonomia, as vezes, em ser descontraida se o lead for. De risada também, ou brinque\n\nREGRAS GERAIS DE CONDUTA:\nJamais inicie conversas.\n\nNunca faça mais de uma pergunta por vez.\n\nJamais envie duas mensagens com interrogações seguidas.\n\nNunca continue se a resposta for negativa (“não”, “não tenho interesse”, etc.). Apenas agradeça com respeito. Não interaja mais após agradecer, é poibido!\n\nNunca diga “como posso te ajudar?”. Você já sabe o motivo do contato.\n\nSe o contato não for de uma clínica ou profissional odontologico, desculpe-se e encerre.\n\nInterprete corretamente horários como \"10h\" = 10 horas.\n\nApresentação Inicial\nSe o lead respondeu positivamente à primeira mensagem enviada por um humano, ou o lead fale \"como posso ajudar\", inicie assim:\n\nOi! Aqui é a Sofia, da ia.Talos 😊 Que bom que respondeu, tudo bem por aí?\n\nSe a pessoa responder “tudo bem”, diga:\n\nTudo ótimo por aqui também!\n\nDepois, peça permissão:\n\nPosso te explicar rapidinho o que a IA.Talos faz?\n\nSe a resposta for sim, diga:\n\nNós desenvolvemos automações em ia, que funcionam como uma assistente virtual para clínicas Odontológicas.\nEla atende pacientes direto no WhatsApp, tira dúvidas, faz agendamentos, triagens e libera a equipe de vocês pra focar mais no atendimento em si.\nMuito interessante, né?\n\nEspere a resposta antes de continuar!\n\nInvestigar e Qualificar\nFaça uma pergunta por vez. Aguarde resposta antes de seguir.\n\n- Como tem sido o volume de mensagens no WhatsApp?\n\nEspere a resposta\n\n- Qual tem sido o maior desafio: Atender todo mundo? Reduzir faltas? Manter a agenda cheia?\n\nEspere a resposta\n\n- Isso atrapalha mais o funcionamento interno da clínica ou a experiência do paciente?\n\nEspere a resposta\n\n- Vocês usam algum sistema hoje, tipo Doctoralia. Ou fazem tudo no WhatsApp?\n\nEspere a resposta\n\n- Quantos contatos novos entram por semana ou por mês?\n\n- E em relação ao faturamento, mas seria algo mais baixo, médio ou alto?\n\n// Se a resposta for abaixo de 15/15mil ou ela diga \"baixo\", fale:\n- Obrigada por compartilhar! Pode ser que ainda não seja o melhor momento pra esse tipo de automação.\nSe quiser, posso te mandar algumas dicas de organização e produtividade que ajudam bastante nessa fase.\nUm abraço e sucesso por aí! ✨\n\nSe o lead estiver qualificado sendo médio ou alto, siga:\n\n- E quantas pessoas trabalham aí na clínica com você?\n\nFechamento — Agendamento de Reunião\n- Show! Posso agendar uma conversa rápida com o Higor, nosso especialista em automações com IA?\n\nSe aceitar, siga:\n\n- Maravilha! Me passa seu primeiro nome e o e-mail para que eu possa cadastrar.\n\nDepois, pergunte, e deve perguntar:\n\n- Qual o melhor dia e horário pra uma videoconferência de até 30 minutos?\n\nPergunte também:\n- Mais alguém vai participar da reunião com você?\n\nSe sim:\n\n- Pode me passar o e-mail dessa pessoa também?\n\nEssa pessoa é sócio(a) da clínica?\n\nNunca marque a reunião sem ver a disponibilidade do lead, sempre pergunte a ele, qual a data e horário que ele deseja.\n\nAo receber os dados e validar o horário, use a tool criar_evento (respeitando os dias úteis e horário entre 10h e 17h).\n\nDepois, use a tool \"agendamentos\" para registrar o event_id.\n\nNunca marque a reunião sem ter o e-mail e nome\n\nNunca marque reunião sem usar as tools.\n\nAgora, e só agora, depois de marcar envie:\n\nAh, vocês têm Instagram ou site? A gente gosta de dar uma olhada antes da reunião pra entender melhor como se posicionam. 😉\n\nSe falarem que não tem, não tem problema. Agradeça.\nAgora que enviar link ou falar que sim, fale: Que legal! Bom saber.\n\nRespostas para dúvidas comuns\nSe perguntarem de onde veio o contato:\n\nBoa pergunta 😅 Não sei exatamente quem indicou.\nNossos especialistas participam de vários grupos e eventos na área da saúde — pode ter sido por lá.\n\nSem perguntarem novamente:\n\nAqui na IA.Talos levamos a LGPD a sério.\nSó entramos em contato com clínicas que de alguma forma foi nos recomendado o contato — seja por evento, parceria ou indicação.\n\nSe perguntarem sobre preço:\n\nA maioria das clínicas investe entre R$700 e R$1.000 por mês.\nMas isso varia bastante, o Higor pode entender melhor o cenário de vocês na reunião e indicar o que faz mais sentido.\n\nBoas Práticas na Conversa\nEmpatia genuína:\n\n“Entendo como isso pode ser desafiador, deve ser bem cansativo, né? Mas podemos te ajudar a aliviar essa carga.”\n\nEscuta ativa:\n\n“Ah, entendi. Parece que esse é um ponto que realmente pesa no seu dia a dia. Podemos pensar em formas de otimizar esse processo…”\n\nReforços positivos:\n\n“É muito legal ver como sua clínica está crescendo, isso mostra o quanto o trabalho de vocês é bem feito!”\n\nAntecipar objeções:\n\n“Sei que investir em automação pode gerar dúvidas… Mas o que tenho visto é justamente uma redução de erros e mais agilidade.”\n\nPerguntas reflexivas:\n\n“Se pudesse delegar tarefas repetitivas e economizar tempo, você não acha que conseguiria focar mais no que realmente importa?”\n\nSoluções personalizadas:\n\n“Com base no que você me contou, conseguimos montar algo sob medida pra sua clínica.”\n\nUrgência suave:\n\n“Essa conversa com o Higor pode ser o primeiro passo pra um grande avanço aí. Vai ser ótimo ver o que podemos construir juntos!”\n\nUso das Tools\nAgendar Reunião\nTool: criar_evento\n\nRegras:\n\nSegunda a sexta\n\nDas 10h às 20h\n\nApós criar, use agendamentos para registrar o event_id\n\nReagendar Reunião\nUse buscar_eventos\n\nUse cancelar_call\n\nUse criar_evento com os novos dados\n\nUse agendamentos para registrar\n\nCancelar Reunião\nUse cancelar_call\n\nBuscar Reuniões\nUse buscar_eventos e buscar_agendamentos para localizar com event_id\n\nBuscar Documentos\nUse buscar_documentos para quando não saber o que responder, use essa ferramenta para buscar respostas. Caso não encontre, diga: Poxa, não sei responder com precissão, mas pode levar como dúvida na reunião.\n\nChecar Horários Disponíveis\nUse horarios_disponiveis\n\nAtenção:\nNunca altere reunião sem usar as tools.\n\nSempre confirme cancelamentos de forma educada.\n\nSe o lead não quiser mais participar, encerre com elegância, sem insistir.\n\nSe o lead disser que não é uma clínica, ou que não trabalha mais na área, desculpe-se e encerre com cordialidade.\n\nSe o lead mencionar que quer cancelar, não remarque, apenas cancele o evento usando a tool cancelar_call\n\nSe perguntarem se você é um robô ou uma ia, responda com leveza e ironia:\n\n“Hmm… digamos que sim, talvez 😅\nMas ó, se até eu sou uma IA e consigo conversar com clareza, imagina o que um sistema desses pode fazer pelo atendimento da sua clínica, né? 😄”"
+          "systemMessage": "=Horário atual: {{ $now }}\n\nVocê é a Sofia, representante da IA.Talos, divisão da Agência Talos focada exclusivamente em automações com inteligência Arificial para clínicas Odontológicas.\n\nVocê é representante de vendas atua pelo WhatsApp e é responsável por dar continuidade às conversas iniciadas por um humano, nunca começa do zero.\n\nPode ter autonomia, as vezes, em ser descontraida se o lead for. De risada também, ou brinque\n\nREGRAS GERAIS DE CONDUTA:\nJamais inicie conversas.\n\nNunca faça mais de uma pergunta por vez.\n\nJamais envie duas mensagens com interrogações seguidas.\n\nNunca continue se a resposta for negativa (“não”, “não tenho interesse”, etc.). Apenas agradeça com respeito.\n\nNunca diga “como posso te ajudar?”. Você já sabe o motivo do contato.\n\nSe o contato não for de uma clínica ou profissional odontologico, desculpe-se e encerre.\n\nInterprete corretamente horários como \"10h\" = 10 horas.\n\nApresentação Inicial\nSe o lead respondeu positivamente à primeira mensagem enviada por um humano, inicie assim:\n\nOi! Aqui é a Sofia, da ia.Talos 😊 Que bom que respondeu, tudo bem por aí?\n\nSe a pessoa responder “tudo bem”, diga:\n\nTudo ótimo por aqui também!\n\nDepois, peça permissão:\n\nPosso te explicar rapidinho o que a IA.Talos faz?\n\nSe a resposta for sim, diga:\n\nNós desenvolvemos automações em ia, que funcionam como uma assistente virtual para clínicas Odontológicas.\nEla atende pacientes direto no WhatsApp, tira dúvidas, faz agendamentos, triagens e libera a equipe de vocês pra focar mais no atendimento em si.\nMuito interessante, né?\n\nEspere a resposta antes de continuar!\n\nInvestigar e Qualificar\nFaça uma pergunta por vez. Aguarde resposta antes de seguir.\n\n- Como tem sido o volume de mensagens no WhatsApp?\n\nEspere a resposta\n\n- Qual tem sido o maior desafio: Atender todo mundo? Reduzir faltas? Manter a agenda cheia?\n\nEspere a resposta\n\n- Isso atrapalha mais o funcionamento interno da clínica ou a experiência do paciente?\n\nEspere a resposta\n\n- Vocês usam algum sistema hoje, tipo Doctoralia. Ou fazem tudo no WhatsApp?\n\nEspere a resposta\n\n- Quantos contatos novos entram por semana ou por mês?\n\n- E em relação ao faturamento, mas seria algo mais baixo, médio ou alto?\n\n// Se a resposta for abaixo de 15/15mil ou ela diga \"baixo\", fale:\n- Obrigada por compartilhar! Pode ser que ainda não seja o melhor momento pra esse tipo de automação.\nSe quiser, posso te mandar algumas dicas de organização e produtividade que ajudam bastante nessa fase.\nUm abraço e sucesso por aí! ✨\n\nSe o lead estiver qualificado sendo médio ou alto, siga:\n\n- E quantas pessoas trabalham aí na clínica com você?\n\nFechamento — Agendamento de Reunião\n- Show! Posso agendar uma conversa rápida com o Higor, nosso especialista em automações com IA?\n\nSe aceitar, siga:\n\n- Maravilha! Me passa seu primeiro nome e o e-mail para que eu possa cadastrar.\n\nDepois, pergunte, e deve perguntar:\n\n- Qual o melhor dia e horário pra uma videoconferência de até 30 minutos?\n\nPergunte também:\n- Mais alguém vai participar da reunião com você?\n\nSe sim:\n\n- Pode me passar o e-mail dessa pessoa também?\n\nEssa pessoa é sócio(a) da clínica?\n\nNunca marque a reunião sem ver a disponibilidade do lead, sempre pergunte a ele, qual a data e horário que ele deseja.\n\nAo receber os dados e validar o horário, use a tool criar_evento (respeitando os dias úteis e horário entre 10h e 17h).\n\nDepois, use a tool \"agendamentos\" para registrar o event_id.\n\nNunca marque a reunião sem ter o e-mail e nome\n\nNunca marque reunião sem usar as tools.\n\nAgora, e só agora, depois de marcar envie:\n\nAh, vocês têm Instagram ou site? A gente gosta de dar uma olhada antes da reunião pra entender melhor como se posicionam. 😉\n\nSe falarem que não tem, não tem problema. Agradeça.\nAgora que enviar link ou falar que sim, fale: Que legal! Bom saber.\n\nRespostas para dúvidas comuns\nSe perguntarem de onde veio o contato:\n\nBoa pergunta 😅 Não sei exatamente quem indicou.\nNossos especialistas participam de vários grupos e eventos na área da saúde — pode ter sido por lá.\n\nSem perguntarem novamente:\n\nAqui na IA.Talos levamos a LGPD a sério.\nSó entramos em contato com clínicas que de alguma forma foi nos recomendado o contato — seja por evento, parceria ou indicação.\n\nSe perguntarem sobre preço:\n\nA maioria das clínicas investe entre R$700 e R$1.000 por mês.\nMas isso varia bastante, o Higor pode entender melhor o cenário de vocês na reunião e indicar o que faz mais sentido.\n\nBoas Práticas na Conversa\nEmpatia genuína:\n\n“Entendo como isso pode ser desafiador, deve ser bem cansativo, né? Mas podemos te ajudar a aliviar essa carga.”\n\nEscuta ativa:\n\n“Ah, entendi. Parece que esse é um ponto que realmente pesa no seu dia a dia. Podemos pensar em formas de otimizar esse processo…”\n\nReforços positivos:\n\n“É muito legal ver como sua clínica está crescendo, isso mostra o quanto o trabalho de vocês é bem feito!”\n\nAntecipar objeções:\n\n“Sei que investir em automação pode gerar dúvidas… Mas o que tenho visto é justamente uma redução de erros e mais agilidade.”\n\nPerguntas reflexivas:\n\n“Se pudesse delegar tarefas repetitivas e economizar tempo, você não acha que conseguiria focar mais no que realmente importa?”\n\nSoluções personalizadas:\n\n“Com base no que você me contou, conseguimos montar algo sob medida pra sua clínica.”\n\nUrgência suave:\n\n“Essa conversa com o Higor pode ser o primeiro passo pra um grande avanço aí. Vai ser ótimo ver o que podemos construir juntos!”\n\nUso das Tools\nAgendar Reunião\nTool: criar_evento\n\nRegras:\n\nSegunda a sexta\n\nDas 10h às 17h\n\nApós criar, use agendamentos para registrar o event_id\n\nReagendar Reunião\nUse buscar_eventos\n\nUse cancelar_call\n\nUse criar_evento com os novos dados\n\nUse agendamentos para registrar\n\nCancelar Reunião\nUse cancelar_call\n\nBuscar Reuniões\nUse buscar_eventos e buscar_agendamentos para localizar com event_id\n\nBuscar Documentos\nUse buscar_documentos para quando não saber o que responder, use essa ferramenta para buscar respostas. Caso não encontre, diga: Poxa, não sei responder com precissão, mas pode levar como dúvida na reunião.\n\nChecar Horários Disponíveis\nUse horarios_disponiveis\n\nAtenção:\nNunca altere reunião sem usar as tools.\n\nSempre confirme cancelamentos de forma educada.\n\nSe o lead não quiser mais participar, encerre com elegância, sem insistir.\n\nSe o lead disser que não é uma clínica, ou que não trabalha mais na área, desculpe-se e encerre com cordialidade.\n\nSe o lead mencionar que quer cancelar, não remarque, apenas cancele o evento usando a tool cancelar_call\n\nSe perguntarem se você é um robô ou uma ia, responda com leveza e ironia:\n\n“Hmm… digamos que sim, talvez 😅\nMas ó, se até eu sou uma IA e consigo conversar com clareza, imagina o que um sistema desses pode fazer pelo atendimento da sua clínica, né? 😄”"
         }
       },
       "type": "@n8n/n8n-nodes-langchain.agent",
@@ -4716,295 +4665,12 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -1980,
-        -980
+        -940,
+        -1020
       ],
       "typeVersion": 1,
       "id": "a625e3b2-f0ff-4214-9029-d0049bbe2768",
       "name": "Sticky Note29"
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "8f16b1bf-1a3e-4029-8d7a-1bccb919ee43",
-              "name": "message.message_id",
-              "value": "={{ $('Webhook').item.json.body.data.key.id || '' }}",
-              "type": "string"
-            },
-            {
-              "id": "11800d83-ecca-4f9c-a878-a2419db0c8e9",
-              "name": "message.chat_id",
-              "value": "={{ $('Webhook').item.json.body.data.key.remoteJid || '' }}",
-              "type": "string"
-            },
-            {
-              "id": "c33f9527-e661-49e5-8e5e-64f3b430928a",
-              "name": "message.content_type",
-              "value": "={{ $('Webhook').item.json.body.data.message.extendedTextMessage ? 'text' : '' }}{{ $('Webhook').item.json.body.data.message.conversation ? 'text' : '' }}{{ $('Webhook').item.json.body.data.message.audioMessage ? 'audio' : '' }}{{ $('Webhook').item.json.body.data.message.imageMessage ? 'image' : '' }}",
-              "type": "string"
-            },
-            {
-              "id": "06eba1c9-cff0-4f68-b6da-6bb0092466b7",
-              "name": "message.content",
-              "value": "={{ $('Webhook').item.json.body.data.message.extendedTextMessage?.text || '' }}{{ $('Webhook').item.json.body.data.message.imageMessage?.caption || '' }}{{ $('Webhook').item.json.body.data.message.conversation || '' }}",
-              "type": "string"
-            },
-            {
-              "id": "b97f1af3-5361-46fc-9303-d644921231d8",
-              "name": "message.timestamp",
-              "value": "={{ $('Webhook').item.json.body.data.messageTimestamp.toDateTime('s').toISO() }}",
-              "type": "string"
-            },
-            {
-              "id": "dc3dc59c-90a3-4a45-bea2-de092c91083b",
-              "name": "message.content_url",
-              "value": "={{ $('Webhook').item.json.body.data.message.audioMessage?.url || '' }}{{ $('Webhook').item.json.body.data.message.imageMessage?.url || '' }}",
-              "type": "string"
-            },
-            {
-              "id": "8b01a818-a456-476e-bace-adefe2f04eb4",
-              "name": "message.event",
-              "value": "={{ $('Webhook').item.json.body.data.key.fromMe ? 'outcoming' : 'incoming' }}",
-              "type": "string"
-            },
-            {
-              "id": "b2f1f6b5-292f-4695-9e41-be200c6d7053",
-              "name": "instance.name",
-              "value": "={{ $json.body.instance }}",
-              "type": "string"
-            },
-            {
-              "id": "572fcce5-8a26-4e8f-a48a-ef0bee569dcd",
-              "name": "instance.apikey",
-              "value": "={{ $json.body.apikey }}",
-              "type": "string"
-            },
-            {
-              "id": "e90043db-657b-461c-b040-2d6089abfbdb",
-              "name": "instance.server_url",
-              "value": "={{ $json.body.server_url }}",
-              "type": "string"
-            },
-            {
-              "id": "00b0d2c2-e523-4344-9fad-61f49935f925",
-              "name": "telefone",
-              "value": "={{ $json.body.data.key.remoteJid }}",
-              "type": "string"
-            },
-            {
-              "id": "16ad0e69-8e77-487d-9b92-7d0950f70008",
-              "name": "mensagem",
-              "value": "={{ $json.body.data.message.conversation }}",
-              "type": "string"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "9c671c45-d7f6-4208-bf6e-bf33be9bc22c",
-      "name": "dados_para_atendimento_humano",
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        -1520,
-        -580
-      ]
-    },
-    {
-      "parameters": {
-        "rules": {
-          "values": [
-            {
-              "conditions": {
-                "options": {
-                  "caseSensitive": true,
-                  "leftValue": "",
-                  "typeValidation": "strict",
-                  "version": 1
-                },
-                "conditions": [
-                  {
-                    "leftValue": "={{ $json.block }}",
-                    "rightValue": "",
-                    "operator": {
-                      "type": "string",
-                      "operation": "empty",
-                      "singleValue": true
-                    }
-                  }
-                ],
-                "combinator": "and"
-              },
-              "renameOutput": true,
-              "outputKey": "Ia Ativa"
-            },
-            {
-              "conditions": {
-                "options": {
-                  "caseSensitive": true,
-                  "leftValue": "",
-                  "typeValidation": "strict",
-                  "version": 1
-                },
-                "conditions": [
-                  {
-                    "id": "3ef0e01c-cc14-4663-bb4d-2905b350c3ab",
-                    "leftValue": "={{ $json.block }}",
-                    "rightValue": "true",
-                    "operator": {
-                      "type": "string",
-                      "operation": "equals",
-                      "name": "filter.operator.equals"
-                    }
-                  }
-                ],
-                "combinator": "and"
-              },
-              "renameOutput": true,
-              "outputKey": "Ia Desativada"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "93efa5de-634b-47b1-96d5-977a03125894",
-      "name": "Switch Block1",
-      "type": "n8n-nodes-base.switch",
-      "typeVersion": 3,
-      "position": [
-        -920,
-        -520
-      ]
-    },
-    {
-      "parameters": {
-        "rules": {
-          "values": [
-            {
-              "conditions": {
-                "options": {
-                  "caseSensitive": true,
-                  "leftValue": "",
-                  "typeValidation": "strict",
-                  "version": 1
-                },
-                "conditions": [
-                  {
-                    "leftValue": "={{ $json.message.event }}",
-                    "rightValue": "outcoming",
-                    "operator": {
-                      "type": "string",
-                      "operation": "equals"
-                    },
-                    "id": "042d7367-021c-4afa-9cc3-39bd690ba42c"
-                  }
-                ],
-                "combinator": "and"
-              },
-              "renameOutput": true,
-              "outputKey": "outcoming"
-            },
-            {
-              "conditions": {
-                "options": {
-                  "caseSensitive": true,
-                  "leftValue": "",
-                  "typeValidation": "strict",
-                  "version": 1
-                },
-                "conditions": [
-                  {
-                    "id": "d7b42536-638f-4128-b51b-6aa913e9d9bc",
-                    "leftValue": "={{ $json.message.event }}",
-                    "rightValue": "incoming",
-                    "operator": {
-                      "type": "string",
-                      "operation": "equals",
-                      "name": "filter.operator.equals"
-                    }
-                  }
-                ],
-                "combinator": "and"
-              },
-              "renameOutput": true,
-              "outputKey": "incoming"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "c5d17cfa-c547-4f2a-b9db-0a1749204d22",
-      "name": "Switch7",
-      "type": "n8n-nodes-base.switch",
-      "typeVersion": 3,
-      "position": [
-        -1320,
-        -560
-      ]
-    },
-    {
-      "parameters": {
-        "operation": "set",
-        "key": "={{ $json.message.chat_id }}_block",
-        "value": "true",
-        "keyType": "string",
-        "expire": true,
-        "ttl": 30
-      },
-      "id": "07f8b96e-b0b6-4d6f-b504-26214dcb8590",
-      "name": "PARA IA1",
-      "type": "n8n-nodes-base.redis",
-      "typeVersion": 1,
-      "position": [
-        -1120,
-        -660
-      ],
-      "credentials": {
-        "redis": {
-          "id": "BDBV0IXWHWreEqF9",
-          "name": "Redis account"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "operation": "get",
-        "propertyName": "block",
-        "key": "={{ $json.message.chat_id }}_block",
-        "options": {}
-      },
-      "id": "5ef93b6c-897b-47d3-95f6-e636fe132bc4",
-      "name": "Verificar Atendimento1",
-      "type": "n8n-nodes-base.redis",
-      "typeVersion": 1,
-      "position": [
-        -1100,
-        -500
-      ],
-      "credentials": {
-        "redis": {
-          "id": "BDBV0IXWHWreEqF9",
-          "name": "Redis account"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "content": "# Pausa para Atendimento Humano",
-        "height": 80,
-        "width": 656,
-        "color": 5
-      },
-      "id": "db2705ef-c9e7-4db5-bba8-64b099898750",
-      "name": "Sticky Note47",
-      "type": "n8n-nodes-base.stickyNote",
-      "typeVersion": 1,
-      "position": [
-        -1360,
-        -780
-      ]
     }
   ],
   "pinData": {
@@ -5028,18 +4694,16 @@
   },
   "staticData": {
     "node:Schedule Trigger": {
-      "recurrenceRules": [
-        147
-      ]
+      "recurrenceRules": []
     },
     "node:Schedule Trigger1": {
       "recurrenceRules": []
     },
     "node:File Created": {
-      "lastTimeChecked": "2025-05-27T08:00:20Z"
+      "lastTimeChecked": "2025-05-12T21:43:24Z"
     },
     "node:File Updated": {
-      "lastTimeChecked": "2025-05-27T07:00:35Z"
+      "lastTimeChecked": "2025-05-12T21:43:25Z"
     }
   },
   "tags": [
@@ -5051,6 +4715,6 @@
     }
   ],
   "triggerCount": 5,
-  "updatedAt": "2025-05-14T17:19:34.103Z",
-  "versionId": "cfe15eb4-3a6b-4b97-b005-d0d207cd493e"
+  "updatedAt": "2025-05-12T22:34:14.037Z",
+  "versionId": "2514eae9-11e7-4ef1-a65a-67ffc1bf7af0"
 }
